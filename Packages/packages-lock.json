@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.subtegral.dialoguesystem": {
+      "version": "file:D:/TFG/Descargados/NodeBasedDialogueSystem-master/NodeBasedDialogueSystem-master",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.burst": {
       "version": "1.8.2",
       "depth": 1,

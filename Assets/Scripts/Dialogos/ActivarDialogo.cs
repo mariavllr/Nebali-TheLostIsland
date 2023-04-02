@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ActivarDialogo : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ActivarDialogo : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] float radio;
     [SerializeField] GameObject dialogo;
+    [SerializeField] TMP_Text textoDialogo;
 
     private Animator animator;
     void Start()
@@ -27,11 +29,11 @@ public class ActivarDialogo : MonoBehaviour
             }           
         }
 
-        //Si hay un diálogo activo y se pulsa espacio, se cierra
-       /* if(dialogo.activeInHierarchy && Input.GetKeyDown(gameManager.hablar))
+        //Si hay un diálogo activo y se acaba, cerrar
+        if(dialogo.activeInHierarchy && textoDialogo.text == "CerrarDialogo")
         {
             CerrarDialogo();
-        }*/
+        }
 
     }
 
@@ -61,5 +63,8 @@ public class ActivarDialogo : MonoBehaviour
     {
         dialogo.SetActive(false);
         player.GetComponent<PlayerMovement>().canMove = true;
+
+        //Reiniciar dialogo
+
     }
 }

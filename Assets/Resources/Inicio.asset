@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Inicio
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 1705cc8c-7008-46d0-8f4e-84da1b2fc5d2
+    PortName: Next
+    TargetNodeGUID: f60edb45-c2e5-4cfa-a3a0-ac72f32719b1
+  - BaseNodeGUID: f60edb45-c2e5-4cfa-a3a0-ac72f32719b1
+    PortName: Me llamo mateo
+    TargetNodeGUID: 351e1fe6-786c-41c8-8f9d-eec418397ae3
+  - BaseNodeGUID: 351e1fe6-786c-41c8-8f9d-eec418397ae3
+    PortName: He naufragado aqui
+    TargetNodeGUID: 0d2692e9-c198-4118-8ab5-fd5ba7bd2b77
+  - BaseNodeGUID: 0d2692e9-c198-4118-8ab5-fd5ba7bd2b77
+    PortName: No! Tranquila, estoy solo
+    TargetNodeGUID: e542d388-5555-4eb2-b51c-0181f068d338
+  - BaseNodeGUID: e542d388-5555-4eb2-b51c-0181f068d338
+    PortName: Continuar
+    TargetNodeGUID: 71da8bf4-6b80-459b-a6d2-04704e388194
+  - BaseNodeGUID: 351e1fe6-786c-41c8-8f9d-eec418397ae3
+    PortName: No lo se...
+    TargetNodeGUID: b80d067c-6c10-400c-8de0-889c8f713a76
+  - BaseNodeGUID: b80d067c-6c10-400c-8de0-889c8f713a76
+    PortName: Continuar
+    TargetNodeGUID: 6e650734-3fa4-42bb-abfd-81660b08cdef
+  DialogueNodeData:
+  - NodeGUID: 351e1fe6-786c-41c8-8f9d-eec418397ae3
+    DialogueText: Eres humano? De donde has salido???
+    Position: {x: 560, y: 180.8}
+  - NodeGUID: f60edb45-c2e5-4cfa-a3a0-ac72f32719b1
+    DialogueText: Hola, quien eres? Estoy perdido
+    Position: {x: 210.4, y: 180.8}
+  - NodeGUID: 0d2692e9-c198-4118-8ab5-fd5ba7bd2b77
+    DialogueText: "Osea, que van a venir m\xE1s como t\xFA?"
+    Position: {x: 968.8, y: 97.600006}
+  - NodeGUID: 71da8bf4-6b80-459b-a6d2-04704e388194
+    DialogueText: CerrarDialogo
+    Position: {x: 1681.6, y: 49.600002}
+  - NodeGUID: e542d388-5555-4eb2-b51c-0181f068d338
+    DialogueText: Bueno... Sigueme un momento.
+    Position: {x: 1336.8, y: 49.600002}
+  - NodeGUID: b80d067c-6c10-400c-8de0-889c8f713a76
+    DialogueText: Mmm... No confio demasiado en ti, lo siento
+    Position: {x: 936, y: 252.8}
+  - NodeGUID: 6e650734-3fa4-42bb-abfd-81660b08cdef
+    DialogueText: CerrarDialogo
+    Position: {x: 1381.6, y: 252.8}
+  ExposedProperties: []
+  CommentBlockData: []
