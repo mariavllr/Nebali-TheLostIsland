@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     [SerializeField] int vida;
+    [SerializeField] GameObject vidasContainer;
     [SerializeField] List<Vector3> posicionInicialNiveles;
 
     private Animator animator;
@@ -73,14 +74,18 @@ public class PlayerController : MonoBehaviour
     }
 
     //ATAQUE
-    private void OnCollisionEnter(Collision collision)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //Enemigo ataca jugador
-        if(collision.gameObject.tag == "Enemigo")
+        if (hit.gameObject.tag == "Enemigo")
         {
-            vida -= 1; //collision.gameObject.GetComponent<EnemigoController>().dañoAtaque;
-            animator.SetBool("Atacado", true);
+            Debug.Log("enemigo ataca jugador");
+
+            EnemigoController enemigo = hit.gameObject.GetComponent<EnemigoController>();
+            vida -= enemigo.dañoAtaque;
+            // animator.SetBool("Atacado", true);
+            if (vida != 0) Destroy(vidasContainer.transform.GetChild(0).gameObject);
         }
-        
     }
 }
+
