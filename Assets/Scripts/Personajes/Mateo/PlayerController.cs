@@ -28,6 +28,12 @@ public class PlayerController : MonoBehaviour
             Atacar();
         }
 
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        {
+            //Si se ha acabado la animación, volver a idle
+            animator.SetBool("Attack", false);
+        }
+
         else if (Input.GetKeyDown(gameManager.abrirInventario))
         {
             AbrirInventario();
@@ -36,7 +42,12 @@ public class PlayerController : MonoBehaviour
 
     private void Atacar()
     {
-        animator.SetBool("Atacando", true);
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            animator.Play("Attack"); //reiniciar si ya estaba atacando
+
+        }
+        else animator.SetBool("Attack", true);
 
     }
 
@@ -61,9 +72,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //ATAQUE
     private void OnCollisionEnter(Collision collision)
     {
-        //Ser atacado
+        //Enemigo ataca jugador
         if(collision.gameObject.tag == "Enemigo")
         {
             vida -= 1; //collision.gameObject.GetComponent<EnemigoController>().dañoAtaque;
