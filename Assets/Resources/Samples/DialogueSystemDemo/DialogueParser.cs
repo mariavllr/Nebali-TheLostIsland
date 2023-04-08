@@ -12,6 +12,7 @@ namespace Subtegral.DialogueSystem.Runtime
     public class DialogueParser : MonoBehaviour
     {
         [SerializeField] private DialogueContainer dialogue;
+        [SerializeField] private TextMeshProUGUI characterNameText;
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Button choicePrefab;
         [SerializeField] private Transform buttonContainer;
@@ -24,8 +25,11 @@ namespace Subtegral.DialogueSystem.Runtime
 
         private void ProceedToNarrative(string narrativeDataGUID)
         {
+            var name = dialogue.DialogueNodeData.Find(x => x.NodeGUID == narrativeDataGUID).characterName;
             var text = dialogue.DialogueNodeData.Find(x => x.NodeGUID == narrativeDataGUID).DialogueText;
             var choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID);
+
+            characterNameText.text = ProcessProperties(name);
             dialogueText.text = ProcessProperties(text);
             var buttons = buttonContainer.GetComponentsInChildren<Button>();
             for (int i = 0; i < buttons.Length; i++)
@@ -48,6 +52,13 @@ namespace Subtegral.DialogueSystem.Runtime
                 text = text.Replace($"[{exposedProperty.PropertyName}]", exposedProperty.PropertyValue);
             }
             return text;
+        }
+
+        public void RebootDialogue()
+        {
+            ProceedToNarrative(dialogue.NodeLinks.First().TargetNodeGUID);
+
+            Debug.Log(dialogue.DialogueNodeData.Find(x => x.NodeGUID == dialogue.NodeLinks.First().TargetNodeGUID).DialogueText);
         }
     }
 }

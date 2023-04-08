@@ -11,9 +11,18 @@ public class GameManager : MonoBehaviour
     public KeyCode atacar;
     public KeyCode abrirInventario;
 
+    public Nivel nivelActual;
+
+    public enum Nivel
+    {
+        Bosque,
+        Isla,
+        Granja
+    }
+
     void Start()
     {
-        
+        nivelActual = Nivel.Bosque;
     }
 
     void Update()

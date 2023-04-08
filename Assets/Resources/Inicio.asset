@@ -20,41 +20,63 @@ MonoBehaviour:
     PortName: Me llamo mateo
     TargetNodeGUID: 351e1fe6-786c-41c8-8f9d-eec418397ae3
   - BaseNodeGUID: 351e1fe6-786c-41c8-8f9d-eec418397ae3
-    PortName: He naufragado aqui
+    PortName: Continuar
     TargetNodeGUID: 0d2692e9-c198-4118-8ab5-fd5ba7bd2b77
   - BaseNodeGUID: 0d2692e9-c198-4118-8ab5-fd5ba7bd2b77
-    PortName: No! Tranquila, estoy solo
+    PortName: He naufragado
     TargetNodeGUID: e542d388-5555-4eb2-b51c-0181f068d338
+  - BaseNodeGUID: 0d2692e9-c198-4118-8ab5-fd5ba7bd2b77
+    PortName: No lo se
+    TargetNodeGUID: b982bdad-865a-4740-9f4a-823af9c2cc5e
   - BaseNodeGUID: e542d388-5555-4eb2-b51c-0181f068d338
     PortName: Continuar
     TargetNodeGUID: 71da8bf4-6b80-459b-a6d2-04704e388194
-  - BaseNodeGUID: 351e1fe6-786c-41c8-8f9d-eec418397ae3
-    PortName: No lo se...
-    TargetNodeGUID: b80d067c-6c10-400c-8de0-889c8f713a76
-  - BaseNodeGUID: b80d067c-6c10-400c-8de0-889c8f713a76
+  - BaseNodeGUID: b982bdad-865a-4740-9f4a-823af9c2cc5e
     PortName: Continuar
-    TargetNodeGUID: 6e650734-3fa4-42bb-abfd-81660b08cdef
+    TargetNodeGUID: 2241510f-34c9-4f89-a842-9360b2926a6d
+  - BaseNodeGUID: 71da8bf4-6b80-459b-a6d2-04704e388194
+    PortName: Continuar
+    TargetNodeGUID: 15889748-b2d3-4096-a420-9a9db07a664b
+  - BaseNodeGUID: 15889748-b2d3-4096-a420-9a9db07a664b
+    PortName: Continuar
+    TargetNodeGUID: 857597b6-8e19-4532-ab6b-695c2c23bb7a
   DialogueNodeData:
-  - NodeGUID: 351e1fe6-786c-41c8-8f9d-eec418397ae3
-    DialogueText: Eres humano? De donde has salido???
-    Position: {x: 560, y: 180.8}
   - NodeGUID: f60edb45-c2e5-4cfa-a3a0-ac72f32719b1
-    DialogueText: Hola, quien eres? Estoy perdido
+    characterName: Brivia
+    DialogueText: Y tu quien eres?
     Position: {x: 210.4, y: 180.8}
+  - NodeGUID: 351e1fe6-786c-41c8-8f9d-eec418397ae3
+    characterName: Mateo
+    DialogueText: "Me llamo Mateo... No s\xE9 como he llegado hasta aqu\xED"
+    Position: {x: 517.6, y: 180.8}
   - NodeGUID: 0d2692e9-c198-4118-8ab5-fd5ba7bd2b77
-    DialogueText: "Osea, que van a venir m\xE1s como t\xFA?"
-    Position: {x: 968.8, y: 97.600006}
-  - NodeGUID: 71da8bf4-6b80-459b-a6d2-04704e388194
-    DialogueText: CerrarDialogo
-    Position: {x: 1681.6, y: 49.600002}
+    characterName: Brivia
+    DialogueText: "\xBFDe d\xF3nde vienes?"
+    Position: {x: 971.2, y: 97.600006}
   - NodeGUID: e542d388-5555-4eb2-b51c-0181f068d338
-    DialogueText: Bueno... Sigueme un momento.
-    Position: {x: 1336.8, y: 49.600002}
-  - NodeGUID: b80d067c-6c10-400c-8de0-889c8f713a76
-    DialogueText: Mmm... No confio demasiado en ti, lo siento
-    Position: {x: 936, y: 252.8}
-  - NodeGUID: 6e650734-3fa4-42bb-abfd-81660b08cdef
-    DialogueText: CerrarDialogo
-    Position: {x: 1381.6, y: 252.8}
+    characterName: Brivia
+    DialogueText: Entonces, van a venir mas como tu?
+    Position: {x: 1261.6, y: 8.800001}
+  - NodeGUID: b982bdad-865a-4740-9f4a-823af9c2cc5e
+    characterName: Brivia
+    DialogueText: Mmm, no confio demasiado en ti... Lo siento
+    Position: {x: 1261.6, y: 179.2}
+  - NodeGUID: 71da8bf4-6b80-459b-a6d2-04704e388194
+    characterName: Mateo
+    DialogueText: No! Nadie conoce este sitio. Ha sido de casualidad, lo juro. Podeis
+      ayudarme?
+    Position: {x: 1617.6, y: 8.800001}
+  - NodeGUID: 2241510f-34c9-4f89-a842-9360b2926a6d
+    characterName: Character Name
+    DialogueText: ReiniciarDialogo
+    Position: {x: 1726.4, y: 179.2}
+  - NodeGUID: 15889748-b2d3-4096-a420-9a9db07a664b
+    characterName: Brivia
+    DialogueText: Bueno... Sigueme un momento
+    Position: {x: 2234.4, y: 8.800001}
+  - NodeGUID: 857597b6-8e19-4532-ab6b-695c2c23bb7a
+    characterName: Character Name
+    DialogueText: ReiniciarDialogo
+    Position: {x: 2620.8, y: 8.800001}
   ExposedProperties: []
   CommentBlockData: []

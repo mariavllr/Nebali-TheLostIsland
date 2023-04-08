@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Subtegral.DialogueSystem.Runtime;
 
 public class ActivarDialogo : MonoBehaviour
 {
@@ -30,9 +31,15 @@ public class ActivarDialogo : MonoBehaviour
         }
 
         //Si hay un diálogo activo y se acaba, cerrar
-        if(dialogo.activeInHierarchy && textoDialogo.text == "CerrarDialogo")
+        if (dialogo.activeInHierarchy && textoDialogo.text == "CerrarDialogo")
         {
             CerrarDialogo();
+        }
+
+        if (dialogo.activeInHierarchy && textoDialogo.text == "ReiniciarDialogo")
+        {
+            CerrarDialogo();
+            ReiniciarDialogo();
         }
 
     }
@@ -63,8 +70,10 @@ public class ActivarDialogo : MonoBehaviour
     {
         dialogo.SetActive(false);
         player.GetComponent<PlayerMovement>().canMove = true;
+    }
 
-        //Reiniciar dialogo
-
+    private void ReiniciarDialogo()
+    {
+        gameManager.gameObject.GetComponent<DialogueParser>().RebootDialogue();
     }
 }
