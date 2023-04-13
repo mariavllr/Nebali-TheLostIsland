@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 6f;
     public float turnSmoothTime = 0.1f; //Para que gire de manera suave
     private float turnSmoothVelocity;
+    private float gravity = -9.8f;
+    private float verticalVelocity;
 
     public bool canMove;
 
@@ -22,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        verticalVelocity = gravity * Time.deltaTime;
+
         if (canMove)
         {
             float horizontal = Input.GetAxisRaw("Horizontal");
@@ -39,14 +43,16 @@ public class PlayerMovement : MonoBehaviour
                 //Dirección donde tiene que moverse según el ángulo calculado
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-
+                moveDir.y = verticalVelocity;
                 controller.Move(moveDir.normalized * speed * Time.deltaTime);
 
             }
             else
             {
                 animator.SetBool("Walking", false);
+                controller.Move(new Vector3(0, verticalVelocity, 0));
             }
         }    
     }
+
 }

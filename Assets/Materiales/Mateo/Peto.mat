@@ -93,9 +93,9 @@ Material:
     - _Metallic: 0
     - _NormalSensitivity: 0.8
     - _OcclusionStrength: 1
-    - _OutlineDepthSensitivity: 0
+    - _OutlineDepthSensitivity: 0.757
     - _OutlineNormalsSensitivity: 0.531
-    - _OutlineThickness: 1.75
+    - _OutlineThickness: 1.93
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
