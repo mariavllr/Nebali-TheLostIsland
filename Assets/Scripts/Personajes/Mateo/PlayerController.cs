@@ -9,19 +9,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject vidasContainer;
     [SerializeField] List<Vector3> posicionInicialNiveles;
 
+    private float tiempo;
+
     private Animator animator;
     void Start()
     {
         animator = GetComponent<Animator>();
         posicionInicialNiveles = new List<Vector3>();
+        tiempo = 0;
     }
 
     void Update()
     {
+        tiempo += Time.deltaTime;
+
         if (vida <= 0)
         {
-            animator.SetBool("Desmayo", true);
-            Reiniciar();
+           // animator.SetBool("Desmayo", true);
+          //  Reiniciar();
         }
 
         if (Input.GetKeyDown(gameManager.atacar))
@@ -79,12 +84,15 @@ public class PlayerController : MonoBehaviour
         //Enemigo ataca jugador
         if (hit.gameObject.tag == "Enemigo")
         {
-            Debug.Log("enemigo ataca jugador");
-
             EnemigoController enemigo = hit.gameObject.GetComponent<EnemigoController>();
-            vida -= enemigo.dañoAtaque;
-            // animator.SetBool("Atacado", true);
-            if (vida != 0) Destroy(vidasContainer.transform.GetChild(0).gameObject);
+            if (tiempo >= enemigo.tiempoAtaque && vida != 0)
+            {              
+                vida -= enemigo.dañoAtaque;
+                tiempo = 0;
+                // animator.SetBool("Atacado", true);
+                Destroy(vidasContainer.transform.GetChild(0).gameObject);
+            } 
+            
         }
     }
 }
