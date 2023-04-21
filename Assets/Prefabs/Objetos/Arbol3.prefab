@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2254320450212380826}
   - component: {fileID: 1718194463529675732}
   m_Layer: 0
-  m_Name: arbolPrueba
+  m_Name: Arbol3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
