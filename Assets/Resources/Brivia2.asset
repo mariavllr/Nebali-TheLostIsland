@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Brivia2
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 5e9533db-f306-43b9-8911-66e1724f355d
+    PortName: Next
+    TargetNodeGUID: cba9ac8f-1bd6-47df-8d26-5483555b6afb
+  - BaseNodeGUID: cba9ac8f-1bd6-47df-8d26-5483555b6afb
+    PortName: Continuar
+    TargetNodeGUID: 5b6434f8-a6f2-4e7f-abea-967af41918f7
+  - BaseNodeGUID: 5b6434f8-a6f2-4e7f-abea-967af41918f7
+    PortName: Continuar
+    TargetNodeGUID: 2a77f00d-5741-4ab4-91d1-3f3e74074a02
+  - BaseNodeGUID: 2a77f00d-5741-4ab4-91d1-3f3e74074a02
+    PortName: "\xA1S\xED!"
+    TargetNodeGUID: eacab727-edd4-404a-84f2-9aebb1eea272
+  - BaseNodeGUID: 2a77f00d-5741-4ab4-91d1-3f3e74074a02
+    PortName: No estoy seguro...
+    TargetNodeGUID: 21ee8ee1-c2f1-451f-ac03-55d695b53197
+  - BaseNodeGUID: eacab727-edd4-404a-84f2-9aebb1eea272
+    PortName: Continuar
+    TargetNodeGUID: b15363d0-65d9-409e-8c07-1b653950b6e8
+  - BaseNodeGUID: 21ee8ee1-c2f1-451f-ac03-55d695b53197
+    PortName: Continuar
+    TargetNodeGUID: e082f4b9-a3c7-4e0b-a1b2-65598c90168a
+  - BaseNodeGUID: b15363d0-65d9-409e-8c07-1b653950b6e8
+    PortName: Cerrar
+    TargetNodeGUID: 68174f3b-7dcb-4ecf-98b4-4aebfcd0f984
+  - BaseNodeGUID: e082f4b9-a3c7-4e0b-a1b2-65598c90168a
+    PortName: Continuar
+    TargetNodeGUID: 23b66f19-0b9b-46bb-867e-77187f773751
+  - BaseNodeGUID: 23b66f19-0b9b-46bb-867e-77187f773751
+    PortName: Continuar
+    TargetNodeGUID: c2a371c7-47ce-424a-9550-07037e9875e5
+  - BaseNodeGUID: c2a371c7-47ce-424a-9550-07037e9875e5
+    PortName: Cerrar
+    TargetNodeGUID: 49ae246b-4a45-4a89-bbb4-42902ca043e2
+  DialogueNodeData:
+  - NodeGUID: cba9ac8f-1bd6-47df-8d26-5483555b6afb
+    characterName: Brivia
+    DialogueText: "Toma esto, lo vas a necesitar. En esta isla vivimos pac\xEDficamente
+      pero tenemos un problema..."
+    Position: {x: 259.2, y: 200}
+  - NodeGUID: 5b6434f8-a6f2-4e7f-abea-967af41918f7
+    characterName: Brivia
+    DialogueText: "Existen unos peque\xF1os bichitos con los que ya te habr\xE1s
+      encontrado, los Oo's les llamamos. Aparecieron un d\xEDa y cada vez hay m\xE1s,
+      no sabemos como deshacernos de ellos."
+    Position: {x: 1030.4, y: 200}
+  - NodeGUID: 2a77f00d-5741-4ab4-91d1-3f3e74074a02
+    characterName: Brivia
+    DialogueText: "Yo soy la encargada de mantenerlos a raya, pero sola no puedo
+      hacerlo. Ya que has venido nuevo, tal vez pueda considerar ganarme tu confianza
+      si me ayudas un poquito, \xBFqu\xE9 te parece?"
+    Position: {x: 2186.4, y: 200}
+  - NodeGUID: eacab727-edd4-404a-84f2-9aebb1eea272
+    characterName: Mateo
+    DialogueText: "\xA1S\xED! Por supuesto, ayudar\xE9 en lo que sea, aunque no s\xE9
+      si soy capaz..."
+    Position: {x: 3416.8, y: 116}
+  - NodeGUID: 21ee8ee1-c2f1-451f-ac03-55d695b53197
+    characterName: Mateo
+    DialogueText: "Mmm, no estoy muy seguro... Nunca he hecho algo as\xED y no s\xE9
+      nada sobre ellos."
+    Position: {x: 3416.8, y: 281.6}
+  - NodeGUID: b15363d0-65d9-409e-8c07-1b653950b6e8
+    characterName: Brivia
+    DialogueText: "Tranquilo, te explicare todo lo necesario. Pero primero ve a hablar
+      con el alcalde all\xED al fondo. Si \xE9l no est\xE1 de acuerdo con esto...
+      Mal vamos"
+    Position: {x: 4001.6, y: 116}
+  - NodeGUID: e082f4b9-a3c7-4e0b-a1b2-65598c90168a
+    characterName: Brivia
+    DialogueText: "Vamos, no es tan complicado y ser\xE1 divertido. Hazme caso, 
+      te explicar\xE9 todo"
+    Position: {x: 4043.2, y: 281.6}
+  - NodeGUID: 23b66f19-0b9b-46bb-867e-77187f773751
+    characterName: Mateo
+    DialogueText: "Bueno... Tampoco tengo otra opci\xF3n por lo que veo"
+    Position: {x: 4656.8, y: 281.6}
+  - NodeGUID: c2a371c7-47ce-424a-9550-07037e9875e5
+    characterName: Brivia
+    DialogueText: "No digas eso, ya ver\xE1s como te acostumbras r\xE1pido a este
+      lugar. Mira, ese chico de ah\xED es el alcalde. Habla con \xE9l, seguro que
+      te viene bien."
+    Position: {x: 5153.6, y: 281.6}
+  - NodeGUID: 68174f3b-7dcb-4ecf-98b4-4aebfcd0f984
+    characterName: Character Name
+    DialogueText: CerrarDialogo
+    Position: {x: 4973.6, y: 116}
+  - NodeGUID: 49ae246b-4a45-4a89-bbb4-42902ca043e2
+    characterName: Brivia
+    DialogueText: CerrarDialogo
+    Position: {x: 6124, y: 281.6}
+  ExposedProperties:
+  - PropertyName: DialogueName
+    PropertyValue: Brivia2
+  CommentBlockData: []

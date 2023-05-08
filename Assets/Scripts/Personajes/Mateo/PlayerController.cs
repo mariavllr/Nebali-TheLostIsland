@@ -17,17 +17,22 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         posicionInicialNiveles = new List<Vector3>();
         tiempo = 0;
+        GameManager.onInventoryOpenedEvent += OnInventoryChanged;
     }
 
     void Update()
     {
         tiempo += Time.deltaTime;
 
+        //Gestion de vida
+
         if (vida <= 0)
         {
            // animator.SetBool("Desmayo", true);
           //  Reiniciar();
         }
+
+        //Ataque
 
         if (Input.GetKeyDown(gameManager.atacar))
         {
@@ -40,10 +45,21 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Attack", false);
         }
 
-        else if (Input.GetKeyDown(gameManager.abrirInventario))
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Coger objeto
+        if(other.gameObject.TryGetComponent<ItemObject>(out ItemObject item))
         {
-            AbrirInventario();
+            Debug.Log("Jugador colisiona con objeto");
+            item.OnHandlePickupItem();
         }
+    }
+
+    void OnInventoryChanged()
+    {
+        
     }
 
     private void Atacar()
@@ -54,11 +70,6 @@ public class PlayerController : MonoBehaviour
 
         }
         else animator.SetBool("Attack", true);
-
-    }
-
-    private void AbrirInventario()
-    {
 
     }
 

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    public GameObject player;
     private PlayerMovement playerMov;
 
     [Header("Controles")]
@@ -21,6 +22,12 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] GameObject menuInicial;
+    [SerializeField] GameObject inventario;
+    [SerializeField] TextMeshProUGUI textmesh;
+    [SerializeField] float segundosMensajeUI;
+
+    public delegate void OnInventoryOpenedEvent();
+    public static event OnInventoryOpenedEvent onInventoryOpenedEvent;
 
     public enum Nivel
     {
@@ -44,6 +51,29 @@ public class GameManager : MonoBehaviour
         {
             playerMov.canMove = false;
         }
+
+        //Inventario
+
+        if (Input.GetKeyDown(abrirInventario) && !inventario.activeInHierarchy)
+        {
+            AbrirInventario();
+        }
+        else if (Input.GetKeyDown(abrirInventario) && inventario.activeInHierarchy)
+        {
+            CerrarInventario();
+        }
+    }
+
+    public void MostrarMensaje(string msg)
+    {
+        textmesh.text = msg;
+        StartCoroutine(BorrarMensaje());
+    }
+
+    IEnumerator BorrarMensaje()
+    {
+        yield return new WaitForSeconds(segundosMensajeUI);
+        textmesh.text = "";
     }
 
     public void CerrarMenu()
@@ -52,6 +82,20 @@ public class GameManager : MonoBehaviour
         nivelActual = Nivel.Bosque;
         playerMov.canMove = true;
         CambiarCancion();
+    }
+
+    public void AbrirInventario()
+    {
+        
+        inventario.SetActive(true);
+        playerMov.canMove = false;
+        if (onInventoryOpenedEvent != null) onInventoryOpenedEvent();
+    }
+
+    public void CerrarInventario()
+    {
+        inventario.SetActive(false);
+        playerMov.canMove = true;
     }
 
     void CambiarCancion()

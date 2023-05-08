@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7603928158538713645}
   - component: {fileID: 5648185831389314791}
   - component: {fileID: 3290012147108236498}
+  - component: {fileID: 93195467368494209}
   m_Layer: 0
   m_Name: espada_low
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7626191068330388430, guid: 7923fe57a018e9841b9459769231b414, type: 3}
+  - {fileID: 2100000, guid: 65635ce8309934e49b06f89b072043d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,3 +98,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0498672, y: 1.7971673, z: 7.6631594}
   m_Center: {x: 0.11860132, y: -0.8419775, z: -2.5587473}
+--- !u!114 &93195467368494209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6152655304329076530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27fc86ab95c8ff429839566232cc04a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  referenceItem: {fileID: 11400000, guid: 1da581e52e85ddf4185e6a24a4584617, type: 2}

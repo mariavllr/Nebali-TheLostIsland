@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Edbri1
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: e269315d-38fd-44ef-b197-7d5fe6cac7c7
+    PortName: Next
+    TargetNodeGUID: 54538b1f-dc3e-4f9e-82d1-f7887f6723f5
+  - BaseNodeGUID: 54538b1f-dc3e-4f9e-82d1-f7887f6723f5
+    PortName: Continuar
+    TargetNodeGUID: 04e641b5-2ca8-4227-b444-ff433b7a8409
+  - BaseNodeGUID: 04e641b5-2ca8-4227-b444-ff433b7a8409
+    PortName: Continuar
+    TargetNodeGUID: 5d4055b5-f3f8-4c95-85b2-5b5138eb06b0
+  - BaseNodeGUID: 5d4055b5-f3f8-4c95-85b2-5b5138eb06b0
+    PortName: Continuar
+    TargetNodeGUID: fc5b4356-e7d7-4b59-afcd-7d43c8ef42a1
+  - BaseNodeGUID: fc5b4356-e7d7-4b59-afcd-7d43c8ef42a1
+    PortName: Continuar
+    TargetNodeGUID: 100f5834-8da5-45f1-bb70-b44c85679b43
+  - BaseNodeGUID: 100f5834-8da5-45f1-bb70-b44c85679b43
+    PortName: Continuar
+    TargetNodeGUID: ede5791b-bd03-49c5-91aa-c802cec00ae5
+  - BaseNodeGUID: ede5791b-bd03-49c5-91aa-c802cec00ae5
+    PortName: Continuar
+    TargetNodeGUID: 480b9860-1de1-48c7-a006-814b53e7fa7b
+  DialogueNodeData:
+  - NodeGUID: 54538b1f-dc3e-4f9e-82d1-f7887f6723f5
+    characterName: Edbri
+    DialogueText: "Un momento... \xBFT\xFA quien eres? \xBFC\xF3mo has llegado hasta
+      aqu\xED?"
+    Position: {x: 217.6, y: 200}
+  - NodeGUID: 04e641b5-2ca8-4227-b444-ff433b7a8409
+    characterName: Mateo
+    DialogueText: Em... hola, soy Mateo. He hablado antes con una chica pelirroja,
+      no recuerdo su nombre...
+    Position: {x: 728, y: 200}
+  - NodeGUID: 5d4055b5-f3f8-4c95-85b2-5b5138eb06b0
+    characterName: Edbri
+    DialogueText: "\xBFBrivia?"
+    Position: {x: 1416, y: 200}
+  - NodeGUID: fc5b4356-e7d7-4b59-afcd-7d43c8ef42a1
+    characterName: Mateo
+    DialogueText: "\xA1S\xCD! Eso es. He hablado con Brivia. He llegado en barco
+      despu\xE9s de un naufragio. S\xED, s\xED, lo s\xE9, soy humano y no conf\xEDas
+      en m\xED porque voy a traer gente y soy raro bla bla bla, pero por favor, ten\xE9is
+      que darme una opor-"
+    Position: {x: 1638.4, y: 200}
+  - NodeGUID: 100f5834-8da5-45f1-bb70-b44c85679b43
+    characterName: Edbri
+    DialogueText: Hey, hey, hey. Con calma, chico. No te preocupes. Te ayudaremos.
+    Position: {x: 3016.8, y: 200}
+  - NodeGUID: ede5791b-bd03-49c5-91aa-c802cec00ae5
+    characterName: Mateo
+    DialogueText: "Espera, \xBFen serio? \xBFTan f\xE1cil?"
+    Position: {x: 3559.2, y: 200}
+  - NodeGUID: 480b9860-1de1-48c7-a006-814b53e7fa7b
+    characterName: Edbri
+    DialogueText: "Ja ja ja. No s\xE9 que te habr\xE1 contado Brivia pero esa chica
+      digamos que es algo... Especial. Ya ir\xE1s sabiendo m\xE1s. Entonces, \xBFc\xF3mo
+      has dicho que te llamas?"
+    Position: {x: 3913.6, y: 200}
+  ExposedProperties:
+  - PropertyName: DialogueName
+    PropertyValue: Edbri1
+  CommentBlockData: []

@@ -11,7 +11,7 @@ namespace Subtegral.DialogueSystem.Runtime
 {
     public class DialogueParser : MonoBehaviour
     {
-        [SerializeField] private DialogueContainer dialogue;
+        [SerializeField] public DialogueContainer dialogue;
         [SerializeField] private TextMeshProUGUI characterNameText;
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Button choicePrefab;

@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8085389444918318918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8085389444918318968}
+  - component: {fileID: 8085389444918318969}
+  - component: {fileID: 8085389444918318973}
+  - component: {fileID: 8085389444918318971}
+  - component: {fileID: 8085389444918318972}
+  - component: {fileID: 8085389444918318970}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8085389444918318968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085389444918318918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.508231, y: 4.3052244, z: 7.424262}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8085389444918318969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085389444918318918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ce505c620544147a34f3c1506b9fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  hablar: 32
+  atacar: 101
+  abrirInventario: 113
+  nivelActual: 0
+  canciones:
+  - {fileID: 8300000, guid: 2de5b20addc2a48428b78911131169ad, type: 3}
+  - {fileID: 8300000, guid: e0b00312021570e45b9ac607a9775c05, type: 3}
+  audioSource: {fileID: 0}
+  menuInicial: {fileID: 0}
+  inventario: {fileID: 0}
+  textmesh: {fileID: 0}
+  segundosMensajeUI: 2
+--- !u!114 &8085389444918318973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085389444918318918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1f43277c1b1b142b22c0fb80c78349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: []
+--- !u!114 &8085389444918318971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085389444918318918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ccaca0d7c48634d8e70996696a3c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 8cabaccf362af984ca1e290eaf0abf91, type: 2}
+  characterNameText: {fileID: 0}
+  dialogueText: {fileID: 0}
+  choicePrefab: {fileID: 4380711219022925672, guid: cd0e7c9183dfb9846ae3effe9120c73b,
+    type: 3}
+  buttonContainer: {fileID: 0}
+--- !u!114 &8085389444918318972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085389444918318918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7793851cded7ca04fa536483a3811106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogos:
+  - {fileID: 11400000, guid: 8cabaccf362af984ca1e290eaf0abf91, type: 2}
+  dialogueParser: {fileID: 8085389444918318971}
+--- !u!114 &8085389444918318970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085389444918318918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d845efbc2d1eec41900336a5bf75042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 8085389444918318969}
+  vcam1: {fileID: 0}
+  vcam2: {fileID: 0}
