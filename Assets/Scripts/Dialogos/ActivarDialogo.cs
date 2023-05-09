@@ -8,22 +8,17 @@ using Subtegral.DialogueSystem.DataContainers;
 public class ActivarDialogo : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
+    private Animator animator;
+    public ManagerDialogos managerDialogos;
+
+    [Header("Icono conversacion")]
     [SerializeField] GameObject talkIcon;
+    public GameObject dialogo;
     public bool dialogoDisponible;
     [SerializeField] GameObject player;
     [SerializeField] float radio;
-    [SerializeField] GameObject dialogo;
-    [SerializeField] TMP_Text textoDialogo;
-    [SerializeField] TMP_Text nombreDialogo;
 
-    [SerializeField] DialogueParser dialogueParser;
-    public string personaje;
-    public DialogueContainer dialogoActual;
 
-    private Animator animator;
-
-    public delegate void OnDialogueEvent();
-    public static event OnDialogueEvent onDialogueEvent;
     void Start()
     {
         animator = talkIcon.GetComponent<Animator>();
@@ -36,23 +31,20 @@ public class ActivarDialogo : MonoBehaviour
         {
             if (Input.GetKeyDown(gameManager.hablar) && !dialogo.activeInHierarchy)
             {
-                MostrarDialogo();
+                //Que personaje es?
+                switch (gameObject.name)
+                {
+                    case "Brivia":
+                        managerDialogos.CambiarDialogo(gameObject.GetComponent<Brivia>().miProximoDialogo);
+                        break;
+                    case "Edbri":
+                        managerDialogos.CambiarDialogo(gameObject.GetComponent<Edbri>().miProximoDialogo);
+                        break;
+                }
+                
+                managerDialogos.MostrarDialogo();
             }           
         }
-
-        //Si hay un diálogo activo y se acaba, cerrar
-        if (dialogo.activeInHierarchy && textoDialogo.text == "CerrarDialogo" && personaje == gameObject.name)
-        {           
-            CerrarDialogo();
-            if (onDialogueEvent != null) onDialogueEvent();
-        }
-
-        if (dialogo.activeInHierarchy && textoDialogo.text == "ReiniciarDialogo" && personaje == gameObject.name)
-        {
-            CerrarDialogo();
-            ReiniciarDialogo();
-        }
-
     }
 
     private bool ActivarIconoConversacion()
@@ -70,24 +62,5 @@ public class ActivarDialogo : MonoBehaviour
         }
     }
 
-    private void MostrarDialogo()
-    {
-        dialogo.SetActive(true);
-        //Congelar al personaje
-        player.GetComponent<PlayerMovement>().canMove = false;
-        //Ver qué dialogo es, de qué personaje y según eso actualizar la info
-        personaje = dialogueParser.dialogue.DialogueNodeData[0].characterName;
-        dialogoActual = dialogueParser.dialogue;
-    }
-
-    private void CerrarDialogo()
-    {
-        dialogo.SetActive(false);
-        player.GetComponent<PlayerMovement>().canMove = true;
-    }
-
-    private void ReiniciarDialogo()
-    {
-        gameManager.gameObject.GetComponent<DialogueParser>().RebootDialogue();
-    }
+   
 }

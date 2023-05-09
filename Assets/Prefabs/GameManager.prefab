@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8085389444918318969}
   - component: {fileID: 8085389444918318973}
   - component: {fileID: 8085389444918318971}
-  - component: {fileID: 8085389444918318972}
+  - component: {fileID: 4505569027532970552}
   - component: {fileID: 8085389444918318970}
   m_Layer: 0
   m_Name: GameManager
@@ -92,7 +92,7 @@ MonoBehaviour:
   choicePrefab: {fileID: 4380711219022925672, guid: cd0e7c9183dfb9846ae3effe9120c73b,
     type: 3}
   buttonContainer: {fileID: 0}
---- !u!114 &8085389444918318972
+--- !u!114 &4505569027532970552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,9 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7793851cded7ca04fa536483a3811106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogos:
-  - {fileID: 11400000, guid: 8cabaccf362af984ca1e290eaf0abf91, type: 2}
-  dialogueParser: {fileID: 8085389444918318971}
+  dialogos: []
+  dialogueParser: {fileID: 0}
 --- !u!114 &8085389444918318970
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,6 +34,9 @@ MonoBehaviour:
   - BaseNodeGUID: ede5791b-bd03-49c5-91aa-c802cec00ae5
     PortName: Continuar
     TargetNodeGUID: 480b9860-1de1-48c7-a006-814b53e7fa7b
+  - BaseNodeGUID: 480b9860-1de1-48c7-a006-814b53e7fa7b
+    PortName: Cerrar
+    TargetNodeGUID: aed3f262-cb02-4fec-919b-2c4cd77b9bac
   DialogueNodeData:
   - NodeGUID: 54538b1f-dc3e-4f9e-82d1-f7887f6723f5
     characterName: Edbri
@@ -70,6 +73,10 @@ MonoBehaviour:
       digamos que es algo... Especial. Ya ir\xE1s sabiendo m\xE1s. Entonces, \xBFc\xF3mo
       has dicho que te llamas?"
     Position: {x: 3913.6, y: 200}
+  - NodeGUID: aed3f262-cb02-4fec-919b-2c4cd77b9bac
+    characterName: Edbri
+    DialogueText: CerrarDialogo
+    Position: {x: 4975.2, y: 200}
   ExposedProperties:
   - PropertyName: DialogueName
     PropertyValue: Edbri1

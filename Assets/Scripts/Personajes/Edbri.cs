@@ -7,51 +7,57 @@ using UnityEngine.AI;
 public class Edbri : MonoBehaviour
 {
     [SerializeField] GameObject gameManagerObject;
+
     private GameManager gameManager;
     private ManagerDialogos managerDialogos;
     private ActivarDialogo dialogoInfo;
     private NavMeshAgent navmesh;
 
     public List<DialogueContainer> dialogos;
-    private DialogueContainer miProximoDialogo;
-    private bool interaccionAcabada;
+    public DialogueContainer miProximoDialogo;
+
     void Start()
     {
+        ManagerDialogos.onDialogueEvent += EventoDialogoEdbri;
+
         gameManager = gameManagerObject.GetComponent<GameManager>();
         managerDialogos = gameManagerObject.GetComponent<ManagerDialogos>();
         navmesh = GetComponent<NavMeshAgent>();
-        ActivarDialogo.onDialogueEvent += EventoDialogoEdbri;
+
         dialogoInfo = GetComponent<ActivarDialogo>();
         dialogoInfo.dialogoDisponible = false;
-        interaccionAcabada = false;
+        miProximoDialogo = dialogos[0];
     }
     void Update()
     {
-       /* if (JugadorCerca() && interaccionAcabada)
-        {
-            managerDialogos.CambiarDialogo(miProximoDialogo);
-        }*/
+        
     }
 
     void EventoDialogoEdbri()
     {
         //Se ha terminado el dialogo con Brivia que da entrada a este dialogo
-        if (dialogoInfo.personaje == "Brivia")
+        if (managerDialogos.personaje == "Brivia")
         {
-            if (dialogoInfo.dialogoActual.ExposedProperties[0].PropertyName == "DialogueName")
+            if (managerDialogos.dialogoActual.ExposedProperties[0].PropertyName == "DialogueName")
             {
-                if (dialogoInfo.dialogoActual.ExposedProperties[0].PropertyValue == "Brivia2")
+                if (managerDialogos.dialogoActual.ExposedProperties[0].PropertyValue == "Brivia2")
                 {
-                    Debug.Log("Empieza alcalde");
-                    managerDialogos.CambiarDialogo(dialogos[0]);
+                    miProximoDialogo = dialogos[0];
                     dialogoInfo.dialogoDisponible = true;
                 }
             }
         }
 
-        if (dialogoInfo.personaje == "Edbri")
+        if (managerDialogos.personaje == "Edbri")
         {
-
+            if (managerDialogos.dialogoActual.ExposedProperties[0].PropertyName == "DialogueName")
+            {
+                if (managerDialogos.dialogoActual.ExposedProperties[0].PropertyValue == "Edbri1")
+                {
+                    dialogoInfo.dialogoDisponible = false;
+                    Debug.Log("no mas alcalde");
+                }
+            }
         }
     }
 
