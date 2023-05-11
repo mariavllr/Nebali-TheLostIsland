@@ -13,7 +13,11 @@ public class GameManager : MonoBehaviour
     public KeyCode atacar;
     public KeyCode abrirInventario;
 
-    public Nivel nivelActual;
+    public Zona zonaActual;
+    public Mision misionActual;
+
+    /*[Header("Misiones")]
+    public List<bool> misionesCompletadas;*/
 
     [Header("Musica")]
     [SerializeField] List<AudioClip> canciones;
@@ -29,7 +33,8 @@ public class GameManager : MonoBehaviour
     public delegate void OnInventoryOpenedEvent();
     public static event OnInventoryOpenedEvent onInventoryOpenedEvent;
 
-    public enum Nivel
+    //Zona donde puede spawnear el personaje si el enemigo le mata
+    public enum Zona
     {
         Menu,
         Bosque,
@@ -37,9 +42,21 @@ public class GameManager : MonoBehaviour
         Granja
     }
 
+    //Misiones secundarias
+    public enum Mision
+    {
+        ConocerAldeanos,
+        GatoLeeba,
+        Brivia,
+        Ninguna
+    }
+
+
+
     void Start()
     {
-        nivelActual = Nivel.Menu;
+        zonaActual = Zona.Menu;
+        misionActual = Mision.Ninguna;
        // canciones = new List<AudioClip>();
         playerMov = player.GetComponentInChildren<PlayerMovement>();
 
@@ -47,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(nivelActual == Nivel.Menu)
+        if(zonaActual == Zona.Menu)
         {
             playerMov.canMove = false;
         }
@@ -79,7 +96,7 @@ public class GameManager : MonoBehaviour
     public void CerrarMenu()
     {
         menuInicial.SetActive(false);
-        nivelActual = Nivel.Bosque;
+        zonaActual = Zona.Bosque;
         playerMov.canMove = true;
         CambiarCancion();
     }
@@ -100,21 +117,21 @@ public class GameManager : MonoBehaviour
 
     void CambiarCancion()
     {
-        switch (nivelActual)
+        switch (zonaActual)
         {
-            case Nivel.Menu:
+            case Zona.Menu:
                 audioSource.clip = canciones[0];
                 audioSource.Play();
                 break;
-            case Nivel.Bosque:
+            case Zona.Bosque:
                 audioSource.clip = canciones[1];
                 audioSource.Play();
                 break;
-            case Nivel.Isla:
+            case Zona.Isla:
                 audioSource.clip = canciones[2];
                 audioSource.Play();
                 break;
-            case Nivel.Granja:
+            case Zona.Granja:
                 audioSource.clip = canciones[3];
                 audioSource.Play();
                 break;

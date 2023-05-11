@@ -27,6 +27,7 @@ public class Brivia : MonoBehaviour
     private bool _fin;
     private int _indice;
     private Transform currentTarget;
+    private Animator animator;
 
     void Start()
     {
@@ -36,10 +37,11 @@ public class Brivia : MonoBehaviour
         managerDialogos = gameManagerObject.GetComponent<ManagerDialogos>();
         navmesh = GetComponent<NavMeshAgent>();
         dialogoInfo = GetComponent<ActivarDialogo>();
+        animator = GetComponent<Animator>();
 
         caminoAPueblo = false;
         dialogoInfo.dialogoDisponible = true;
-        miProximoDialogo = dialogos[0];
+        miProximoDialogo = dialogos[0]; //Brivia1
     }
 
     void Update()
@@ -55,6 +57,7 @@ public class Brivia : MonoBehaviour
                 {
                     caminoAPueblo = false;
                     dialogoInfo.dialogoDisponible = true;
+                    animator.SetBool("IsWalking", false);
                 }
             }
         }
@@ -71,34 +74,41 @@ public class Brivia : MonoBehaviour
                 switch (managerDialogos.dialogoActual.ExposedProperties[0].PropertyValue)
                 {
                     case "Inicio":
-                        Debug.Log("Inicio de brivia acabado");
-                        miProximoDialogo = dialogos[1];
+                        miProximoDialogo = dialogos[1]; //Brivia2
 
                         caminoAPueblo = true;
                         dialogoInfo.dialogoDisponible = false;
+                        animator.SetBool("IsWalking", true);
                         CaminarHastaPueblo();
                         break;
                     case "Brivia2":
-                        Debug.Log("acaba brivia");
-
                         if (miProximoDialogo == dialogos[1])
                             Instantiate(espada, transform.position + new Vector3(3f, 0, 0), Quaternion.Euler(new Vector3(-90, -90, 0)));
                         //Este dialogo es si vuelves a hablar con ella en algun momento
-                        miProximoDialogo = dialogos[2];
+                        miProximoDialogo = dialogos[2]; //Brivia3
+                        break;
+                    case "Brivia4":
+                        dialogoInfo.dialogoDisponible = false;
                         break;
                 }
 
             }
         }
-    }
 
-    bool JugadorCerca()
-    {
-        if (Vector3.Distance(transform.position, gameManager.player.transform.position) <= 2)
+        //Se ha terminado un dialogo con Edbri
+
+        if (managerDialogos.personaje == "Edbri")
         {
-            return true;
+            if (managerDialogos.dialogoActual.ExposedProperties[0].PropertyName == "DialogueName")
+            {
+                switch (managerDialogos.dialogoActual.ExposedProperties[0].PropertyValue)
+                {
+                    case "Edbri1":
+                        miProximoDialogo = dialogos[3]; //Brivia4
+                        break;
+                }
+            }
         }
-        else return false;
     }
 
     void CaminarHastaPueblo()

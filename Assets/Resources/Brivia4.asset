@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Brivia4
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: dde7a502-f292-4ea6-a880-24844183010e
+    PortName: Next
+    TargetNodeGUID: 80e3320f-a332-4e1b-b8de-604fe57f34e2
+  - BaseNodeGUID: 80e3320f-a332-4e1b-b8de-604fe57f34e2
+    PortName: Si!
+    TargetNodeGUID: 4035247a-b0bc-4b94-80a4-3b37b071d907
+  - BaseNodeGUID: 4035247a-b0bc-4b94-80a4-3b37b071d907
+    PortName: Continuar
+    TargetNodeGUID: c4016a61-1211-4775-aa10-2931bf007cd4
+  - BaseNodeGUID: c4016a61-1211-4775-aa10-2931bf007cd4
+    PortName: Continuar
+    TargetNodeGUID: 873d004a-6fb6-482d-ae05-edc69d504ece
+  - BaseNodeGUID: 873d004a-6fb6-482d-ae05-edc69d504ece
+    PortName: "\xBFC\xF3mo?"
+    TargetNodeGUID: b4e06f93-d795-4bf6-96f3-47a94f03bcd5
+  - BaseNodeGUID: b4e06f93-d795-4bf6-96f3-47a94f03bcd5
+    PortName: Continuar
+    TargetNodeGUID: 09c0d34f-3312-4bae-83f8-113535ac02ee
+  - BaseNodeGUID: 09c0d34f-3312-4bae-83f8-113535ac02ee
+    PortName: Es por ser alcalde
+    TargetNodeGUID: 915300ad-43dd-460e-b715-36e27e40cb44
+  - BaseNodeGUID: 09c0d34f-3312-4bae-83f8-113535ac02ee
+    PortName: Autoestima
+    TargetNodeGUID: 83064c5a-4f2e-4603-ab01-712fda836cbf
+  - BaseNodeGUID: 915300ad-43dd-460e-b715-36e27e40cb44
+    PortName: Continuar
+    TargetNodeGUID: 2304cbcb-7745-4d9c-8058-1659de7e38a2
+  - BaseNodeGUID: 2304cbcb-7745-4d9c-8058-1659de7e38a2
+    PortName: Eres su amiga
+    TargetNodeGUID: 15c1f77b-8cbd-4963-a20b-ca65e9c748ec
+  - BaseNodeGUID: 15c1f77b-8cbd-4963-a20b-ca65e9c748ec
+    PortName: Continuar
+    TargetNodeGUID: aec40dfe-45ea-4de9-993e-3ece1fe74ce6
+  - BaseNodeGUID: aec40dfe-45ea-4de9-993e-3ece1fe74ce6
+    PortName: "Adi\xF3s"
+    TargetNodeGUID: 58cefd35-3e2d-47f8-a935-b74e484579c0
+  - BaseNodeGUID: 58cefd35-3e2d-47f8-a935-b74e484579c0
+    PortName: Cerrar
+    TargetNodeGUID: 79466bb2-ea55-47b0-8b7f-25d646c97996
+  - BaseNodeGUID: 83064c5a-4f2e-4603-ab01-712fda836cbf
+    PortName: Continuar
+    TargetNodeGUID: ad0904ea-093d-4772-ac02-fb4bb3800feb
+  - BaseNodeGUID: ad0904ea-093d-4772-ac02-fb4bb3800feb
+    PortName: "No es tan f\xE1cil"
+    TargetNodeGUID: 49ebba13-9c1e-461a-8b02-4b8fd4d87201
+  - BaseNodeGUID: 49ebba13-9c1e-461a-8b02-4b8fd4d87201
+    PortName: Continuar
+    TargetNodeGUID: 31fe6a43-6829-473f-8dac-4d48a7aa72b0
+  - BaseNodeGUID: 31fe6a43-6829-473f-8dac-4d48a7aa72b0
+    PortName: Chao
+    TargetNodeGUID: 8424a422-239f-4f14-b7bc-c49ebf1659f8
+  - BaseNodeGUID: 8424a422-239f-4f14-b7bc-c49ebf1659f8
+    PortName: Cerrar
+    TargetNodeGUID: cdd885b6-b559-43cd-80b6-c702a7674923
+  DialogueNodeData:
+  - NodeGUID: 80e3320f-a332-4e1b-b8de-604fe57f34e2
+    characterName: Brivia
+    DialogueText: "Hey chico, \xBFya has hablado con el alcalde?"
+    Position: {x: 244.8, y: 200}
+  - NodeGUID: 4035247a-b0bc-4b94-80a4-3b37b071d907
+    characterName: Brivia
+    DialogueText: "Es un t\xEDo curioso, la verdad. \xBFQu\xE9 te ha dicho?"
+    Position: {x: 656, y: 200}
+  - NodeGUID: c4016a61-1211-4775-aa10-2931bf007cd4
+    characterName: Mateo
+    DialogueText: "Pues le he contado un poco mi situaci\xF3n y me ha dicho que podr\xEDa
+      intentar conocer a todos los de la isla para intentar integrarme. La verdad
+      es que me ha parecido muy majo."
+    Position: {x: 1084, y: 200}
+  - NodeGUID: 873d004a-6fb6-482d-ae05-edc69d504ece
+    characterName: Brivia
+    DialogueText: "S\xED, s\xED. Es muy buen chico. Su \xFAnico problema es \xE9l
+      mismo."
+    Position: {x: 2252.8, y: 200}
+  - NodeGUID: b4e06f93-d795-4bf6-96f3-47a94f03bcd5
+    characterName: Mateo
+    DialogueText: "\xBFC\xF3mo dices?"
+    Position: {x: 2743.2, y: 200}
+  - NodeGUID: 09c0d34f-3312-4bae-83f8-113535ac02ee
+    characterName: Brivia
+    DialogueText: "Edbri a veces se preocupa tanto por los dem\xE1s que se olvida
+      de s\xED mismo. Toma la responsabilidad de todo el mundo y muchas veces se
+      acaba dejando de lado. Seguro que conoces a alguien que le pasa, \xBFverdad?
+      \xBFT\xFA que opinas?"
+    Position: {x: 2992, y: 200}
+  - NodeGUID: 915300ad-43dd-460e-b715-36e27e40cb44
+    characterName: Mateo
+    DialogueText: "No s\xE9, tal vez tenga que ver con la responsabilidad de ser
+      el alcalde. Es cierto que no sois muchos, pero si algo ocurre es \xE9l quien
+      debe encargarse y puede que se tome demasiado en serio su trabajo."
+    Position: {x: 4509.6, y: 32}
+  - NodeGUID: 15c1f77b-8cbd-4963-a20b-ca65e9c748ec
+    characterName: Mateo
+    DialogueText: "Que sea su problema no significa que no puedas aconsejarle y ayudarle,
+      eres su amiga, \xBFno?"
+    Position: {x: 6708.8, y: 32}
+  - NodeGUID: 2304cbcb-7745-4d9c-8058-1659de7e38a2
+    characterName: Brivia
+    DialogueText: "Interesante... Pues puede ser. Pero fue \xE9l quien lo eligi\xF3,
+      nadie m\xE1s quer\xEDa serlo ja ja ja. As\xED que sigue siendo su problema."
+    Position: {x: 5821.6, y: 32}
+  - NodeGUID: aec40dfe-45ea-4de9-993e-3ece1fe74ce6
+    characterName: Brivia
+    DialogueText: "... Tal vez tengas raz\xF3n. Pero bueno, no te voy a dar m\xE1s
+      la turra con esto. Cuando termines con \xE9l ven conmigo si quieres y te ayudo
+      con el tema de los Boo's."
+    Position: {x: 7420.8, y: 32}
+  - NodeGUID: 58cefd35-3e2d-47f8-a935-b74e484579c0
+    characterName: Mateo
+    DialogueText: Okay, nos vemos
+    Position: {x: 8500.8, y: 32}
+  - NodeGUID: 79466bb2-ea55-47b0-8b7f-25d646c97996
+    characterName: Brivia
+    DialogueText: CerrarDialogo
+    Position: {x: 8790.4, y: 32}
+  - NodeGUID: 83064c5a-4f2e-4603-ab01-712fda836cbf
+    characterName: Mateo
+    DialogueText: "Bueno... A veces me ha ocurrido algo as\xED, y pienso que puede
+      tener que ver con la autoestima. Pensar que los dem\xE1s solo te valoran por
+      tus actos y no tanto por qui\xE9n eres para ellos. Por eso si pones la felicidad
+      de otros por encima de la tuya, piensas que te acabar\xE1n apreciando m\xE1s."
+    Position: {x: 4509.6, y: 300.80002}
+  - NodeGUID: ad0904ea-093d-4772-ac02-fb4bb3800feb
+    characterName: Brivia
+    DialogueText: "No s\xE9 si ser\xE9 yo, pero nunca pensar\xEDa algo as\xED de
+      alguien. Si yo quiero a mis amigos no busco nada a cambio. Yo soy como soy,
+      y si no me aceptan as\xED pues no voy a cambiar mi forma de ser por otros."
+    Position: {x: 6306.4, y: 300.80002}
+  - NodeGUID: 49ebba13-9c1e-461a-8b02-4b8fd4d87201
+    characterName: Mateo
+    DialogueText: "A veces no es tan f\xE1cil. A veces solo quieres encajar y ser
+      aceptado sea como sea."
+    Position: {x: 7612.8, y: 300.80002}
+  - NodeGUID: 31fe6a43-6829-473f-8dac-4d48a7aa72b0
+    characterName: Brivia
+    DialogueText: "Que me vas a contar... Fui la \xFAltima que se uni\xF3 al grupo.
+      Pero bueno, ya te contar\xE9 eso en otro momento. Termina con lo de Edbri y
+      luego te pasas si quieres y te cuento m\xE1s sobre los Boo's."
+    Position: {x: 8271.2, y: 300.80002}
+  - NodeGUID: 8424a422-239f-4f14-b7bc-c49ebf1659f8
+    characterName: Mateo
+    DialogueText: De acuerdo, nos vemos luego.
+    Position: {x: 9551.2, y: 300.80002}
+  - NodeGUID: cdd885b6-b559-43cd-80b6-c702a7674923
+    characterName: Brivia
+    DialogueText: CerrarDialogo
+    Position: {x: 9909.6, y: 300.80002}
+  ExposedProperties:
+  - PropertyName: DialogueName
+    PropertyValue: Brivia4
+  CommentBlockData: []

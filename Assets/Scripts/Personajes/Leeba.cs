@@ -2,16 +2,15 @@ using Subtegral.DialogueSystem.DataContainers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class Edbri : MonoBehaviour
+public class Leeba : MonoBehaviour
 {
     [SerializeField] GameObject gameManagerObject;
 
     private GameManager gameManager;
     private ManagerDialogos managerDialogos;
     private ActivarDialogo dialogoInfo;
-    private NavMeshAgent navmesh;
+    //private NavMeshAgent navmesh;
 
     public List<DialogueContainer> dialogos;
     public DialogueContainer miProximoDialogo;
@@ -19,11 +18,11 @@ public class Edbri : MonoBehaviour
 
     void Start()
     {
-        ManagerDialogos.onDialogueEvent += EventoDialogoEdbri;
+        ManagerDialogos.onDialogueEvent += EventoDialogoLeeba;
 
         gameManager = gameManagerObject.GetComponent<GameManager>();
         managerDialogos = gameManagerObject.GetComponent<ManagerDialogos>();
-        navmesh = GetComponent<NavMeshAgent>();
+       // navmesh = GetComponent<NavMeshAgent>();
 
         dialogoInfo = GetComponent<ActivarDialogo>();
         dialogoInfo.dialogoDisponible = false;
@@ -34,23 +33,8 @@ public class Edbri : MonoBehaviour
         
     }
 
-    void EventoDialogoEdbri()
+    void EventoDialogoLeeba()
     {
-        //Se ha terminado dialogo con Brivia
-        if (managerDialogos.personaje == "Brivia")
-        {
-            if (managerDialogos.dialogoActual.ExposedProperties[0].PropertyName == "DialogueName")
-            {
-                switch (managerDialogos.dialogoActual.ExposedProperties[0].PropertyValue)
-                {
-                    case "Brivia2":
-                        miProximoDialogo = dialogos[0]; //Edbri1
-                        dialogoInfo.dialogoDisponible = true;
-                        break;
-                }
-            }
-        }
-
         //Se ha acabado dialogo con Edbri
         if (managerDialogos.personaje == "Edbri")
         {
@@ -60,14 +44,10 @@ public class Edbri : MonoBehaviour
                 {
                     case "Edbri1":
                         //Misión buscar a todos los aldeanos
-                        gameManager.misionActual = GameManager.Mision.ConocerAldeanos;
-                        Debug.Log("Mision aldeanos comienza");
-
-                        miProximoDialogo = dialogos[1]; //Edbri2, "sigue buscando"
+                        dialogoInfo.dialogoDisponible = true;
                         break;
                 }
             }
         }
     }
-
 }

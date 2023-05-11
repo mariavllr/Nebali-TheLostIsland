@@ -57,8 +57,6 @@ namespace Subtegral.DialogueSystem.Runtime
         public void RebootDialogue()
         {
             ProceedToNarrative(dialogue.NodeLinks.First().TargetNodeGUID);
-
-            Debug.Log(dialogue.DialogueNodeData.Find(x => x.NodeGUID == dialogue.NodeLinks.First().TargetNodeGUID).DialogueText);
         }
     }
 }

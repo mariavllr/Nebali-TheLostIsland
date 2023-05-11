@@ -52,7 +52,8 @@ MonoBehaviour:
   hablar: 32
   atacar: 101
   abrirInventario: 113
-  nivelActual: 0
+  zonaActual: 0
+  misionActual: 3
   canciones:
   - {fileID: 8300000, guid: 2de5b20addc2a48428b78911131169ad, type: 3}
   - {fileID: 8300000, guid: e0b00312021570e45b9ac607a9775c05, type: 3}
@@ -104,8 +105,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7793851cded7ca04fa536483a3811106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogos: []
+  gameManager: {fileID: 0}
   dialogueParser: {fileID: 0}
+  mateo: {fileID: 0}
+  dialogo: {fileID: 0}
+  textoDialogo: {fileID: 0}
+  nombreDialogo: {fileID: 0}
+  personaje: 
+  dialogoActual: {fileID: 0}
 --- !u!114 &8085389444918318970
 MonoBehaviour:
   m_ObjectHideFlags: 0

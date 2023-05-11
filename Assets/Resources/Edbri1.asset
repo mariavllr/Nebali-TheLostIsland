@@ -35,6 +35,39 @@ MonoBehaviour:
     PortName: Continuar
     TargetNodeGUID: 480b9860-1de1-48c7-a006-814b53e7fa7b
   - BaseNodeGUID: 480b9860-1de1-48c7-a006-814b53e7fa7b
+    PortName: Continuar
+    TargetNodeGUID: 53c63e0d-e1de-4446-ae8b-1ec1bfd4bab6
+  - BaseNodeGUID: 53c63e0d-e1de-4446-ae8b-1ec1bfd4bab6
+    PortName: Continuar
+    TargetNodeGUID: 05d42b1c-b4a0-4b3f-b158-16051abe26bb
+  - BaseNodeGUID: 05d42b1c-b4a0-4b3f-b158-16051abe26bb
+    PortName: Continuar
+    TargetNodeGUID: ccbb39a2-d276-4994-acfe-0c7dba54d98c
+  - BaseNodeGUID: ccbb39a2-d276-4994-acfe-0c7dba54d98c
+    PortName: Continuar
+    TargetNodeGUID: d490ed1f-b514-4851-8b0d-46b3e4840076
+  - BaseNodeGUID: d490ed1f-b514-4851-8b0d-46b3e4840076
+    PortName: Continuar
+    TargetNodeGUID: fced1596-abd4-45b9-9dab-14a7d1edecbf
+  - BaseNodeGUID: fced1596-abd4-45b9-9dab-14a7d1edecbf
+    PortName: Continuar
+    TargetNodeGUID: b97c7777-697d-4de7-be80-5c768eee2c40
+  - BaseNodeGUID: b97c7777-697d-4de7-be80-5c768eee2c40
+    PortName: Continuar
+    TargetNodeGUID: ee25ab7f-1912-4f0b-b036-61a374c62562
+  - BaseNodeGUID: ee25ab7f-1912-4f0b-b036-61a374c62562
+    PortName: Continuar
+    TargetNodeGUID: ab1d336a-f153-489c-8f30-9a5e23de2252
+  - BaseNodeGUID: ab1d336a-f153-489c-8f30-9a5e23de2252
+    PortName: Continuar
+    TargetNodeGUID: 8c6c636d-2621-45ff-b9aa-f78dd41a9591
+  - BaseNodeGUID: 8c6c636d-2621-45ff-b9aa-f78dd41a9591
+    PortName: Continuar
+    TargetNodeGUID: 0f2a44ba-6d18-4bdd-a257-61be12126c76
+  - BaseNodeGUID: 0f2a44ba-6d18-4bdd-a257-61be12126c76
+    PortName: Continuar
+    TargetNodeGUID: ac602a90-8276-48c7-9c30-a1a501f1e519
+  - BaseNodeGUID: ac602a90-8276-48c7-9c30-a1a501f1e519
     PortName: Cerrar
     TargetNodeGUID: aed3f262-cb02-4fec-919b-2c4cd77b9bac
   DialogueNodeData:
@@ -72,11 +105,68 @@ MonoBehaviour:
     DialogueText: "Ja ja ja. No s\xE9 que te habr\xE1 contado Brivia pero esa chica
       digamos que es algo... Especial. Ya ir\xE1s sabiendo m\xE1s. Entonces, \xBFc\xF3mo
       has dicho que te llamas?"
-    Position: {x: 3913.6, y: 200}
+    Position: {x: 3923.2, y: 200}
+  - NodeGUID: 53c63e0d-e1de-4446-ae8b-1ec1bfd4bab6
+    characterName: Mateo
+    DialogueText: Em, Mateo. Me llamo Mateo...
+    Position: {x: 4964.8, y: 200}
+  - NodeGUID: 05d42b1c-b4a0-4b3f-b158-16051abe26bb
+    characterName: Edbri
+    DialogueText: "Genial, yo soy Edbri y soy el alcalde de este pueblo. Bueno, realmente
+      es el \xFAnico pueblo que hay aqu\xED. Como habr\xE1s comprobado, no es una
+      isla muy grande que digamos."
+    Position: {x: 5312, y: 200}
+  - NodeGUID: ccbb39a2-d276-4994-acfe-0c7dba54d98c
+    characterName: Mateo
+    DialogueText: "A\xFAn no he tenido mucho tiempo de explorar pero me da mucha
+      tranquilidad saber que al menos no estoy solo. "
+    Position: {x: 6456, y: 200}
+  - NodeGUID: d490ed1f-b514-4851-8b0d-46b3e4840076
+    characterName: Edbri
+    DialogueText: "Tiene que ser duro la verdad... \xBFC\xF3mo es que has acabado
+      aqu\xED?"
+    Position: {x: 7253.6, y: 200}
+  - NodeGUID: fced1596-abd4-45b9-9dab-14a7d1edecbf
+    characterName: Mateo
+    DialogueText: "No lo s\xE9, yo solo estaba dando un paseo con mi barca como de
+      costumbre y de repente se form\xF3 una tormenta gigantesca y ya no recuerdo
+      mucho m\xE1s... Solo espero poder volver a casa alg\xFAn d\xEDa"
+    Position: {x: 7780, y: 200}
+  - NodeGUID: b97c7777-697d-4de7-be80-5c768eee2c40
+    characterName: Edbri
+    DialogueText: "Vaya... Lo siento mucho. Estoy seguro de que lo conseguir\xE1s,
+      pero mientras tanto vas a tener que acostumbrarte a pasar un tiempo por aqu\xED.
+      No te aseguro que a todos les vaya a gustar la idea de un extra\xF1o por aqu\xED,
+      pero siempre puedes venir a hablar conmigo."
+    Position: {x: 9082.4, y: 200}
+  - NodeGUID: ee25ab7f-1912-4f0b-b036-61a374c62562
+    characterName: Mateo
+    DialogueText: "Muchas gracias Edbri. La verdad es que entiendo perfectamente
+      por qu\xE9 eres el alcalde."
+    Position: {x: 10752.8, y: 200}
+  - NodeGUID: ab1d336a-f153-489c-8f30-9a5e23de2252
+    characterName: Edbri
+    DialogueText: "Bueno... De eso podr\xEDa hablar bastante pero tal vez en otro
+      momento. \xBFQu\xE9 tal si buscas a todos los aldeanos para familiarizarte
+      con ellos? As\xED tal vez te integres mejor"
+    Position: {x: 11407.2, y: 200}
+  - NodeGUID: 8c6c636d-2621-45ff-b9aa-f78dd41a9591
+    characterName: Mateo
+    DialogueText: "\xBFCu\xE1ntos sois?"
+    Position: {x: 12525.6, y: 200}
+  - NodeGUID: 0f2a44ba-6d18-4bdd-a257-61be12126c76
+    characterName: Edbri
+    DialogueText: "Ahora mismo solo somos 4 cont\xE1ndonos a m\xED y a Brivia. Cuando
+      hayas hablado con todos ven si te apetece y charlamos."
+    Position: {x: 12781.6, y: 200}
+  - NodeGUID: ac602a90-8276-48c7-9c30-a1a501f1e519
+    characterName: Mateo
+    DialogueText: "De acuerdo, me dar\xE9 una vuelta por la isla a ver que hay. \xA1Gracias!"
+    Position: {x: 13631.2, y: 200}
   - NodeGUID: aed3f262-cb02-4fec-919b-2c4cd77b9bac
     characterName: Edbri
     DialogueText: CerrarDialogo
-    Position: {x: 4975.2, y: 200}
+    Position: {x: 14217.6, y: 200}
   ExposedProperties:
   - PropertyName: DialogueName
     PropertyValue: Edbri1

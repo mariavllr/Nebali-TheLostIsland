@@ -40,6 +40,9 @@ public class ActivarDialogo : MonoBehaviour
                     case "Edbri":
                         managerDialogos.CambiarDialogo(gameObject.GetComponent<Edbri>().miProximoDialogo);
                         break;
+                    case "Leeba":
+                        managerDialogos.CambiarDialogo(gameObject.GetComponent<Leeba>().miProximoDialogo);
+                        break;
                 }
                 
                 managerDialogos.MostrarDialogo();

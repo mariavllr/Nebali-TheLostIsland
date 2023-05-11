@@ -75,15 +75,15 @@ public class PlayerController : MonoBehaviour
 
     private void Reiniciar()
     {
-        switch (gameManager.nivelActual)
+        switch (gameManager.zonaActual)
         {
-            case GameManager.Nivel.Bosque:
+            case GameManager.Zona.Bosque:
                 transform.position = posicionInicialNiveles[0];
                 break;
-            case GameManager.Nivel.Isla:
+            case GameManager.Zona.Isla:
                 transform.position = posicionInicialNiveles[1];
                 break;
-            case GameManager.Nivel.Granja:
+            case GameManager.Zona.Granja:
                 transform.position = posicionInicialNiveles[2];
                 break;
         }

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Edbri2
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: d7384408-45bb-4225-868d-25d914976b80
+    PortName: Next
+    TargetNodeGUID: f84dad17-3e57-456f-9388-eb7e10055f63
+  - BaseNodeGUID: f84dad17-3e57-456f-9388-eb7e10055f63
+    PortName: Cerrar
+    TargetNodeGUID: 9ecb4dd8-d7e5-4ef4-a2e4-99fc6959606b
+  DialogueNodeData:
+  - NodeGUID: f84dad17-3e57-456f-9388-eb7e10055f63
+    characterName: Edbri
+    DialogueText: "\xBFYa has conocido a todos? Sigue buscando"
+    Position: {x: 230.4, y: 200}
+  - NodeGUID: 9ecb4dd8-d7e5-4ef4-a2e4-99fc6959606b
+    characterName: Edbri
+    DialogueText: CerrarDialogo
+    Position: {x: 650.4, y: 200}
+  ExposedProperties:
+  - PropertyName: DialogueName
+    PropertyValue: Edbri2
+  CommentBlockData: []

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Leeba1
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: bc17da9b-dd74-461d-a1b7-5bc7d2675344
+    PortName: Next
+    TargetNodeGUID: e88f90f7-5310-4209-a295-3b8d4ba6edd6
+  - BaseNodeGUID: e88f90f7-5310-4209-a295-3b8d4ba6edd6
+    PortName: Cerrar
+    TargetNodeGUID: 84e3f553-2ef1-442a-bb5e-8418d41200f6
+  DialogueNodeData:
+  - NodeGUID: e88f90f7-5310-4209-a295-3b8d4ba6edd6
+    characterName: Leeba
+    DialogueText: Turururuuu ...
+    Position: {x: 268.8, y: 188.8}
+  - NodeGUID: 84e3f553-2ef1-442a-bb5e-8418d41200f6
+    characterName: Leeba
+    DialogueText: CerrarDialogo
+    Position: {x: 512.8, y: 188.8}
+  ExposedProperties:
+  - PropertyName: DialogueName
+    PropertyValue: Leeba1
+  CommentBlockData: []
