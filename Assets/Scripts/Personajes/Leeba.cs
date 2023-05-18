@@ -10,19 +10,23 @@ public class Leeba : MonoBehaviour
     private GameManager gameManager;
     private ManagerDialogos managerDialogos;
     private ActivarDialogo dialogoInfo;
-    //private NavMeshAgent navmesh;
+    private Animator animator;
 
     public List<DialogueContainer> dialogos;
     public DialogueContainer miProximoDialogo;
+
+    public GameObject caña;
+    public bool misionGatoCompletada = false;
 
 
     void Start()
     {
         ManagerDialogos.onDialogueEvent += EventoDialogoLeeba;
+        Gato.misionGatoCompletedEvent += MisionGatoCompletada;
 
         gameManager = gameManagerObject.GetComponent<GameManager>();
         managerDialogos = gameManagerObject.GetComponent<ManagerDialogos>();
-       // navmesh = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
 
         dialogoInfo = GetComponent<ActivarDialogo>();
         dialogoInfo.dialogoDisponible = false;
@@ -46,8 +50,47 @@ public class Leeba : MonoBehaviour
                         //Misión buscar a todos los aldeanos
                         dialogoInfo.dialogoDisponible = true;
                         break;
+                    case "Edbri3":
+                        //Mision gato leeba
+                        animator.SetBool("DoSitups", true);
+                        dialogoInfo.dialogoDisponible = false;
+                        caña.SetActive(false);
+                        break;
                 }
             }
         }
+
+        if(managerDialogos.personaje == "Leeba")
+        {
+            animator.SetBool("IsFishing", true);
+
+            if (managerDialogos.dialogoActual.ExposedProperties[0].PropertyName == "DialogueName")
+            {
+                switch (managerDialogos.dialogoActual.ExposedProperties[0].PropertyValue)
+                {
+                    case "Leeba1":
+                        dialogoInfo.dialogoDisponible = false;
+                        break;
+                    case "Leeba2":
+                        //Mision gato completada
+                        dialogoInfo.dialogoDisponible = false;
+                        gameManager.misionActual = GameManager.Mision.Ninguna;
+                        gameObject.GetComponent<Animator>().SetBool("DoSitups", false);
+                        gameObject.GetComponent<Animator>().SetBool("FindCat", false);
+                        gameObject.GetComponent<Animator>().SetBool("IsFishing", true);
+                        caña.SetActive(true);
+                        break;
+                }
+            }
+        }
+    }
+
+    void MisionGatoCompletada()
+    {
+        gameManager.MostrarMensaje("Has encontrado al gato! Llevaselo a Leeba");
+        dialogoInfo.dialogoDisponible = true;
+        miProximoDialogo = dialogos[1]; //Dialogo de mision completada
+
+        misionGatoCompletada = true;
     }
 }

@@ -9,7 +9,7 @@ public class CinemachineSwitcher : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera vcam1; //Menu
     [SerializeField] private CinemachineFreeLook vcam2; //3 persona
 
-
+    //Se le llama en el Menu, cuando se pulsa el boton Comenzar
     public void SwitchPriority(string state)
     {
         if (state == "Menu")
@@ -26,5 +26,17 @@ public class CinemachineSwitcher : MonoBehaviour
             vcam1.Priority = 1;
             vcam2.Priority = 0;
         }
+    }
+
+    public void FijarCamara()
+    {
+        vcam2.m_YAxis.m_MaxSpeed = 0;
+        vcam2.m_XAxis.m_MaxSpeed = 0;
+    }
+
+    public void ReiniciarMovimientoCamara()
+    {
+        vcam2.m_YAxis.m_MaxSpeed = 1;
+        vcam2.m_XAxis.m_MaxSpeed = 100;
     }
 }

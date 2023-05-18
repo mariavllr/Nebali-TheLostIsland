@@ -8,6 +8,7 @@ using TMPro;
 public class ManagerDialogos : MonoBehaviour
 {
     public GameManager gameManager;
+    private CinemachineSwitcher cinemachineSwitcher;
     public DialogueParser dialogueParser;
     public GameObject mateo;
 
@@ -22,6 +23,11 @@ public class ManagerDialogos : MonoBehaviour
 
     public delegate void OnDialogueEvent();
     public static event OnDialogueEvent onDialogueEvent;
+
+    private void Start()
+    {
+        cinemachineSwitcher = GetComponent<CinemachineSwitcher>();
+    }
 
     private void Update()
     {
@@ -49,6 +55,8 @@ public class ManagerDialogos : MonoBehaviour
     }
     public void MostrarDialogo()
     {
+        cinemachineSwitcher.FijarCamara();
+
         dialogo.SetActive(true);
         //Congelar al personaje
         mateo.GetComponent<PlayerMovement>().canMove = false;
@@ -60,6 +68,7 @@ public class ManagerDialogos : MonoBehaviour
 
     public void CerrarDialogo()
     {
+        cinemachineSwitcher.ReiniciarMovimientoCamara();
         dialogo.SetActive(false);
         mateo.GetComponent<PlayerMovement>().canMove = true;
         if (onDialogueEvent != null) onDialogueEvent();

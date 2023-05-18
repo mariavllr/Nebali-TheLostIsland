@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Leeba2
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 8fd20420-cc9c-4733-93fc-b44fef5f4a3b
+    PortName: Next
+    TargetNodeGUID: 16c0f6c6-8d95-4931-80bd-9d1f49c8ad88
+  - BaseNodeGUID: 16c0f6c6-8d95-4931-80bd-9d1f49c8ad88
+    PortName: Asi es
+    TargetNodeGUID: 8e90e0ab-e3b7-4816-a3fb-c69da023db28
+  - BaseNodeGUID: 8e90e0ab-e3b7-4816-a3fb-c69da023db28
+    PortName: continuar
+    TargetNodeGUID: e84891a9-7b83-426a-ad3e-63a8af9683a0
+  DialogueNodeData:
+  - NodeGUID: 16c0f6c6-8d95-4931-80bd-9d1f49c8ad88
+    characterName: Leeba
+    DialogueText: Ese...Ese es mi gato??
+    Position: {x: 234.4, y: 184.8}
+  - NodeGUID: 8e90e0ab-e3b7-4816-a3fb-c69da023db28
+    characterName: Mateo
+    DialogueText: Asi es tontito
+    Position: {x: 560, y: 184.8}
+  - NodeGUID: e84891a9-7b83-426a-ad3e-63a8af9683a0
+    characterName: Leeba
+    DialogueText: CerrarDialogo
+    Position: {x: 804.8, y: 184.8}
+  ExposedProperties:
+  - PropertyName: DialogueName
+    PropertyValue: Leeba2
+  CommentBlockData: []

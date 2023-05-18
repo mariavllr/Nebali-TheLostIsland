@@ -19,15 +19,139 @@ MonoBehaviour:
   - BaseNodeGUID: e88f90f7-5310-4209-a295-3b8d4ba6edd6
     PortName: Cerrar
     TargetNodeGUID: 84e3f553-2ef1-442a-bb5e-8418d41200f6
+  - BaseNodeGUID: 84e3f553-2ef1-442a-bb5e-8418d41200f6
+    PortName: Continuar
+    TargetNodeGUID: cf89c054-78d9-4f2c-835e-ff92bb14a4ae
+  - BaseNodeGUID: cf89c054-78d9-4f2c-835e-ff92bb14a4ae
+    PortName: Continuar
+    TargetNodeGUID: 912fe8d8-eaac-4e17-8018-2c77ca5152cb
+  - BaseNodeGUID: 912fe8d8-eaac-4e17-8018-2c77ca5152cb
+    PortName: Mateo
+    TargetNodeGUID: a959d0ad-468f-439a-a6b5-378dbc36d834
+  - BaseNodeGUID: a959d0ad-468f-439a-a6b5-378dbc36d834
+    PortName: Continuar
+    TargetNodeGUID: 210d79aa-f6c4-443c-822e-e169a60e0615
+  - BaseNodeGUID: 210d79aa-f6c4-443c-822e-e169a60e0615
+    PortName: "\xBFY ya est\xE1?"
+    TargetNodeGUID: 28d0fbbd-6df0-4c52-9219-783b4b2f2700
+  - BaseNodeGUID: 28d0fbbd-6df0-4c52-9219-783b4b2f2700
+    PortName: Continuar
+    TargetNodeGUID: bf2ad1d6-de66-4fb0-b18d-2a9b6aba01ab
+  - BaseNodeGUID: bf2ad1d6-de66-4fb0-b18d-2a9b6aba01ab
+    PortName: "Perd\xF3n..."
+    TargetNodeGUID: bea156e0-0a7e-4d3f-9ab9-b67b92f14ec8
+  - BaseNodeGUID: bf2ad1d6-de66-4fb0-b18d-2a9b6aba01ab
+    PortName: Eres un borde
+    TargetNodeGUID: 31614e19-402c-4ce2-ba36-d37c27a60730
+  - BaseNodeGUID: bea156e0-0a7e-4d3f-9ab9-b67b92f14ec8
+    PortName: Continuar
+    TargetNodeGUID: 809a6d4e-2933-445f-9f86-428739610181
+  - BaseNodeGUID: 809a6d4e-2933-445f-9f86-428739610181
+    PortName: "S\xED, \xBFpor?"
+    TargetNodeGUID: ff73a496-906a-4ac6-a2e8-06e5256cdafe
+  - BaseNodeGUID: ff73a496-906a-4ac6-a2e8-06e5256cdafe
+    PortName: Continuar
+    TargetNodeGUID: 345a4de2-2c48-4cdd-a622-070d279caff3
+  - BaseNodeGUID: 345a4de2-2c48-4cdd-a622-070d279caff3
+    PortName: Cerrar
+    TargetNodeGUID: 698a656a-e3e2-4806-8514-df244da4783d
+  - BaseNodeGUID: 31614e19-402c-4ce2-ba36-d37c27a60730
+    PortName: Continuar
+    TargetNodeGUID: 9f4594dc-6db5-4bed-b4e5-1de2abe872ba
+  - BaseNodeGUID: 9f4594dc-6db5-4bed-b4e5-1de2abe872ba
+    PortName: "No soy un cr\xEDo"
+    TargetNodeGUID: f9dbe6d2-d721-4cb9-8ac7-c8f38e83123e
+  - BaseNodeGUID: f9dbe6d2-d721-4cb9-8ac7-c8f38e83123e
+    PortName: Continuar
+    TargetNodeGUID: 36187646-8156-4186-b0b1-5ff16da9bca5
+  - BaseNodeGUID: 36187646-8156-4186-b0b1-5ff16da9bca5
+    PortName: Continuar
+    TargetNodeGUID: 217407f4-7415-4042-81cc-4752af3ed6bb
+  - BaseNodeGUID: 217407f4-7415-4042-81cc-4752af3ed6bb
+    PortName: Cerrar
+    TargetNodeGUID: e6c2a9ac-b216-446d-802c-ff31b1fe4828
   DialogueNodeData:
   - NodeGUID: e88f90f7-5310-4209-a295-3b8d4ba6edd6
     characterName: Leeba
     DialogueText: Turururuuu ...
     Position: {x: 268.8, y: 188.8}
   - NodeGUID: 84e3f553-2ef1-442a-bb5e-8418d41200f6
-    characterName: Leeba
-    DialogueText: CerrarDialogo
+    characterName: Mateo
+    DialogueText: "Em... \xBFhola?"
     Position: {x: 512.8, y: 188.8}
+  - NodeGUID: cf89c054-78d9-4f2c-835e-ff92bb14a4ae
+    characterName: Leeba
+    DialogueText: ...
+    Position: {x: 748, y: 188.8}
+  - NodeGUID: 912fe8d8-eaac-4e17-8018-2c77ca5152cb
+    characterName: Leeba
+    DialogueText: "\xBFY tu eres...?"
+    Position: {x: 972, y: 188.8}
+  - NodeGUID: a959d0ad-468f-439a-a6b5-378dbc36d834
+    characterName: Mateo
+    DialogueText: "Soy Mateo, un humano que he naufragado y he acabado aqu\xED. "
+    Position: {x: 1268, y: 188.8}
+  - NodeGUID: 210d79aa-f6c4-443c-822e-e169a60e0615
+    characterName: Leeba
+    DialogueText: Mmm... Pues vale.
+    Position: {x: 1808.8, y: 188.8}
+  - NodeGUID: 28d0fbbd-6df0-4c52-9219-783b4b2f2700
+    characterName: Mateo
+    DialogueText: "\xBFY ya est\xE1? \xBFNo me vas a preguntar nada?"
+    Position: {x: 2085.6, y: 188.8}
+  - NodeGUID: bf2ad1d6-de66-4fb0-b18d-2a9b6aba01ab
+    characterName: Leeba
+    DialogueText: "No s\xE9 que quieres que te diga. No te conozco y estoy ocupado.
+      B\xFAscate la vida."
+    Position: {x: 2500.8, y: 188.8}
+  - NodeGUID: bea156e0-0a7e-4d3f-9ab9-b67b92f14ec8
+    characterName: Mateo
+    DialogueText: "Yo, esto... Lo siento mucho. No quer\xEDa molestar..."
+    Position: {x: 3040.8, y: 99.2}
+  - NodeGUID: 31614e19-402c-4ce2-ba36-d37c27a60730
+    characterName: Mateo
+    DialogueText: "Oye, no te he dicho nada para que me hables as\xED. No seas tan
+      borde."
+    Position: {x: 3040.8, y: 270.40002}
+  - NodeGUID: 809a6d4e-2933-445f-9f86-428739610181
+    characterName: Leeba
+    DialogueText: "Te ha mandado Edbri, \xBFverdad?"
+    Position: {x: 3561.6, y: 99.2}
+  - NodeGUID: ff73a496-906a-4ac6-a2e8-06e5256cdafe
+    characterName: Mateo
+    DialogueText: "S\xED, \xBFpor qu\xE9? \xBFPasa algo?"
+    Position: {x: 3935.2, y: 99.2}
+  - NodeGUID: 345a4de2-2c48-4cdd-a622-070d279caff3
+    characterName: Leeba
+    DialogueText: "Lo supon\xEDa... Bueno, d\xE9jame pescar que estoy ocupado."
+    Position: {x: 4251.2, y: 99.2}
+  - NodeGUID: 698a656a-e3e2-4806-8514-df244da4783d
+    characterName: Mateo
+    DialogueText: CerrarDialogo
+    Position: {x: 4738.4, y: 99.2}
+  - NodeGUID: 9f4594dc-6db5-4bed-b4e5-1de2abe872ba
+    characterName: Leeba
+    DialogueText: "Mira ni\xF1o no se de d\xF3nde has salido, pero estoy muy tranquilo
+      aqu\xED y no me apetece hablar con cr\xEDos."
+    Position: {x: 3657.6, y: 270.40002}
+  - NodeGUID: 36187646-8156-4186-b0b1-5ff16da9bca5
+    characterName: Leeba
+    DialogueText: ...
+    Position: {x: 5296, y: 270.40002}
+  - NodeGUID: f9dbe6d2-d721-4cb9-8ac7-c8f38e83123e
+    characterName: Mateo
+    DialogueText: "\xBFC\xF3mo que cr\xEDo? Lo he pasado fatal, no s\xE9 d\xF3nde
+      estoy ni si voy a poder volver a casa. Solo quer\xEDa intentar integrarme..."
+    Position: {x: 4406.4, y: 270.40002}
+  - NodeGUID: 217407f4-7415-4042-81cc-4752af3ed6bb
+    characterName: Leeba
+    DialogueText: "No soy el m\xE1s adecuado para que vengas a llorar. Todos tenemos
+      problemas, Mateo."
+    Position: {x: 5553.6, y: 270.40002}
+  - NodeGUID: e6c2a9ac-b216-446d-802c-ff31b1fe4828
+    characterName: Mateo
+    DialogueText: CerrarDialogo
+    Position: {x: 6250.4, y: 270.40002}
   ExposedProperties:
   - PropertyName: DialogueName
     PropertyValue: Leeba1

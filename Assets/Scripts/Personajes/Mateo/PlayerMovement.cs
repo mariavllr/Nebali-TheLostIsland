@@ -16,12 +16,14 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource audio;
 
     public bool canMove;
+    public bool isMoving;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         audio = GetComponent<AudioSource>();
         canMove = true;
+        isMoving = false;
     }
 
     void Update()
@@ -38,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
             if (direction.magnitude >= 0.1f)
             {
                 animator.SetBool("Walking", true);
+                isMoving = true;
                 //Calcular el ángulo al que está mirando y para que gire siempre donde apunta la camara
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -55,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 animator.SetBool("Walking", false);
+                isMoving = false;
                 audio.Stop();
                 controller.Move(new Vector3(0, verticalVelocity, 0));
             }

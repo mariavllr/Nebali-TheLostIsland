@@ -8,16 +8,10 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] GameObject itemPrefab;
     [SerializeField] InventorySystem inventorySystem;
     [SerializeField] GameObject container;
-    [SerializeField] GameObject selectedItemIcon;
-    public int playerSelectedSlot;
 
-    private int slotIndex;
-    private GameObject selectedObject;
     void Start()
     {       
         GameManager.onInventoryOpenedEvent += OnInventoryOpened;
-        playerSelectedSlot = 1;
-        slotIndex = 0;
     }
 
     void OnInventoryOpened()
@@ -31,30 +25,26 @@ public class InventoryUI : MonoBehaviour
 
         foreach (InventoryItem item in inventorySystem.inventory)
         {
-            slotIndex++;
             GameObject obj = Instantiate(itemPrefab);
             obj.transform.SetParent(container.transform, false);
             Debug.Log("Se ha añadido al inventario un objeto");
 
-            UIInventoryItemSlot slot = obj.GetComponent<UIInventoryItemSlot>();
-            slot.Set(item, slotIndex);
+            obj.GetComponent<Button>().onClick.AddListener(GivePlayerObjectSelected);
 
-            //Item seleccionado
-            if(slotIndex == playerSelectedSlot)
-            {
-                GameObject selector = Instantiate(selectedItemIcon, obj.transform, false);
-                selectedObject = item.data.prefab;
-            }
+            UIInventoryItemSlot slot = obj.GetComponent<UIInventoryItemSlot>();
+            slot.Set(item);
         }       
     }
 
-    private void Update()
+    void GivePlayerObjectSelected()
     {
-        //Escoger item
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            playerSelectedSlot++;
-            selectedObject = inventorySystem.inventory[playerSelectedSlot].data.prefab;
-        }
+        //Cerrar inventario
+
+        //Ver qué objeto (GameObject) es el que ha hecho clic
+
+        //Comprobar si el jugador tenía un objeto en la mano y ocultarlo de ser así
+
+        //Poner objeto en la mano del jugador
+
     }
 }

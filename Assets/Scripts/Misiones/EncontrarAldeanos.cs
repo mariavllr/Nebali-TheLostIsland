@@ -12,6 +12,10 @@ public class EncontrarAldeanos : MonoBehaviour
     private int numAldeanosConocidos = 2;
     private List<string> aldeanosConocidos;
 
+
+    public delegate void MisionAldeanosCompletedEvent();
+    public static event MisionAldeanosCompletedEvent misionAldeanosCompletedEvent;
+
     void Start()
     {
         aldeanosConocidos = new List<string>();
@@ -31,6 +35,8 @@ public class EncontrarAldeanos : MonoBehaviour
             {
                 Debug.Log("Mision aldeanos completada");
                 gameManager.misionActual = GameManager.Mision.Ninguna;
+
+                if (misionAldeanosCompletedEvent != null) misionAldeanosCompletedEvent();
             }
 
         }
@@ -38,6 +44,8 @@ public class EncontrarAldeanos : MonoBehaviour
 
     void ComprobarAldeanoConocido()
     {
+        //Cada vez que hay un dialogo, se comprueba el personaje con el que ha interactuado para ver si ya lo conocia o no. Cuando conoce a todos se acaba la mision
+
         if(gameManager.misionActual == GameManager.Mision.ConocerAldeanos)
         {
             string aldeano = managerDialogos.personaje;

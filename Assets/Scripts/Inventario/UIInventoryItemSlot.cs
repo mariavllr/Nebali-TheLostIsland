@@ -10,9 +10,8 @@ public class UIInventoryItemSlot : MonoBehaviour
     [SerializeField] TextMeshProUGUI nombre;
     [SerializeField] GameObject itemObj;
     [SerializeField] TextMeshProUGUI stackNum;
-    public int slotNumber;
 
-    public void Set(InventoryItem item, int slot)
+    public void Set(InventoryItem item)
     {
         imagen.sprite = item.data.icon;
         nombre.text = item.data.displayName;
@@ -24,6 +23,5 @@ public class UIInventoryItemSlot : MonoBehaviour
         }
         stackNum.text = item.stackSize.ToString();
 
-        slotNumber = slot;
     }
 }

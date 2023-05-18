@@ -38,10 +38,19 @@ public class ActivarDialogo : MonoBehaviour
                         managerDialogos.CambiarDialogo(gameObject.GetComponent<Brivia>().miProximoDialogo);
                         break;
                     case "Edbri":
-                        managerDialogos.CambiarDialogo(gameObject.GetComponent<Edbri>().miProximoDialogo);
+                        managerDialogos.CambiarDialogo(gameObject.GetComponent<Edbri>().miProximoDialogo);                      
                         break;
                     case "Leeba":
-                        managerDialogos.CambiarDialogo(gameObject.GetComponent<Leeba>().miProximoDialogo);
+                        Leeba leeba = gameObject.GetComponent<Leeba>();
+                        managerDialogos.CambiarDialogo(leeba.miProximoDialogo);
+                        if (leeba.miProximoDialogo == leeba.dialogos[1])
+                        {
+                            gameObject.GetComponent<Animator>().SetBool("DoSitups", false);
+                            gameObject.GetComponent<Animator>().SetBool("FindCat", true);
+                        }
+
+                        gameObject.GetComponent<Animator>().SetBool("IsFishing", false);
+
                         break;
                 }
                 

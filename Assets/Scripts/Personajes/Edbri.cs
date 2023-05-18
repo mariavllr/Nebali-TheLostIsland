@@ -16,10 +16,10 @@ public class Edbri : MonoBehaviour
     public List<DialogueContainer> dialogos;
     public DialogueContainer miProximoDialogo;
 
-
     void Start()
     {
         ManagerDialogos.onDialogueEvent += EventoDialogoEdbri;
+        EncontrarAldeanos.misionAldeanosCompletedEvent += MisionAldeanosCompletada;
 
         gameManager = gameManagerObject.GetComponent<GameManager>();
         managerDialogos = gameManagerObject.GetComponent<ManagerDialogos>();
@@ -61,13 +61,26 @@ public class Edbri : MonoBehaviour
                     case "Edbri1":
                         //Misión buscar a todos los aldeanos
                         gameManager.misionActual = GameManager.Mision.ConocerAldeanos;
-                        Debug.Log("Mision aldeanos comienza");
+                        gameManager.MostrarMensaje("Conoce a todos los aldeanos");
 
                         miProximoDialogo = dialogos[1]; //Edbri2, "sigue buscando"
+                        break;
+                    case "Edbri3":
+                        //Mision de Leeba
+                        gameManager.misionActual = GameManager.Mision.GatoLeeba;
+                        gameManager.MostrarMensaje("Encuentra el gato de Leeba");
+
+                        dialogoInfo.dialogoDisponible = false;
                         break;
                 }
             }
         }
+    }
+
+    void MisionAldeanosCompletada()
+    {
+        miProximoDialogo = dialogos[2]; //Edbri3: mision completada.
+        gameManager.MostrarMensaje("¡Has conocido a todos! ve a hablar con el alcalde.");
     }
 
 }
