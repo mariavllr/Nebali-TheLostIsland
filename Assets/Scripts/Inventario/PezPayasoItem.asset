@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b65b8fdafc4d8a940a5b02e62793e3b1, type: 3}
-  m_Name: LlaveItem
+  m_Name: PezPayasoItem
   m_EditorClassIdentifier: 
-  id: InventoryItem_Llave
-  displayName: Llave
-  icon: {fileID: 21300000, guid: a7ac3de625f3de04dae85c2076d3ced9, type: 3}
-  prefab: {fileID: 6152655304329076530, guid: 59786f90b07ecde4799ba3a909f370d5, type: 3}
+  id: InventoryItem_Payaso
+  displayName: Pez payaso
+  icon: {fileID: 21300000, guid: 15d97921d52c1d043b13a06861ca78d8, type: 3}
+  prefab: {fileID: 4778964543985741378, guid: 9b07d19301237a744b448e52dd66cf29, type: 3}

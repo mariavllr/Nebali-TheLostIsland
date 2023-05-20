@@ -34,7 +34,6 @@ public class InventorySystem : MonoBehaviour
         if(itemDictionary.TryGetValue(referenceData, out InventoryItem value))
         {
             value.AddToStack();
-            Debug.Log("Ya existia, se añade al stack");
         }
 
         else
@@ -42,7 +41,6 @@ public class InventorySystem : MonoBehaviour
             InventoryItem newItem = new InventoryItem(referenceData);
             inventory.Add(newItem);
             itemDictionary.Add(referenceData, newItem);
-            Debug.Log("Objeto añadido a inventario y diccionario");
         }
 
         if (onInventoryChangedEvent != null) onInventoryChangedEvent();

@@ -14,11 +14,9 @@ public class ItemObject : MonoBehaviour
     }
     public void OnHandlePickupItem()
     {
-        Debug.Log("Se ejecuta OnHandlePickupItem");
         inventory.Add(referenceItem);
 
         Destroy(gameObject);
-        Debug.Log("Se destruye el objeto");
 
         gameManager.MostrarMensaje(referenceItem.displayName + " se ha añadido al inventario.");
 

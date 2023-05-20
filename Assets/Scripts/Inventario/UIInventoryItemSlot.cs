@@ -8,7 +8,7 @@ public class UIInventoryItemSlot : MonoBehaviour
 {
     [SerializeField] Image imagen;
     [SerializeField] TextMeshProUGUI nombre;
-    [SerializeField] GameObject itemObj;
+    [SerializeField] public GameObject itemObj;
     [SerializeField] TextMeshProUGUI stackNum;
 
     public void Set(InventoryItem item)

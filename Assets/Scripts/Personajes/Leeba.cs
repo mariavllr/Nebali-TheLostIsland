@@ -16,6 +16,7 @@ public class Leeba : MonoBehaviour
     public DialogueContainer miProximoDialogo;
 
     public GameObject caña;
+    public GameObject objetoCaña_Jugador;
     public bool misionGatoCompletada = false;
 
 
@@ -52,9 +53,12 @@ public class Leeba : MonoBehaviour
                         break;
                     case "Edbri3":
                         //Mision gato leeba
+                        objetoCaña_Jugador.SetActive(true);
+                        caña.SetActive(false);
+
                         animator.SetBool("DoSitups", true);
                         dialogoInfo.dialogoDisponible = false;
-                        caña.SetActive(false);
+                        
                         break;
                 }
             }

@@ -29,6 +29,7 @@ public class Gato : MonoBehaviour
 
         if(gameManager.misionActual == GameManager.Mision.GatoLeeba)
         {
+
             if (ActivarIconoInteractuar())
             {
                 if (Input.GetKeyDown(gameManager.hablar) && !siguiendo)

@@ -7,6 +7,11 @@ TagManager:
   - Espada
   - Enemigo
   - GameManager
+  - Agua
+  - CanaPescar
+  - PuntoLanzamiento
+  - PuntoLazamiento
+  - Pez
   layers:
   - Default
   - TransparentFX
