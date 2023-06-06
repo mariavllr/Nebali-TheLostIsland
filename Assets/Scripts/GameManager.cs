@@ -7,11 +7,14 @@ public class GameManager : MonoBehaviour
 {
     public GameObject player;
     private PlayerMovement playerMov;
+    private CinemachineSwitcher cinemachineSwitcher;
 
     [Header("Controles")]
     public KeyCode hablar;
     public KeyCode atacar;
     public KeyCode abrirInventario;
+    public KeyCode abrirMapa;
+    public KeyCode pausar;
 
     public Zona zonaActual;
     public Mision misionActual;
@@ -29,6 +32,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject inventario;
     [SerializeField] TextMeshProUGUI textmesh;
     [SerializeField] float segundosMensajeUI;
+
+    [Header("Mapa")]
+    [SerializeField] GameObject cameraMapa;
+
+    [Header("Menu pausa")]
+    [SerializeField] GameObject canvasPausa;
+    [SerializeField] GameObject opciones;
+
+    [SerializeField] List<GameObject> tiposOpciones; //0 sonido 1 graficos 2 controles
 
     public delegate void OnInventoryOpenedEvent();
     public static event OnInventoryOpenedEvent onInventoryOpenedEvent;
@@ -59,6 +71,7 @@ public class GameManager : MonoBehaviour
         misionActual = Mision.Ninguna;
        // canciones = new List<AudioClip>();
         playerMov = player.GetComponentInChildren<PlayerMovement>();
+        cinemachineSwitcher = GetComponent<CinemachineSwitcher>();
 
     }
 
@@ -69,15 +82,37 @@ public class GameManager : MonoBehaviour
             playerMov.canMove = false;
         }
 
-        //Inventario
+        else
+        {
+            //Inventario
 
-        if (Input.GetKeyDown(abrirInventario) && !inventario.activeInHierarchy)
-        {
-            AbrirInventario();
-        }
-        else if (Input.GetKeyDown(abrirInventario) && inventario.activeInHierarchy)
-        {
-            CerrarInventario();
+            if (Input.GetKeyDown(abrirInventario) && !inventario.activeInHierarchy)
+            {
+                AbrirInventario();
+            }
+            else if (Input.GetKeyDown(abrirInventario) && inventario.activeInHierarchy)
+            {
+                CerrarInventario();
+            }
+
+            //Mapa
+
+            if (Input.GetKeyDown(abrirMapa) && !cameraMapa.activeInHierarchy)
+            {
+                AbrirMapa();
+            }
+            else if (Input.GetKeyDown(abrirMapa) && cameraMapa.activeInHierarchy)
+            {
+                CerrarMapa();
+            }
+
+            //Pausa
+
+            if (Input.GetKeyDown(pausar) && !canvasPausa.activeInHierarchy)
+            {
+                Debug.Log("pausa");
+                PausarJuego();
+            }
         }
     }
 
@@ -98,6 +133,7 @@ public class GameManager : MonoBehaviour
         menuInicial.SetActive(false);
         zonaActual = Zona.Bosque;
         playerMov.canMove = true;
+        Cursor.lockState = CursorLockMode.Locked;
         CambiarCancion();
     }
 
@@ -105,6 +141,8 @@ public class GameManager : MonoBehaviour
     {
         
         inventario.SetActive(true);
+        cinemachineSwitcher.FijarCamara();
+        Cursor.lockState = CursorLockMode.None;
         playerMov.canMove = false;
         if (onInventoryOpenedEvent != null) onInventoryOpenedEvent();
     }
@@ -112,6 +150,20 @@ public class GameManager : MonoBehaviour
     public void CerrarInventario()
     {
         inventario.SetActive(false);
+        cinemachineSwitcher.ReiniciarMovimientoCamara();
+        Cursor.lockState = CursorLockMode.Locked;
+        playerMov.canMove = true;
+    }
+
+    void AbrirMapa()
+    {
+        cameraMapa.SetActive(true);
+        playerMov.canMove = false;
+    }
+
+    void CerrarMapa()
+    {
+        cameraMapa.SetActive(false);
         playerMov.canMove = true;
     }
 
@@ -137,4 +189,78 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
+    //----PAUSA----
+    //Funciones para los botones del menú de pausa.
+
+    void PausarJuego()
+    {
+        cinemachineSwitcher.FijarCamara();
+        playerMov.canMove = false;
+        Cursor.lockState = CursorLockMode.None;
+
+        canvasPausa.SetActive(true);
+    }
+    public void Reanudar()
+    {
+        cinemachineSwitcher.ReiniciarMovimientoCamara();
+        playerMov.canMove = true;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        canvasPausa.SetActive(false);
+    }
+
+    public void Opciones()
+    {
+        canvasPausa.SetActive(false);
+        opciones.SetActive(true);
+    }
+
+    public void Salir()
+    {
+        Application.Quit();
+    }
+
+    public void MenuPrincipal()
+    {
+        cinemachineSwitcher.SwitchPriority("ThirdPerson");
+
+        zonaActual = Zona.Menu;
+        menuInicial.SetActive(true);
+        canvasPausa.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        CambiarCancion();   
+    }
+
+    //----PAUSA: OPCIONES----
+    //Funciones para las opciones del juego
+
+    public void Sonido()
+    {
+        tiposOpciones[0].SetActive(true);
+        tiposOpciones[1].SetActive(false);
+        tiposOpciones[2].SetActive(false);
+    }
+
+    public void Graficos()
+    {
+        tiposOpciones[0].SetActive(false);
+        tiposOpciones[1].SetActive(true);
+        tiposOpciones[2].SetActive(false);
+    }
+
+    public void Controles()
+    {
+        tiposOpciones[0].SetActive(false);
+        tiposOpciones[1].SetActive(false);
+        tiposOpciones[2].SetActive(true);
+    }
+
+    public void VolverMenuPausa()
+    {
+        opciones.SetActive(false);
+        canvasPausa.SetActive(true);
+    }
+
+
 }

@@ -8,8 +8,10 @@ public class PlayerMovement : MonoBehaviour
     public Transform cam;
     [SerializeField] Animator animator;
 
-    public float speed = 6f;
+    public float normalSpeed = 15f;
+    public float runningSpeed = 40f;
     public float turnSmoothTime = 0.1f; //Para que gire de manera suave
+    public float speed;
     private float turnSmoothVelocity;
     private float gravity = -9.8f;
     private float verticalVelocity;
@@ -24,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         audio = GetComponent<AudioSource>();
         canMove = true;
         isMoving = false;
+        speed = normalSpeed;
     }
 
     void Update()
@@ -40,7 +43,21 @@ public class PlayerMovement : MonoBehaviour
             if (direction.magnitude >= 0.1f)
             {
                 animator.SetBool("Walking", true);
+
+                //Si pulsa shift, correr
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    animator.SetBool("Running", true);
+                    speed = runningSpeed;
+                }
+                if (Input.GetKeyUp(KeyCode.LeftShift))
+                {
+                    animator.SetBool("Running", false);
+                    speed = normalSpeed;
+                }
+                
                 isMoving = true;
+
                 //Calcular el ángulo al que está mirando y para que gire siempre donde apunta la camara
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -58,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 animator.SetBool("Walking", false);
+                animator.SetBool("Running", false);
                 isMoving = false;
                 audio.Stop();
                 controller.Move(new Vector3(0, verticalVelocity, 0));

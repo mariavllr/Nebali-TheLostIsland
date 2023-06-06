@@ -17,11 +17,14 @@ public class ActivarDialogo : MonoBehaviour
     public bool dialogoDisponible;
     [SerializeField] GameObject player;
     [SerializeField] float radio;
+    private AudioSource audioSource;
+    private bool activarSonido = true;
 
 
     void Start()
     {
         animator = talkIcon.GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -29,6 +32,15 @@ public class ActivarDialogo : MonoBehaviour
         //Si el icono de hablar está activo, no hay un diálogo ya abierto y se pulsa espacio, se abre el diálogo
         if (ActivarIconoConversacion())
         {
+            gameObject.transform.forward = Vector3.Lerp(gameObject.transform.forward, -player.transform.forward, Time.deltaTime * 3f);
+            //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "AppearIcon" && 
+            if (activarSonido)
+            {
+                audioSource.Play();
+                activarSonido = false;
+            }
+            
+
             if (Input.GetKeyDown(gameManager.hablar) && !dialogo.activeInHierarchy)
             {
                 //Que personaje es?

@@ -16,6 +16,10 @@ namespace Subtegral.DialogueSystem.Runtime
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Button choicePrefab;
         [SerializeField] private Transform buttonContainer;
+        public ManagerDialogos managerDialogos;
+
+        public delegate void OnNextLineEvent();
+        public static event OnNextLineEvent onNextLineEvent;
 
         private void Start()
         {
@@ -25,23 +29,29 @@ namespace Subtegral.DialogueSystem.Runtime
 
         private void ProceedToNarrative(string narrativeDataGUID)
         {
-            var name = dialogue.DialogueNodeData.Find(x => x.NodeGUID == narrativeDataGUID).characterName;
-            var text = dialogue.DialogueNodeData.Find(x => x.NodeGUID == narrativeDataGUID).DialogueText;
-            var choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID);
-
-            characterNameText.text = ProcessProperties(name);
-            dialogueText.text = ProcessProperties(text);
-            var buttons = buttonContainer.GetComponentsInChildren<Button>();
-            for (int i = 0; i < buttons.Length; i++)
+            if (managerDialogos.puedeContinuarSiguienteLinea)
             {
-                Destroy(buttons[i].gameObject);
-            }
+                var name = dialogue.DialogueNodeData.Find(x => x.NodeGUID == narrativeDataGUID).characterName;
+                var text = dialogue.DialogueNodeData.Find(x => x.NodeGUID == narrativeDataGUID).DialogueText;
+                var choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == narrativeDataGUID);
 
-            foreach (var choice in choices)
-            {
-                var button = Instantiate(choicePrefab, buttonContainer);
-                button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
-                button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
+                characterNameText.text = ProcessProperties(name);
+                dialogueText.text = ProcessProperties(text);
+
+                var buttons = buttonContainer.GetComponentsInChildren<Button>();
+                for (int i = 0; i < buttons.Length; i++)
+                {
+                    Destroy(buttons[i].gameObject);
+                }
+
+                foreach (var choice in choices)
+                {
+                    var button = Instantiate(choicePrefab, buttonContainer);
+                    button.GetComponentInChildren<Text>().text = ProcessProperties(choice.PortName);
+                    button.onClick.AddListener(() => ProceedToNarrative(choice.TargetNodeGUID));
+                }
+
+                if (onNextLineEvent != null) onNextLineEvent();
             }
         }
 
