@@ -8,7 +8,6 @@ public class Pescar : MonoBehaviour
 {
     public GameManager gameManager;
 
-    public GameObject selectedObjectContainer;
     public GameObject anzueloPrefab;
     public GameObject inicioLanzamiento;
 
@@ -33,7 +32,7 @@ public class Pescar : MonoBehaviour
     void Update()
     {
         //Si tiene la caña en la mano, entonces puede pescar.
-        if (selectedObjectContainer.transform.GetChild(0).tag == "CanaPescar")
+        if (gameManager.tieneObjetoEnMano && gameManager.objetoEnMano.tag == "CanaPescar")
         {
             if (Input.GetKeyDown(gameManager.hablar))
             {

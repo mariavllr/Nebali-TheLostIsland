@@ -17,14 +17,21 @@ public class EnemigoController : MonoBehaviour
 
     [Header("Ataque")]
     public int vida;
-    public int dañoAtaque;
-    public float tiempoAtaque;
-    public float tiempoDaño;
-    public float radioDeteccion;
+    public int dañoAtaque; //El daño que hará al otro cada vez que le toque
+    public float tiempoAtaque; //El tiempo que tiene que esperar entre cada ataque (sino al tocarlo quitaría todos los corazones de una)
+    public float tiempoDaño; //El tiempo que se queda atontado cuando le pegan
+    public float radioDeteccion; //Radio donde detecta al jugador
+    public float fuerzaImpulsoAtaque; //Lo que se impulsa al jugador cuando le ataca
+    public float fuerzaImpulsoRecibeDaño; //Lo que se echa hacia atrás cuando le pegan
+
+    private Coroutine ataqueCoroutine;
+    [SerializeField] private Color colorAtacado;
+    private Color colorOriginal;
 
     private float tiempo = 0;
     private NavMeshAgent nav;
-    private MeshRenderer mrenderer;
+    [SerializeField] private MeshRenderer mrenderer;
+    private Rigidbody rb;
     private EstadosEnemigo estadoActual;
 
     private enum EstadosEnemigo
@@ -37,18 +44,21 @@ public class EnemigoController : MonoBehaviour
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
-        mrenderer = GetComponent<MeshRenderer>();
+        rb = GetComponent<Rigidbody>();
 
         estadoActual = EstadosEnemigo.Patrulla;
         int rand = Random.Range(0, waypointsPatrulla.Count);
         waypointActual = waypointsPatrulla[rand];
         nav.destination = waypointActual.position;
+
+        colorOriginal = mrenderer.material.GetColor("_MainColor");
     }
 
     void Update()
     {      
         if(vida <= 0)
         {
+            nav.enabled = false;
             Destroy(gameObject);
         }
 
@@ -67,23 +77,23 @@ public class EnemigoController : MonoBehaviour
                 break;
         }
     }
-    private void OnTriggerEnter(Collider other)
+
+
+    public void TakeDamage(int daño)
     {
-        //Jugador ataca enemigo
-        if (other.gameObject.tag == "Espada")
-        {
-           vida -= 1;
-           StartCoroutine(Daño());
-        }
+        StartCoroutine(Daño(daño));
     }
 
-    IEnumerator Daño()
+    IEnumerator Daño(int dañoRecibido)
     {
-        mrenderer.material.color = Color.red;
+        Debug.Log("daño");
+        vida -= dañoRecibido;
+        mrenderer.material.SetColor("_MainColor", colorAtacado);
+        rb.AddForce(-transform.forward * fuerzaImpulsoRecibeDaño, ForceMode.Impulse);
 
         yield return new WaitForSeconds(tiempoDaño);
 
-        mrenderer.material.color = Color.white;
+        mrenderer.material.SetColor("_MainColor", colorOriginal);
     }
 
     void Patrulla()
@@ -139,9 +149,47 @@ public class EnemigoController : MonoBehaviour
 
     void Ataque()
     {
-        
-        nav.speed = 6;
+        nav.speed = 7;
         nav.destination = player.transform.position;
+        
+        if (ataqueCoroutine == null)
+        {
+            ataqueCoroutine = StartCoroutine(EjecutarUnAtaque());
+        }
+    }
+
+    IEnumerator EjecutarUnAtaque()
+    {
+        switch (Random.Range(0, 2))
+        {
+            case 0:
+                //No hace nada
+                break;
+            case 1:
+                SprintHaciaJugador();
+                break;
+            case 2:
+                Salto();
+                break;
+            default:
+                break;
+        }
+
+
+        yield return new WaitForSeconds(tiempoAtaque);
+        ataqueCoroutine = null;
+    }
+
+    //Ataques
+    void SprintHaciaJugador()
+    {
+        rb.AddForce(transform.forward * fuerzaImpulsoAtaque, ForceMode.Impulse);
+    }
+
+    void Salto()
+    {
+        Vector3 vectorSalto = new Vector3(transform.forward.x, transform.forward.y + 50, transform.forward.z);
+        rb.AddForce(transform.up * fuerzaImpulsoAtaque, ForceMode.Impulse);
     }
 
 }

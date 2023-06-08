@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private float turnSmoothVelocity;
     private float gravity = -9.8f;
     private float verticalVelocity;
-    private AudioSource audio;
+    private AudioSource audioSource;
 
     public bool canMove;
     public bool isMoving;
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         canMove = true;
         isMoving = false;
         speed = normalSpeed;
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
                 moveDir.y = verticalVelocity;
                 controller.Move(moveDir.normalized * speed * Time.deltaTime);
 
-                if (!audio.isPlaying) audio.Play();
+                if (!audioSource.isPlaying) audioSource.Play();
 
             }
             else
@@ -77,7 +77,8 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("Walking", false);
                 animator.SetBool("Running", false);
                 isMoving = false;
-                audio.Stop();
+                audioSource.Stop();
+                speed = normalSpeed;
                 controller.Move(new Vector3(0, verticalVelocity, 0));
             }
         }    

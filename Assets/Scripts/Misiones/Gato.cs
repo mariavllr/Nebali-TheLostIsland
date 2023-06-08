@@ -52,7 +52,7 @@ public class Gato : MonoBehaviour
     {
         if (gameManager.misionActual == GameManager.Mision.GatoLeeba)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) <= radio && !siguiendo && playerSelectedObject.transform.GetChild(0).gameObject.tag == "Pez")
+            if (Vector3.Distance(transform.position, player.transform.position) <= radio && !siguiendo && gameManager.objetoEnMano.tag == "Pez")
             {
                 iconAnimator.SetBool("StartTalk", true);
                 return true;

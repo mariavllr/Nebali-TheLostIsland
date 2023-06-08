@@ -5,19 +5,31 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
-    [SerializeField] int vida;
+
+    [Header("Vida")]
+    [SerializeField] public int vida = 5;
+    private int vidaActual;
     [SerializeField] GameObject vidasContainer;
-    [SerializeField] List<Vector3> posicionInicialNiveles;
+    [SerializeField] GameObject prefabCorazon;
+    [SerializeField] List<Vector3> posicionInicialZonas;
 
+    [Header("Enemigos")]
+    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] private float rangoAtaque;
+    [SerializeField] private int dañoAtaque;
+    
+    private PlayerMovement playerMov;
     private float tiempo;
-
     private Animator animator;
     void Start()
     {
         animator = GetComponent<Animator>();
-        posicionInicialNiveles = new List<Vector3>();
+        playerMov = GetComponent<PlayerMovement>();
         tiempo = 0;
+        vidaActual = vida;
         GameManager.onInventoryOpenedEvent += OnInventoryChanged;
+
+        DibujarCorazones();
     }
 
     void Update()
@@ -26,23 +38,25 @@ public class PlayerController : MonoBehaviour
 
         //Gestion de vida
 
-        if (vida <= 0)
+        if (vidaActual <= 0)
         {
-           // animator.SetBool("Desmayo", true);
-          //  Reiniciar();
+            animator.SetBool("PassOut", true);
+            playerMov.canMove = false;
+            StartCoroutine(Reiniciar());
         }
 
-        //Ataque
-
-        if (Input.GetKeyDown(gameManager.atacar))
+        else
         {
-            Atacar();
-        }
+            if (Input.GetKeyDown(gameManager.atacar) && gameManager.tieneObjetoEnMano && gameManager.objetoEnMano.transform.tag == "Espada")
+            {
+                Atacar();
+            }
 
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-        {
-            //Si se ha acabado la animación, volver a idle
-            animator.SetBool("Attack", false);
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+            {
+                //Si se ha acabado la animación, volver a idle
+                animator.SetBool("Attack", false);
+            }
         }
 
     }
@@ -64,46 +78,87 @@ public class PlayerController : MonoBehaviour
 
     private void Atacar()
     {
+        // Lanza un rayo desde la posición y la dirección del jugador
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        Debug.DrawRay(ray.origin, ray.direction * rangoAtaque, Color.red, 0.5f);
+
+        // Comprueba si el rayo colisiona con algún objeto en la capa de los enemigos
+        if (Physics.Raycast(ray, out hit, rangoAtaque, enemyLayer))
+        {
+            // Obtiene el componente del enemigo
+            EnemigoController enemyHealth = hit.collider.GetComponentInParent<EnemigoController>();
+
+            // Verifica si el enemigo tiene el componente EnemyHealth
+            if (enemyHealth != null)
+            {
+                // Reduce la vida del enemigo
+                enemyHealth.TakeDamage(dañoAtaque);
+            }
+        }
+        
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             animator.Play("Attack"); //reiniciar si ya estaba atacando
 
         }
-        else animator.SetBool("Attack", true);
+        else animator.SetTrigger("Attack"); 
+
+        
 
     }
 
-    private void Reiniciar()
+    private IEnumerator Reiniciar()
     {
+        vidaActual = vida;
+
+        yield return new WaitForSeconds(5);
+
+        DibujarCorazones();
+
         switch (gameManager.zonaActual)
         {
             case GameManager.Zona.Bosque:
-                transform.position = posicionInicialNiveles[0];
+                transform.localPosition = posicionInicialZonas[0];
                 break;
             case GameManager.Zona.Isla:
-                transform.position = posicionInicialNiveles[1];
+                transform.position = posicionInicialZonas[1];
                 break;
             case GameManager.Zona.Granja:
-                transform.position = posicionInicialNiveles[2];
+                transform.position = posicionInicialZonas[2];
                 break;
+            default:
+                break;
+        }
+
+        animator.SetBool("PassOut", false);
+        playerMov.canMove = true;
+
+    }
+
+    private void DibujarCorazones()
+    {
+        for (int i = 0; i < vidaActual; i++)
+        {
+            Instantiate(prefabCorazon, vidasContainer.transform);
         }
     }
 
-    //ATAQUE
+    //take damage
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //Enemigo ataca jugador
         if (hit.gameObject.tag == "Enemigo")
         {
             EnemigoController enemigo = hit.gameObject.GetComponent<EnemigoController>();
-            if (tiempo >= enemigo.tiempoAtaque && vida != 0)
+            if (tiempo >= enemigo.tiempoAtaque && vidaActual != 0)
             {              
-                vida -= enemigo.dañoAtaque;
+                vidaActual -= enemigo.dañoAtaque;
                 tiempo = 0;
-                // animator.SetBool("Atacado", true);
                 Destroy(vidasContainer.transform.GetChild(0).gameObject);
+                animator.SetTrigger("Hit");
             } 
-            
         }
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2855190818636547072}
   m_Layer: 0
   m_Name: sword
-  m_TagString: Untagged
+  m_TagString: Espada
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,5 +109,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.006745993, y: 0.035739478, z: 0.08408869}
-  m_Center: {x: -0.00009140181, y: -0.00016326568, z: 0.039720334}
+  m_Size: {x: 0.042326562, y: 0.035739478, z: 0.1273773}
+  m_Center: {x: -0.0011782403, y: -0.00016308698, z: 0.05141001}

@@ -95,14 +95,14 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _CantidadEspuma: 38.17
+    - _CantidadEspuma: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ConstrasteOndas: 68
+    - _ConstrasteOndas: 6.68
     - _Cull: 2
     - _Cutoff: 0.5
-    - _CutoffEspuma: 32.7
-    - _DensidadOndas: 136.9
+    - _CutoffEspuma: 0.7
+    - _DensidadOndas: 7.4
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -110,6 +110,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HAYOLAS: 0
+    - _HayOlas: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -122,11 +124,11 @@ Material:
     - _Speed: 0
     - _SrcBlend: 1
     - _Surface: 0
-    - _Tama_oEspuma: 1.97
-    - _Tama_oOlas: 15.8
-    - _Transparencia: 0.685
-    - _Velocidad: 14.9
-    - _VelocidadEspuma: 0.23
+    - _Tama_oEspuma: 0.05
+    - _Tama_oOlas: 0
+    - _Transparencia: 1
+    - _Velocidad: 1
+    - _VelocidadEspuma: 0.01
     - _VelocidadOlas: 0
     - _WorkflowMode: 1
     - _ZWrite: 1

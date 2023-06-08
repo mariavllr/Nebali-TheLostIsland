@@ -11,7 +11,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] GameObject container;
 
     [Header("El lugar donde tiene que colocarse el objeto en el jugador")]
-    [SerializeField] GameObject playerObjectContainer; 
+    [SerializeField] public GameObject playerObjectContainer; 
 
     void Start()
     {       

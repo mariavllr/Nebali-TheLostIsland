@@ -18,6 +18,8 @@ public class LightingManager : MonoBehaviour
 
     [SerializeField]  private float skyboxBaseIntensity = 0.15f;
     [SerializeField] private float skyboxMaxIntensity = 0.6f;
+    [SerializeField] private Material skyboxMaterial;
+    [SerializeField] private GameObject sky;
 
     [SerializeField] private List<Light> farolas;
 
@@ -52,6 +54,7 @@ public class LightingManager : MonoBehaviour
             else
             {
                 TimeOfDay += Time.deltaTime * speedMultiplier;
+                
 
                 // adjust light intensity and shadow softness for time of day
                 if (TimeOfDay >= dawn && TimeOfDay <= noon)
@@ -60,11 +63,17 @@ public class LightingManager : MonoBehaviour
                     DirectionalLight.intensity = baseIntensity + (baseIntensity / (noon - dawn)) * (TimeOfDay - dawn);
                     DirectionalLight.shadowStrength = minShadowStrength + ((maxShadowStrength - minShadowStrength) / (noon - dawn)) * (TimeOfDay - dawn);
 
-                    if(RenderSettings.ambientIntensity < skyboxMaxIntensity) RenderSettings.ambientIntensity += 0.001f;
+                    if (RenderSettings.ambientIntensity < skyboxMaxIntensity)
+                    {
+                        RenderSettings.ambientIntensity += 0.001f;
+                        skyboxMaterial.mainTextureOffset += new Vector2(0.001f, 0);  
+                    }
+                    
 
                     //Apagar farolas
                     foreach (Light farola in farolas)
                     {
+                       // farola.intensity = Mathf.Lerp(10, 0, Time.deltaTime);
                         farola.enabled = false;
                     }
                 }
@@ -74,7 +83,12 @@ public class LightingManager : MonoBehaviour
                     DirectionalLight.intensity = baseIntensity + (baseIntensity / (dusk - noon)) * (dusk - TimeOfDay);
                     DirectionalLight.shadowStrength = minShadowStrength + ((maxShadowStrength - minShadowStrength) / (dusk - noon)) * (dusk - TimeOfDay);
 
-                    if(RenderSettings.ambientIntensity > skyboxBaseIntensity) RenderSettings.ambientIntensity -= 0.001f;
+                    if (RenderSettings.ambientIntensity > skyboxBaseIntensity)
+                    {
+                        RenderSettings.ambientIntensity -= 0.001f;
+                        skyboxMaterial.mainTextureOffset += new Vector2(0.001f, 0);
+                    }
+                    
                     
                 }
                 else
@@ -87,7 +101,8 @@ public class LightingManager : MonoBehaviour
                     //Encender farolas
                     foreach (Light farola in farolas)
                     {
-                        farola.enabled = true;
+                        if(farola.enabled == false) farola.enabled = true;
+                       // farola.intensity = Mathf.Lerp(0, 10, Time.deltaTime);
                     }
 
                 }
@@ -113,6 +128,7 @@ public class LightingManager : MonoBehaviour
             DirectionalLight.color = Preset.DirectionalColor.Evaluate(timePercent);
 
             DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 170f, 0));
+            sky.transform.localRotation = Quaternion.Euler(new Vector3(0, (timePercent * 360f) - 90f, 0));
         }
 
     }

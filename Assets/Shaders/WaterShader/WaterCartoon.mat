@@ -23,7 +23,8 @@ Material:
   m_Name: WaterCartoon
   m_Shader: {fileID: -6465566751694194690, guid: a9755b28a7800f3448c38b19a8dd636a,
     type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _HAYOLAS
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -110,6 +111,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HAYOLAS: 1
+    - _HayOlas: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

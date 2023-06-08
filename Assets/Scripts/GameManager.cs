@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +21,11 @@ public class GameManager : MonoBehaviour
     public Zona zonaActual;
     public Mision misionActual;
 
+    [Header("Inventario")]
+    public GameObject objetoEnMano; //El objeto que tiene el jugador en la mano
+    [SerializeField] private GameObject mano;
+    public bool tieneObjetoEnMano = false;
+
     /*[Header("Misiones")]
     public List<bool> misionesCompletadas;*/
 
@@ -26,21 +33,29 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<AudioClip> canciones;
     [SerializeField] AudioSource audioSource;
 
+    [Header("Mapa")]
+    [SerializeField] GameObject cameraMapa;
 
-    [Header("UI")]
-    [SerializeField] GameObject menuInicial;
+    [Header("UI")]  
     [SerializeField] GameObject inventario;
+    [SerializeField] GameObject containerCorazones;
     [SerializeField] TextMeshProUGUI textmesh;
     [SerializeField] float segundosMensajeUI;
 
-    [Header("Mapa")]
-    [SerializeField] GameObject cameraMapa;
+    [Header("Menu principal")]
+    [SerializeField] GameObject menuInicial;
 
     [Header("Menu pausa")]
     [SerializeField] GameObject canvasPausa;
     [SerializeField] GameObject opciones;
 
     [SerializeField] List<GameObject> tiposOpciones; //0 sonido 1 graficos 2 controles
+
+    [Header("Opciones: Sonido")]
+    [SerializeField] AudioMixer audioMixer;
+
+    [SerializeField] Slider sliderMusica;
+    [SerializeField] Slider sliderEfectos;
 
     public delegate void OnInventoryOpenedEvent();
     public static event OnInventoryOpenedEvent onInventoryOpenedEvent;
@@ -72,19 +87,29 @@ public class GameManager : MonoBehaviour
        // canciones = new List<AudioClip>();
         playerMov = player.GetComponentInChildren<PlayerMovement>();
         cinemachineSwitcher = GetComponent<CinemachineSwitcher>();
-
     }
 
     void Update()
     {
         if(zonaActual == Zona.Menu)
         {
+            containerCorazones.SetActive(false);
             playerMov.canMove = false;
         }
 
         else
         {
+            containerCorazones.SetActive(true);
+
             //Inventario
+
+            if (mano.transform.childCount != 0)
+            {
+                objetoEnMano = mano.transform.GetChild(0).gameObject;
+                tieneObjetoEnMano = true;
+            }
+
+            else tieneObjetoEnMano = false;
 
             if (Input.GetKeyDown(abrirInventario) && !inventario.activeInHierarchy)
             {
@@ -190,6 +215,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //---MENU: OPCIONES----
+
+
     //----PAUSA----
     //Funciones para los botones del menú de pausa.
 
@@ -198,7 +226,7 @@ public class GameManager : MonoBehaviour
         cinemachineSwitcher.FijarCamara();
         playerMov.canMove = false;
         Cursor.lockState = CursorLockMode.None;
-
+        Time.timeScale = 0;
         canvasPausa.SetActive(true);
     }
     public void Reanudar()
@@ -206,13 +234,13 @@ public class GameManager : MonoBehaviour
         cinemachineSwitcher.ReiniciarMovimientoCamara();
         playerMov.canMove = true;
         Cursor.lockState = CursorLockMode.Locked;
-
+        Time.timeScale = 1;
         canvasPausa.SetActive(false);
     }
 
     public void Opciones()
     {
-        canvasPausa.SetActive(false);
+        canvasPausa.transform.GetChild(0).gameObject.SetActive(false);
         opciones.SetActive(true);
     }
 
@@ -232,6 +260,7 @@ public class GameManager : MonoBehaviour
         CambiarCancion();   
     }
 
+
     //----PAUSA: OPCIONES----
     //Funciones para las opciones del juego
 
@@ -240,6 +269,18 @@ public class GameManager : MonoBehaviour
         tiposOpciones[0].SetActive(true);
         tiposOpciones[1].SetActive(false);
         tiposOpciones[2].SetActive(false);
+    }
+
+    public void VolumenMusica()
+    {
+        if(sliderMusica.value == 0) audioMixer.SetFloat("musicaVolume", -80);
+        else audioMixer.SetFloat("musicaVolume", 20f * Mathf.Log10(sliderMusica.value));
+    }
+
+    public void VolumenEfectos()
+    {
+        if (sliderEfectos.value == 0) audioMixer.SetFloat("efectosVolume", -80);
+        else audioMixer.SetFloat("efectosVolume", 20f * Mathf.Log10(sliderEfectos.value));
     }
 
     public void Graficos()
@@ -259,7 +300,7 @@ public class GameManager : MonoBehaviour
     public void VolverMenuPausa()
     {
         opciones.SetActive(false);
-        canvasPausa.SetActive(true);
+        canvasPausa.transform.GetChild(0).gameObject.SetActive(true);
     }
 
 
