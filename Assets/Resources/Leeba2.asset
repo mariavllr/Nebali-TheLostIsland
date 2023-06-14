@@ -20,21 +20,157 @@ MonoBehaviour:
     PortName: Asi es
     TargetNodeGUID: 8e90e0ab-e3b7-4816-a3fb-c69da023db28
   - BaseNodeGUID: 8e90e0ab-e3b7-4816-a3fb-c69da023db28
-    PortName: continuar
+    PortName: Continuar
     TargetNodeGUID: e84891a9-7b83-426a-ad3e-63a8af9683a0
+  - BaseNodeGUID: e84891a9-7b83-426a-ad3e-63a8af9683a0
+    PortName: Bueno...
+    TargetNodeGUID: 69f573dc-5681-4064-9e3b-017a4309c645
+  - BaseNodeGUID: 69f573dc-5681-4064-9e3b-017a4309c645
+    PortName: Continuar
+    TargetNodeGUID: 7959fa2a-1917-4f80-8ab8-20f01032ba00
+  - BaseNodeGUID: 7959fa2a-1917-4f80-8ab8-20f01032ba00
+    PortName: De nada
+    TargetNodeGUID: 6c353ec2-1075-48e7-9962-048e9bfd2911
+  - BaseNodeGUID: 6c353ec2-1075-48e7-9962-048e9bfd2911
+    PortName: Continuar
+    TargetNodeGUID: af653f77-69a0-4c18-ba65-f7e6e0466231
+  - BaseNodeGUID: af653f77-69a0-4c18-ba65-f7e6e0466231
+    PortName: "\xBFQu\xE9 pas\xF3 con ese alguien?"
+    TargetNodeGUID: dcb5c194-8bd8-46b0-ae3e-40831f315b0b
+  - BaseNodeGUID: dcb5c194-8bd8-46b0-ae3e-40831f315b0b
+    PortName: Continuar
+    TargetNodeGUID: 02fea578-cb58-4638-b65a-a369a13e2ea6
+  - BaseNodeGUID: 02fea578-cb58-4638-b65a-a369a13e2ea6
+    PortName: Continuar
+    TargetNodeGUID: cc24167c-9e86-4b52-9546-05b44abae3bd
+  - BaseNodeGUID: cc24167c-9e86-4b52-9546-05b44abae3bd
+    PortName: Vaya, lo siento
+    TargetNodeGUID: 456f44c9-c0f8-4f4a-b66a-aa0cb017cb4b
+  - BaseNodeGUID: 456f44c9-c0f8-4f4a-b66a-aa0cb017cb4b
+    PortName: Continuar
+    TargetNodeGUID: 73b4b767-4809-4160-ab27-a434422741af
+  - BaseNodeGUID: 73b4b767-4809-4160-ab27-a434422741af
+    PortName: Estoy seguro
+    TargetNodeGUID: c1f19929-266c-4c9a-9635-a44cb1a3e447
+  - BaseNodeGUID: c1f19929-266c-4c9a-9635-a44cb1a3e447
+    PortName: Continuar
+    TargetNodeGUID: 6564766e-11a9-4018-ae1e-1dacca692615
+  - BaseNodeGUID: 6564766e-11a9-4018-ae1e-1dacca692615
+    PortName: Gracias
+    TargetNodeGUID: 83baf20a-d8d2-428d-8818-cd351830b73d
+  - BaseNodeGUID: 83baf20a-d8d2-428d-8818-cd351830b73d
+    PortName: Cerrar
+    TargetNodeGUID: 7096ae82-6393-4026-b940-a971657e27a0
+  - BaseNodeGUID: af653f77-69a0-4c18-ba65-f7e6e0466231
+    PortName: No preguntar y despedirse
+    TargetNodeGUID: 269d0147-8925-4a35-81e0-5ae9bdd4323a
+  - BaseNodeGUID: 269d0147-8925-4a35-81e0-5ae9bdd4323a
+    PortName: Continuar
+    TargetNodeGUID: 2599fb2e-de29-4f1d-87d6-1a718475ff51
+  - BaseNodeGUID: 2599fb2e-de29-4f1d-87d6-1a718475ff51
+    PortName: Nos vemos
+    TargetNodeGUID: b8251b9f-4d4c-4449-a5c0-fcc8cf67dd14
+  - BaseNodeGUID: b8251b9f-4d4c-4449-a5c0-fcc8cf67dd14
+    PortName: Cerrar
+    TargetNodeGUID: 8ba56d4c-2781-4802-9ae5-2d5157a5e4a8
   DialogueNodeData:
   - NodeGUID: 16c0f6c6-8d95-4931-80bd-9d1f49c8ad88
     characterName: Leeba
-    DialogueText: Ese...Ese es mi gato??
+    DialogueText: "Ese...\xBFEse es mi gato?"
     Position: {x: 234.4, y: 184.8}
   - NodeGUID: 8e90e0ab-e3b7-4816-a3fb-c69da023db28
     characterName: Mateo
-    DialogueText: Asi es tontito
+    DialogueText: Eso creo
     Position: {x: 560, y: 184.8}
   - NodeGUID: e84891a9-7b83-426a-ad3e-63a8af9683a0
     characterName: Leeba
-    DialogueText: CerrarDialogo
+    DialogueText: "No me lo puedo creer. Hac\xEDa tanto que no lo ve\xEDa..."
     Position: {x: 804.8, y: 184.8}
+  - NodeGUID: 69f573dc-5681-4064-9e3b-017a4309c645
+    characterName: Mateo
+    DialogueText: Bueno... Yo ya me voy y te dejo tranquilo.
+    Position: {x: 1288.8, y: 184.8}
+  - NodeGUID: 7959fa2a-1917-4f80-8ab8-20f01032ba00
+    characterName: Leeba
+    DialogueText: Hey, espera. Siento haber sido tan borde contigo antes. A veces
+      me paso un poco... Muchas gracias por esto.
+    Position: {x: 1711.2, y: 184.8}
+  - NodeGUID: 6c353ec2-1075-48e7-9962-048e9bfd2911
+    characterName: Mateo
+    DialogueText: No te preocupes, no hay de que.
+    Position: {x: 2522.4, y: 184.8}
+  - NodeGUID: af653f77-69a0-4c18-ba65-f7e6e0466231
+    characterName: Leeba
+    DialogueText: "La verdad es que estoy muy agusto viviendo por mi cuenta, pero
+      a veces hecho de menos tener compa\xF1\xEDa. Ya soy viejo, pero antes ten\xEDa
+      a alguien... Y cuando se fue, me sent\xED bastante solo y \xE9l es el \xFAnico
+      que me hac\xEDa compa\xF1\xEDa hasta que esos bichos lo asustaron y no volv\xED
+      a verlo."
+    Position: {x: 2865.6, y: 184.8}
+  - NodeGUID: dcb5c194-8bd8-46b0-ae3e-40831f315b0b
+    characterName: Mateo
+    DialogueText: "\xBFPuedo preguntar que pas\xF3 con ese alguien?"
+    Position: {x: 4623.2, y: 69.600006}
+  - NodeGUID: 02fea578-cb58-4638-b65a-a369a13e2ea6
+    characterName: Leeba
+    DialogueText: "Oh... Bueno, \xE9ramos inseparables. Hemos estado juntos desde
+      siempre. Tambi\xE9n le gustaba pescar y me ense\xF1\xF3 todo lo que s\xE9.
+      Nos construimos nuestra casa y gracias a nosotros com\xEDamos los del pueblo."
+    Position: {x: 5038.4, y: 69.600006}
+  - NodeGUID: cc24167c-9e86-4b52-9546-05b44abae3bd
+    characterName: Leeba
+    DialogueText: "Pero cada vez \xE9ramos menos y el ambiente empez\xF3 a estar
+      m\xE1s deca\xEDdo... Decidi\xF3 salir de la isla a explorar nuevos mundos,
+      a ver si encontr\xE1bamos algo, pero nunca volvi\xF3."
+    Position: {x: 6373.6, y: 69.600006}
+  - NodeGUID: 456f44c9-c0f8-4f4a-b66a-aa0cb017cb4b
+    characterName: Mateo
+    DialogueText: "Vaya, lo siento mucho. Debi\xF3 de ser muy duro. La soledad es
+      dif\xEDcil de llevar muchas veces... Yo tambi\xE9n me sent\xED solo cuando
+      llegu\xE9 y echo de menos a mi familia, pero poco a poco me siento m\xE1s acogido
+      por vosotros. Estoy seguro de que volver\xE1."
+    Position: {x: 7536, y: 69.600006}
+  - NodeGUID: 73b4b767-4809-4160-ab27-a434422741af
+    characterName: Leeba
+    DialogueText: "Fue hace muchos a\xF1os, hijo. Pero s\xE9 que est\xE9 donde est\xE9,
+      me est\xE1 apoyando y este gato que un d\xEDa apareci\xF3 tiene su alma en
+      su interior."
+    Position: {x: 9103.2, y: 69.600006}
+  - NodeGUID: c1f19929-266c-4c9a-9635-a44cb1a3e447
+    characterName: Mateo
+    DialogueText: Estoy seguro, Leeba.
+    Position: {x: 10076, y: 69.600006}
+  - NodeGUID: 6564766e-11a9-4018-ae1e-1dacca692615
+    characterName: Leeba
+    DialogueText: "Gracias por hablar un rato conmigo. Si necesitas cualquier cosa,
+      aqu\xED estoy. Y bueno, esa ca\xF1a que me has robado te la puedes quedar."
+    Position: {x: 10376, y: 69.600006}
+  - NodeGUID: 7096ae82-6393-4026-b940-a971657e27a0
+    characterName: Leeba
+    DialogueText: CerrarDialogo
+    Position: {x: 11958.4, y: 69.600006}
+  - NodeGUID: 83baf20a-d8d2-428d-8818-cd351830b73d
+    characterName: Mateo
+    DialogueText: "Muchas gracias, siento rob\xE1rtela ja ja ja. Cuando quieras hablamos.
+      Suerte."
+    Position: {x: 11332, y: 69.600006}
+  - NodeGUID: 269d0147-8925-4a35-81e0-5ae9bdd4323a
+    characterName: Mateo
+    DialogueText: Vaya... Lo siento mucho. Bueno, espero haber ayudado.
+    Position: {x: 4645.6, y: 266.40002}
+  - NodeGUID: 2599fb2e-de29-4f1d-87d6-1a718475ff51
+    characterName: Leeba
+    DialogueText: "S\xED... Muchas gracias. Lo echaba mucho de menos, pensaba que
+      no lo volver\xEDa a ver."
+    Position: {x: 5119.2, y: 266.40002}
+  - NodeGUID: b8251b9f-4d4c-4449-a5c0-fcc8cf67dd14
+    characterName: Mateo
+    DialogueText: Bueno...si necesitas algo me puedes decir. Nos vemos.
+    Position: {x: 5768, y: 266.40002}
+  - NodeGUID: 8ba56d4c-2781-4802-9ae5-2d5157a5e4a8
+    characterName: Leeba
+    DialogueText: CerrarDialogo
+    Position: {x: 6266.4, y: 266.40002}
   ExposedProperties:
   - PropertyName: DialogueName
     PropertyValue: Leeba2

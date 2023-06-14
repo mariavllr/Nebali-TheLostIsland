@@ -77,12 +77,17 @@ public class Leeba : MonoBehaviour
                         break;
                     case "Leeba2":
                         //Mision gato completada
-                        dialogoInfo.dialogoDisponible = false;
                         gameManager.misionActual = GameManager.Mision.Ninguna;
                         gameObject.GetComponent<Animator>().SetBool("DoSitups", false);
                         gameObject.GetComponent<Animator>().SetBool("FindCat", false);
                         gameObject.GetComponent<Animator>().SetBool("IsFishing", true);
                         caña.SetActive(true);
+                        gameManager.MostrarMensaje("Nueva entrada en el diario.");
+                        ElegirDialogoRandom();
+
+                        break;
+                    default: //Si es Leeba 3, 4 o 5 (dialogo[2] [3] o [4])
+                        ElegirDialogoRandom();
                         break;
                 }
             }
@@ -96,5 +101,12 @@ public class Leeba : MonoBehaviour
         miProximoDialogo = dialogos[1]; //Dialogo de mision completada
 
         misionGatoCompletada = true;
+    }
+
+    private DialogueContainer ElegirDialogoRandom()
+    {
+        int random = Random.Range(2, 5); //Dialogo 2, 3 o 4
+
+        return dialogos[random];
     }
 }

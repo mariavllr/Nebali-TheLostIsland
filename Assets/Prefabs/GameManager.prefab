@@ -58,21 +58,28 @@ MonoBehaviour:
   pausar: 27
   zonaActual: 0
   misionActual: 3
+  objetoEnMano: {fileID: 0}
+  mano: {fileID: 0}
+  tieneObjetoEnMano: 0
   canciones:
   - {fileID: 8300000, guid: 2de5b20addc2a48428b78911131169ad, type: 3}
   - {fileID: 8300000, guid: e0b00312021570e45b9ac607a9775c05, type: 3}
   audioSource: {fileID: 0}
-  menuInicial: {fileID: 0}
+  cameraMapa: {fileID: 0}
   inventario: {fileID: 0}
+  containerCorazones: {fileID: 0}
   textmesh: {fileID: 0}
   segundosMensajeUI: 2
-  cameraMapa: {fileID: 0}
+  menuInicial: {fileID: 0}
   canvasPausa: {fileID: 0}
   opciones: {fileID: 0}
   tiposOpciones:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  audioMixer: {fileID: 0}
+  sliderMusica: {fileID: 0}
+  sliderEfectos: {fileID: 0}
 --- !u!114 &8085389444918318973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,8 +175,11 @@ MonoBehaviour:
   maxIntensity: 1.5
   maxShadowStrength: 1
   minShadowStrength: 0.2
-  skyboxBaseIntensity: 0.15
+  skyboxBaseIntensity: 0.4
   skyboxMaxIntensity: 0.6
+  skyboxMaterial: {fileID: 0}
+  sky: {fileID: 0}
+  farolas: []
 --- !u!82 &2057544295
 AudioSource:
   m_ObjectHideFlags: 0
