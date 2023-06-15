@@ -16,11 +16,15 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private float maxShadowStrength = 1f;
     [SerializeField] private float minShadowStrength = 0.2f;
 
+    [Header("Skybox")]
     [SerializeField]  private float skyboxBaseIntensity = 0.3f;
     [SerializeField] private float skyboxMaxIntensity = 0.6f;
     [SerializeField] private Material skyboxMaterial;
     [SerializeField] private GameObject sky;
-    
+    [SerializeField] private GameObject stars;
+    [SerializeField] private GameObject sun;
+    [SerializeField] private GameObject moon;
+
     [Header("Farolas")]
     [SerializeField] private List<Light> farolas;
     [SerializeField] private float maxIntensityFarola;
@@ -53,7 +57,6 @@ public class LightingManager : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            //(Replace with a reference to the game time)
             // speed up the time in dead of night
             if (TimeOfDay > nightSpeedUpStart || TimeOfDay < nightSpeedUpEnd) // speed up the passage of night from 9pm to 3am
             {
@@ -81,6 +84,11 @@ public class LightingManager : MonoBehaviour
                         if (farola.intensity >= 0) farola.intensity -= 1f * Time.deltaTime;
                         else farola.enabled = false;
                     }
+
+                    //Quitar estrellas y luna y poner sol
+                    stars.SetActive(false);
+                    moon.SetActive(false);
+                    sun.SetActive(true);
                 }
                 else if (TimeOfDay > noon && TimeOfDay <= dusk)
                 {
@@ -90,7 +98,10 @@ public class LightingManager : MonoBehaviour
 
                     RenderSettings.ambientIntensity = skyboxBaseIntensity + ((skyboxMaxIntensity - skyboxBaseIntensity) / (dusk - noon)) * (dusk - TimeOfDay);
 
-
+                    //Quitar sol y poner luna y estrellas
+                    stars.SetActive(true);
+                    moon.SetActive(true);
+                    sun.SetActive(false);
                 }
                 else
                 {

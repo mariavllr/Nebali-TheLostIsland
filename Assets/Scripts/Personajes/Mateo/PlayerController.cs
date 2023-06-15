@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
         playerMov = GetComponent<PlayerMovement>();
         tiempo = 0;
         vidaActual = vida;
-        GameManager.onInventoryOpenedEvent += OnInventoryChanged;
 
         DibujarCorazones();
     }
@@ -69,11 +68,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Jugador colisiona con objeto");
             item.OnHandlePickupItem();
         }
-    }
-
-    void OnInventoryChanged()
-    {
-        
     }
 
     private void Atacar()
@@ -122,7 +116,7 @@ public class PlayerController : MonoBehaviour
             case GameManager.Zona.Bosque:
                 transform.localPosition = posicionInicialZonas[0];
                 break;
-            case GameManager.Zona.Isla:
+            case GameManager.Zona.Pueblo:
                 transform.position = posicionInicialZonas[1];
                 break;
             case GameManager.Zona.Granja:

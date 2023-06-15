@@ -7,8 +7,6 @@ public class InventorySystem : MonoBehaviour
     private Dictionary<InventoryItemData, InventoryItem> itemDictionary;
     [SerializeField] public List<InventoryItem> inventory;
 
-    public delegate void OnInventoryChangedEvent();
-    public static event OnInventoryChangedEvent onInventoryChangedEvent;
 
     private void Awake()
     {
@@ -43,7 +41,6 @@ public class InventorySystem : MonoBehaviour
             itemDictionary.Add(referenceData, newItem);
         }
 
-        if (onInventoryChangedEvent != null) onInventoryChangedEvent();
     }
 
     public void Remove(InventoryItemData referenceData)

@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     {
         Menu,
         Bosque,
-        Isla,
+        Pueblo,
         Granja
     }
 
@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
                 audioSource.clip = canciones[1];
                 audioSource.Play();
                 break;
-            case Zona.Isla:
+            case Zona.Pueblo:
                 audioSource.clip = canciones[2];
                 audioSource.Play();
                 break;
