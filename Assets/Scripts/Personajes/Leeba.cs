@@ -83,6 +83,7 @@ public class Leeba : MonoBehaviour
                         gameObject.GetComponent<Animator>().SetBool("IsFishing", true);
                         caña.SetActive(true);
                         gameManager.MostrarMensaje("Nueva entrada en el diario.");
+                        gameManager.EntradaDiario("He encontrado el gato de Leeba y se ha puesto muy feliz. Parece que no es tan cascarrabias...");
                         ElegirDialogoRandom();
 
                         break;

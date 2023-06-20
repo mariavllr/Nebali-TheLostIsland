@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3619005991524709560}
   - component: {fileID: 1575623868922970226}
   - component: {fileID: 7221983021981826025}
+  - component: {fileID: 7399769814670429234}
   m_Layer: 0
   m_Name: Arbol1
   m_TagString: Untagged
@@ -112,3 +113,16 @@ LODGroup:
     renderers:
     - renderer: {fileID: 1575623868922970226}
   m_Enabled: 1
+--- !u!65 &7399769814670429234
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071084852950360487}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06334002, y: 0.25138053, z: 0.056517392}
+  m_Center: {x: 0.010697161, y: 0.12389165, z: -0.028218165}

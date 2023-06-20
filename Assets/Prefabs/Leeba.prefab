@@ -740,6 +740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3752577968878911816}
   - component: {fileID: 7691863010382756473}
+  - component: {fileID: 4394684662702915339}
   m_Layer: 0
   m_Name: body muchos poly.001
   m_TagString: Untagged
@@ -840,6 +841,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.17689466, y: 2.3935065, z: 1.3734016}
     m_Extent: {x: 7.862309, y: 14.714571, z: 7.1311855}
   m_DirtyAABB: 0
+--- !u!65 &4394684662702915339
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205658862272553292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12544636, y: 0.12812229, z: 0.31361368}
+  m_Center: {x: -0.0077562993, y: -0.013200654, z: 0.033787463}
 --- !u!1 &1209725765590917054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,6 +1832,7 @@ MonoBehaviour:
   dialogos: []
   miProximoDialogo: {fileID: 0}
   "ca\xF1a": {fileID: 0}
+  "objetoCa\xF1a_Jugador": {fileID: 0}
   misionGatoCompletada: 0
 --- !u!1 &4130903292150962133
 GameObject:

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 400956}
   - component: {fileID: 3320814}
   - component: {fileID: 2353796}
-  - component: {fileID: 6451914}
   - component: {fileID: 969790127091732816}
+  - component: {fileID: 7538061868213136657}
   m_Layer: 0
   m_Name: bush_5_summer_mat
   m_TagString: Untagged
@@ -86,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6451914
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107274}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 061db1971cc4b734381514b013a2834d, type: 3}
 --- !u!205 &969790127091732816
 LODGroup:
   m_ObjectHideFlags: 0
@@ -122,8 +108,21 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2353796}
-  - screenRelativeHeight: 0.02740552
+  - screenRelativeHeight: 0.0009321319
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2353796}
   m_Enabled: 1
+--- !u!65 &7538061868213136657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.877392, y: 0.92179906, z: 0.9360837}
+  m_Center: {x: -0.029400826, y: 0.4235558, z: 0.04777068}

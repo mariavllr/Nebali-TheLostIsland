@@ -61,14 +61,16 @@ public class Edbri : MonoBehaviour
                     case "Edbri1":
                         //Misión buscar a todos los aldeanos
                         gameManager.misionActual = GameManager.Mision.ConocerAldeanos;
-                        gameManager.MostrarMensaje("Conoce a todos los aldeanos");
+                        gameManager.MostrarMensaje("Nueva entrada en el diario.");
+                        gameManager.EntradaDiario("El alcalde del pueblo me ha dicho que tengo que conocer a todos los aldeanos, pero creo que tampoco hay muchos.");
 
                         miProximoDialogo = dialogos[1]; //Edbri2, "sigue buscando"
                         break;
                     case "Edbri3":
                         //Mision de Leeba
                         gameManager.misionActual = GameManager.Mision.GatoLeeba;
-                        gameManager.MostrarMensaje("Encuentra el gato de Leeba");
+                        gameManager.MostrarMensaje("Nueva entrada en el diario.");
+                        gameManager.EntradaDiario("Edbri ahora quiere que le encuentre un gato perdido a Leeba. Que pereza, ¿por qué me mandan a hacer recados?");
 
                         dialogoInfo.dialogoDisponible = false;
                         break;

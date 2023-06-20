@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Inventario")]
     public GameObject objetoEnMano; //El objeto que tiene el jugador en la mano
-    [SerializeField] private GameObject mano;
+    public GameObject mano;
     public bool tieneObjetoEnMano = false;
 
     /*[Header("Misiones")]
@@ -38,8 +40,9 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]  
     [SerializeField] GameObject inventario;
+    [SerializeField] TextMeshProUGUI textoDiario;
     [SerializeField] GameObject containerCorazones;
-    [SerializeField] TextMeshProUGUI textmesh;
+    [SerializeField] TextMeshProUGUI textoMensajeUI;
     [SerializeField] float segundosMensajeUI;
 
     [Header("Menu principal")]
@@ -56,6 +59,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Slider sliderMusica;
     [SerializeField] Slider sliderEfectos;
+
+    [Header("Opciones: Gráficos")]
+    [SerializeField] Volume postpro;
+    [SerializeField] GameObject sky;
+    private Bloom bloom;
+    private Vignette vignette;
+    private DepthOfField depthOfField;
 
     public delegate void OnInventoryOpenedEvent();
     public static event OnInventoryOpenedEvent onInventoryOpenedEvent;
@@ -143,14 +153,19 @@ public class GameManager : MonoBehaviour
 
     public void MostrarMensaje(string msg)
     {
-        textmesh.text = msg;
+        textoMensajeUI.text = msg;
         StartCoroutine(BorrarMensaje());
+    }
+
+    public void EntradaDiario(string msg)
+    {
+        textoDiario.text += "-" + msg + "\n";
     }
 
     IEnumerator BorrarMensaje()
     {
         yield return new WaitForSeconds(segundosMensajeUI);
-        textmesh.text = "";
+        textoMensajeUI.text = "";
     }
 
     public void CerrarMenu()
@@ -168,7 +183,7 @@ public class GameManager : MonoBehaviour
         inventario.SetActive(true);
         cinemachineSwitcher.FijarCamara();
         Cursor.lockState = CursorLockMode.None;
-        playerMov.canMove = false;
+        Time.timeScale = 0;
         if (onInventoryOpenedEvent != null) onInventoryOpenedEvent();
     }
 
@@ -177,7 +192,7 @@ public class GameManager : MonoBehaviour
         inventario.SetActive(false);
         cinemachineSwitcher.ReiniciarMovimientoCamara();
         Cursor.lockState = CursorLockMode.Locked;
-        playerMov.canMove = true;
+        Time.timeScale = 1;
     }
 
     void AbrirMapa()
@@ -288,6 +303,67 @@ public class GameManager : MonoBehaviour
         tiposOpciones[0].SetActive(false);
         tiposOpciones[1].SetActive(true);
         tiposOpciones[2].SetActive(false);
+    }
+
+    public void Postprocesado(string efecto)
+    {
+        if(efecto == "Bloom")
+        {
+            Bloom tmp;
+
+            if (postpro.profile.TryGet<Bloom>(out tmp))
+            {
+                bloom = tmp;
+                if (bloom.active) bloom.active = false;
+                else bloom.active = true;
+            }
+        }
+        else if(efecto == "Vignette")
+        {
+            Vignette tmp;
+
+            if (postpro.profile.TryGet<Vignette>(out tmp))
+            {
+                vignette = tmp;
+                if (vignette.active) vignette.active = false;
+                else vignette.active = true;
+            }
+        }
+        else if(efecto == "Depth of field")
+        {
+            DepthOfField tmp;
+
+            if (postpro.profile.TryGet<DepthOfField>(out tmp))
+            {
+                depthOfField = tmp;
+                if (depthOfField.active) depthOfField.active = false;
+                else depthOfField.active = true;
+            }
+        }
+
+    }
+
+    public void DesactivarOtrasOpciones(string opcion)
+    {
+        if(opcion == "DiaNoche")
+        {
+            LightingManager ciclo = GetComponent<LightingManager>();
+            if (ciclo.enabled)
+            {
+                ciclo.TimeOfDay = 24 / 2;
+                ciclo.enabled = false;
+                sky.SetActive(false);
+            }
+            else
+            {
+                ciclo.enabled = true;
+                sky.SetActive(true);
+            }
+        }
+        else if(opcion == "Antialiasing")
+        {
+
+        }
     }
 
     public void Controles()

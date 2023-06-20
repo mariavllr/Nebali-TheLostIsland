@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -9,9 +10,8 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] GameObject itemPrefab;
     [SerializeField] InventorySystem inventorySystem;
     [SerializeField] GameObject container;
-
-    [Header("El lugar donde tiene que colocarse el objeto en el jugador")]
-    [SerializeField] public GameObject playerObjectContainer; 
+    [SerializeField] TextMeshProUGUI descripcion;
+    [SerializeField] Image foto;
 
     void Start()
     {       
@@ -35,27 +35,30 @@ public class InventoryUI : MonoBehaviour
             UIInventoryItemSlot slot = obj.GetComponent<UIInventoryItemSlot>();
             slot.Set(item);
 
-            obj.GetComponentInChildren<Button>().onClick.AddListener(delegate { GivePlayerObjectSelected(item.data.prefab); });
+            obj.GetComponent<Button>().onClick.AddListener(delegate { GivePlayerObjectSelected(item); });
         }       
     }
 
-    void GivePlayerObjectSelected(GameObject objeto)
+    void GivePlayerObjectSelected(InventoryItem item)
     {
-        //Ver qué objeto (GameObject) es el que ha hecho clic
-        Debug.Log(objeto.name);
+        GameObject objeto = item.data.prefab;
 
-        //Comprobar si el jugador tenía un objeto en la mano y quitarlo de ser así
-        if(playerObjectContainer.transform.childCount != 0)
+        //Mostrar descripcion y foto
+        descripcion.text = item.data.description;
+        foto.enabled = true;
+        foto.sprite = item.data.icon;
+
+
+        //Comprobar si el jugador tenía un objeto en la mano (que no es el mismo) y quitarlo de ser así
+        if(gameManager.tieneObjetoEnMano && gameManager.objetoEnMano != objeto)
         {
-            Destroy(playerObjectContainer.transform.GetChild(0).gameObject);       
+            Destroy(gameManager.objetoEnMano);
+            gameManager.tieneObjetoEnMano = false;
         }
         //Poner objeto en la mano del jugador
-        GameObject selectedObject = Instantiate(objeto, playerObjectContainer.transform);
+        GameObject selectedObject = Instantiate(objeto, gameManager.mano.transform);
         DestroyImmediate(selectedObject.GetComponent<ItemObject>());
         //selectedObject.transform.localRotation = Quaternion.identity;
         selectedObject.transform.localPosition = Vector3.zero;
-
-        //Cerrar inventario
-        gameManager.CerrarInventario();
     }
 }

@@ -13,7 +13,7 @@ public class Gato : MonoBehaviour
 
     private NavMeshAgent nav;
     private bool siguiendo = false;
-    public GameObject playerSelectedObject;
+    private Animator animator;
 
     public delegate void MisionGatoCompletedEvent();
     public static event MisionGatoCompletedEvent misionGatoCompletedEvent;
@@ -23,6 +23,7 @@ public class Gato : MonoBehaviour
     {
         nav = GetComponent<NavMeshAgent>();
         playerMov = player.GetComponent<PlayerMovement>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -37,6 +38,7 @@ public class Gato : MonoBehaviour
                 {
                     siguiendo = true;
                     if (misionGatoCompletedEvent != null) misionGatoCompletedEvent();
+                    
                     nav.SetDestination(player.transform.position);
                 }
             }
@@ -46,13 +48,23 @@ public class Gato : MonoBehaviour
                 nav.SetDestination(player.transform.position);
             }
         }
+
+        if(nav.velocity != Vector3.zero)
+        {
+            animator.SetBool("Following", true);
+            
+        }
+        else
+        {
+            animator.SetBool("Following", false);
+        }
     }
 
     private bool ActivarIconoInteractuar()
     {
         if (gameManager.misionActual == GameManager.Mision.GatoLeeba)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) <= radio && !siguiendo && gameManager.objetoEnMano.tag == "Pez")
+            if (Vector3.Distance(transform.position, player.transform.position) <= radio && !siguiendo && gameManager.tieneObjetoEnMano && gameManager.objetoEnMano.tag == "Pez")
             {
                 iconAnimator.SetBool("StartTalk", true);
                 return true;

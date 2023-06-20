@@ -110,6 +110,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HAYOLAS: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -124,7 +125,7 @@ Material:
     - _Surface: 0
     - _Tama_oEspuma: 56.77
     - _Tama_oOlas: 0.8
-    - _Transparencia: 0.767
+    - _Transparencia: 0.471
     - _Velocidad: 1.84
     - _VelocidadEspuma: 0.005
     - _VelocidadOlas: 0.5

@@ -16,3 +16,4 @@ MonoBehaviour:
   displayName: "Ca\xF1a"
   icon: {fileID: 21300000, guid: d67f8dec1fabaf247a8b35e4093487b6, type: 3}
   prefab: {fileID: 8657642577417722407, guid: ac3b73be498a2dd41b2d7eae4b18e56f, type: 3}
+  description: "Una bonita ca\xF1a para pescar... pero creo que no es m\xEDa"

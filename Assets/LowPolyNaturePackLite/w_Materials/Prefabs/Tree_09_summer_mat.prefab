@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 457246}
   - component: {fileID: 3396168}
   - component: {fileID: 2308934}
-  - component: {fileID: 6477042}
   - component: {fileID: 4582676092710411274}
+  - component: {fileID: 8353731167001959287}
   m_Layer: 0
   m_Name: Tree_09_summer_mat
   m_TagString: Untagged
@@ -86,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6477042
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100882}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 1b0a83107f38a4643a2c162dc0bb79e6, type: 3}
 --- !u!205 &4582676092710411274
 LODGroup:
   m_ObjectHideFlags: 0
@@ -122,8 +108,21 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2308934}
-  - screenRelativeHeight: 0.022252593
+  - screenRelativeHeight: 0.0009321319
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2308934}
   m_Enabled: 1
+--- !u!65 &8353731167001959287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7559353, y: 6.3704515, z: 0.95001674}
+  m_Center: {x: -0.0700711, y: 2.9694402, z: -1.1682545}

@@ -84,6 +84,9 @@ public class Brivia : MonoBehaviour
                     case "Brivia2":
                         if (miProximoDialogo == dialogos[1])
                             Instantiate(espada, transform.position + new Vector3(3f, 0, 0), Quaternion.Euler(new Vector3(-90, -90, 0)));
+                        gameManager.MostrarMensaje("Nueva entrada en el diario.");
+                        gameManager.EntradaDiario("Vaya, acabo de llegar y ya he conseguido una espada. ¡Sí que confían en mí! Tengo que acabar con esos bichos negros para ganarme su confianza.");
+
                         //Este dialogo es si vuelves a hablar con ella en algun momento
                         miProximoDialogo = dialogos[2]; //Brivia3
                         break;

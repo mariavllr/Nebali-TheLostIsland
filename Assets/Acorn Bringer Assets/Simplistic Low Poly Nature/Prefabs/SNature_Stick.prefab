@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33170021814634786}
   - component: {fileID: 23774490904618282}
   - component: {fileID: 5722103934347841718}
+  - component: {fileID: 5439586241702734519}
   m_Layer: 0
   m_Name: SNature_Stick
   m_TagString: Untagged
@@ -106,8 +107,21 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 23774490904618282}
-  - screenRelativeHeight: 0.0028684824
+  - screenRelativeHeight: 0.00043269945
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 23774490904618282}
   m_Enabled: 1
+--- !u!65 &5439586241702734519
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042598324542122}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.38919848, y: 3.951196, z: 0.8310184}
+  m_Center: {x: 0.015348606, y: 1.2677511, z: 0.115852386}
