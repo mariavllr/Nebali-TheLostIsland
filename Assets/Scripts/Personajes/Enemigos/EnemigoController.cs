@@ -122,18 +122,20 @@ public class EnemigoController : MonoBehaviour
         {
             int rand = Random.Range(0, waypointsPatrulla.Count); 
             //Si ha salido el que ya estaba, repite
-            while(waypointsPatrulla[rand] == waypointActual)
+            if(waypointsPatrulla.Count > 1)
             {
-                rand = Random.Range(0, waypointsPatrulla.Count);
+                while (waypointsPatrulla[rand] == waypointActual)
+                {
+                    rand = Random.Range(0, waypointsPatrulla.Count);
+                }
+                waypointActual = waypointsPatrulla[rand];
+                nav.destination = waypointActual.position;
             }
-
-            waypointActual = waypointsPatrulla[rand];
-            nav.destination = waypointActual.position;
         }
 
         //Si está cerca del jugador se alerta ( y no esta muerto )
         if (Vector3.Distance(transform.position, player.transform.position) < radioDeteccion &&
-            Vector3.Distance(transform.position, player.transform.position) > 0.1f && !player.GetComponent<PlayerController>().dead)
+            Vector3.Distance(transform.position, player.transform.position) > 0.1f /*&& !player.GetComponent<PlayerController>().dead*/)
         {
             estadoActual = EstadosEnemigo.Alerta;  
         }
@@ -164,12 +166,12 @@ public class EnemigoController : MonoBehaviour
             estadoActual = EstadosEnemigo.Ataque;
         }
 
-        if (player.GetComponent<PlayerController>().dead)
+        /*if (player.GetComponent<PlayerController>().dead)
         {
             waypointActual = waypointsPatrulla[Random.Range(0, waypointsPatrulla.Count)];
             nav.destination = waypointActual.position;
             estadoActual = EstadosEnemigo.Patrulla;
-        }
+        }*/
     }
 
     void Ataque()
@@ -182,12 +184,12 @@ public class EnemigoController : MonoBehaviour
             ataqueCoroutine = StartCoroutine(EjecutarUnAtaque());
         }
 
-        if (player.GetComponent<PlayerController>().dead)
+        /*if (player.GetComponent<PlayerController>().dead)
         {
             waypointActual = waypointsPatrulla[Random.Range(0, waypointsPatrulla.Count)];
             nav.destination = waypointActual.position;
             estadoActual = EstadosEnemigo.Patrulla;
-        } 
+        } */
     }
 
     IEnumerator EjecutarUnAtaque()

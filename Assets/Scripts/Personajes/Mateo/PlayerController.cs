@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement playerMov;
     private float tiempo;
     private Animator animator;
+    private Coroutine fadeCoroutine;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -76,11 +77,16 @@ public class PlayerController : MonoBehaviour
         //Sentarse
         if(other.gameObject.tag == "SitZone")
         {
+            SpriteRenderer icono = other.transform.parent.GetChild(3).gameObject.GetComponentInChildren<SpriteRenderer>();
+            fadeCoroutine = StartCoroutine(fade(icono, 1f, true));
+
             if(Input.GetKeyDown(gameManager.hablar) && !animator.GetBool("Sitting"))
             {
                 Debug.Log("sentarse");
                 //Si no esta sentado que se siente
                 animator.SetBool("Sitting", true);
+                StopCoroutine(fadeCoroutine);
+                fadeCoroutine = StartCoroutine(fade(icono, 1f, false));
                 playerMov.canMove = false;
             }
 
@@ -99,6 +105,38 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "SitZone")
+        {
+            SpriteRenderer icono = other.transform.parent.GetChild(3).gameObject.GetComponentInChildren<SpriteRenderer>();
+            StartCoroutine(fade(icono, 1f, false));
+        }
+            
+    }
+
+    IEnumerator fade(SpriteRenderer MyRenderer, float duration, bool fadeIn)
+    {
+        float counter = 0;
+        //Get current color
+        Color spriteColor = MyRenderer.material.color;
+
+        while (counter < duration)
+        {
+            counter += Time.deltaTime;
+            float alpha;
+            //Fade from 1 to 0 or viceversa
+            if (fadeIn) alpha = Mathf.Lerp(0, 1, counter / duration);
+            else alpha = Mathf.Lerp(1, 0, counter / duration);
+
+            //Change alpha only
+            MyRenderer.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
+            //Wait for a frame
+            yield return null;
+        }
+    }
+
     private void Atacar()
     {
         GameObject espada = gameManager.objetoEnMano;
@@ -110,7 +148,7 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * rangoAtaque, Color.red, 0.5f);
 
         // Comprueba si el rayo colisiona con algún objeto en la capa de los enemigos
-        if (Physics.Raycast(ray, out hit, rangoAtaque, enemyLayer))
+        if (Physics.Raycast(ray, out hit, rangoAtaque, enemyLayer, QueryTriggerInteraction.Collide))
         {
             // Obtiene el componente del enemigo
             EnemigoController enemyHealth = hit.collider.GetComponentInParent<EnemigoController>();
