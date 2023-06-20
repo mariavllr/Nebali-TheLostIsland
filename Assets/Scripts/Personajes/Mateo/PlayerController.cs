@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("Vida")]
     [SerializeField] public int vida = 5;
     private int vidaActual;
+    public bool dead = false;
     [SerializeField] GameObject vidasContainer;
     [SerializeField] GameObject prefabCorazon;
     [SerializeField] List<Vector3> posicionInicialZonas;
@@ -70,8 +71,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        //Sentarse
+        if(other.gameObject.tag == "SitZone")
+        {
+            if(Input.GetKeyDown(gameManager.hablar) && !animator.GetBool("Sitting"))
+            {
+                Debug.Log("sentarse");
+                //Si no esta sentado que se siente
+                animator.SetBool("Sitting", true);
+                playerMov.canMove = false;
+            }
+
+            else if (Input.GetKeyUp(gameManager.hablar) && animator.GetBool("Sitting") && animator.GetCurrentAnimatorStateInfo(0).IsName("Sitting Idle"))
+            {
+                Debug.Log("levantarse");
+                //Si esta sentado que se levante
+                animator.SetBool("Sitting", false);
+            }
+        }
+
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Happy Idle"))
+        {
+            playerMov.canMove = true;
+        }
+
+    }
+
     private void Atacar()
     {
+        GameObject espada = gameManager.objetoEnMano;
+
         // Lanza un rayo desde la posición y la dirección del jugador
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
@@ -89,6 +120,7 @@ public class PlayerController : MonoBehaviour
             {
                 // Reduce la vida del enemigo
                 enemyHealth.TakeDamage(dañoAtaque);
+                espada.transform.GetChild(espada.transform.childCount-1).gameObject.GetComponent<ParticleSystem>().Play();
             }
         }
         
@@ -97,17 +129,20 @@ public class PlayerController : MonoBehaviour
             animator.Play("Attack"); //reiniciar si ya estaba atacando
 
         }
-        else animator.SetTrigger("Attack"); 
+        else animator.SetTrigger("Attack");
 
+        //Ejecutar vfx random de la espada, excepto el ultimo que es el hit
         
+        espada.transform.GetChild(Random.Range(0, espada.transform.childCount-1)).gameObject.GetComponent<ParticleSystem>().Play();
 
     }
 
     private IEnumerator Reiniciar()
     {
         vidaActual = vida;
-
+        dead = true;
         yield return new WaitForSeconds(5);
+        gameObject.GetComponent<CharacterController>().enabled = false;
 
         DibujarCorazones();
 
@@ -128,6 +163,8 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("PassOut", false);
         playerMov.canMove = true;
+        dead = false;
+        gameObject.GetComponent<CharacterController>().enabled = true;
 
     }
 
@@ -146,12 +183,12 @@ public class PlayerController : MonoBehaviour
         if (hit.gameObject.tag == "Enemigo")
         {
             EnemigoController enemigo = hit.gameObject.GetComponent<EnemigoController>();
-            if (tiempo >= enemigo.tiempoAtaque && vidaActual != 0)
-            {              
+            if (tiempo >= enemigo.tiempoAtaque && vidaActual > 0)
+            {
+                animator.SetTrigger("Hit");
                 vidaActual -= enemigo.dañoAtaque;
                 tiempo = 0;
                 Destroy(vidasContainer.transform.GetChild(0).gameObject);
-                animator.SetTrigger("Hit");
             } 
         }
     }

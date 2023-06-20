@@ -12,6 +12,8 @@ TagManager:
   - PuntoLanzamiento
   - PuntoLazamiento
   - Pez
+  - FxTemporaire
+  - SitZone
   layers:
   - Default
   - TransparentFX

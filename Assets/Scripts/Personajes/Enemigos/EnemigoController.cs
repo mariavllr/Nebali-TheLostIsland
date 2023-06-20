@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemigoController : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] GameObject modelo;
 
     [Header("Patrulla")]
     public List<Transform> waypointsPatrulla;
@@ -16,6 +17,7 @@ public class EnemigoController : MonoBehaviour
     public Animator iconAnimator;
 
     [Header("Ataque")]
+    public bool muerto = false;
     public int vida;
     public int dañoAtaque; //El daño que hará al otro cada vez que le toque
     public float tiempoAtaque; //El tiempo que tiene que esperar entre cada ataque (sino al tocarlo quitaría todos los corazones de una)
@@ -23,6 +25,9 @@ public class EnemigoController : MonoBehaviour
     public float radioDeteccion; //Radio donde detecta al jugador
     public float fuerzaImpulsoAtaque; //Lo que se impulsa al jugador cuando le ataca
     public float fuerzaImpulsoRecibeDaño; //Lo que se echa hacia atrás cuando le pegan
+
+    [Header("VFX")]
+    [SerializeField] ParticleSystem explosion;
 
     private Coroutine ataqueCoroutine;
     [SerializeField] private Color colorAtacado;
@@ -32,9 +37,9 @@ public class EnemigoController : MonoBehaviour
     private NavMeshAgent nav;
     [SerializeField] private MeshRenderer mrenderer;
     private Rigidbody rb;
-    private EstadosEnemigo estadoActual;
+    public EstadosEnemigo estadoActual;
 
-    private enum EstadosEnemigo
+    public enum EstadosEnemigo
     {
         Patrulla,
         Alerta,
@@ -55,33 +60,46 @@ public class EnemigoController : MonoBehaviour
     }
 
     void Update()
-    {      
-        if(vida <= 0)
+    {
+        if (!muerto)
         {
-            nav.enabled = false;
-            Destroy(gameObject);
+            if(vida == 0)
+            {
+                Morir();
+            }
+
+            switch (estadoActual)
+            {
+                case EstadosEnemigo.Patrulla:
+                    Patrulla();
+                    break;
+                case EstadosEnemigo.Alerta:
+                    Alerta();
+                    break;
+                case EstadosEnemigo.Ataque:
+                    Ataque();
+                    break;
+                default:
+                    break;
+            }
         }
 
-        switch (estadoActual)
-        {
-            case EstadosEnemigo.Patrulla:
-                Patrulla();
-                break;
-            case EstadosEnemigo.Alerta:
-                Alerta();
-                break;
-            case EstadosEnemigo.Ataque:
-                Ataque();
-                break;
-            default:
-                break;
-        }
     }
 
 
     public void TakeDamage(int daño)
     {
         StartCoroutine(Daño(daño));
+    }
+
+    void Morir()
+    {
+        Debug.Log("Muerto!");
+        muerto = true;
+        Destroy(modelo);
+        explosion.gameObject.SetActive(true);
+        explosion.Play();
+        nav.enabled = false;
     }
 
     IEnumerator Daño(int dañoRecibido)
@@ -100,7 +118,7 @@ public class EnemigoController : MonoBehaviour
     {
         
         //Si se ha llegado al waypoint, elegir un nuevo waypoint y repetir
-        if (Vector3.Distance(transform.position, waypointActual.position) < 2)
+        if (Vector3.Distance(transform.position, waypointActual.position) < 3)
         {
             int rand = Random.Range(0, waypointsPatrulla.Count); 
             //Si ha salido el que ya estaba, repite
@@ -113,9 +131,9 @@ public class EnemigoController : MonoBehaviour
             nav.destination = waypointActual.position;
         }
 
-        //Si está cerca del jugador se alerta
+        //Si está cerca del jugador se alerta ( y no esta muerto )
         if (Vector3.Distance(transform.position, player.transform.position) < radioDeteccion &&
-            Vector3.Distance(transform.position, player.transform.position) > 0.1f)
+            Vector3.Distance(transform.position, player.transform.position) > 0.1f && !player.GetComponent<PlayerController>().dead)
         {
             estadoActual = EstadosEnemigo.Alerta;  
         }
@@ -145,6 +163,13 @@ public class EnemigoController : MonoBehaviour
             nav.isStopped = false;
             estadoActual = EstadosEnemigo.Ataque;
         }
+
+        if (player.GetComponent<PlayerController>().dead)
+        {
+            waypointActual = waypointsPatrulla[Random.Range(0, waypointsPatrulla.Count)];
+            nav.destination = waypointActual.position;
+            estadoActual = EstadosEnemigo.Patrulla;
+        }
     }
 
     void Ataque()
@@ -156,6 +181,13 @@ public class EnemigoController : MonoBehaviour
         {
             ataqueCoroutine = StartCoroutine(EjecutarUnAtaque());
         }
+
+        if (player.GetComponent<PlayerController>().dead)
+        {
+            waypointActual = waypointsPatrulla[Random.Range(0, waypointsPatrulla.Count)];
+            nav.destination = waypointActual.position;
+            estadoActual = EstadosEnemigo.Patrulla;
+        } 
     }
 
     IEnumerator EjecutarUnAtaque()

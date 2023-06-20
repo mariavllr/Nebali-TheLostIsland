@@ -9,6 +9,9 @@ public class Anzuelo : MonoBehaviour
     {
         if (collision.gameObject.tag == "Agua")
         {
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+
             tocaAgua = true;
             Rigidbody rb = GetComponent<Rigidbody>();
             rb.mass = 100;

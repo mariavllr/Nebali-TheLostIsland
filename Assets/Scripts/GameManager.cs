@@ -266,12 +266,13 @@ public class GameManager : MonoBehaviour
 
     public void MenuPrincipal()
     {
+        Time.timeScale = 1;
         cinemachineSwitcher.SwitchPriority("ThirdPerson");
 
         zonaActual = Zona.Menu;
         menuInicial.SetActive(true);
         canvasPausa.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         CambiarCancion();   
     }
 

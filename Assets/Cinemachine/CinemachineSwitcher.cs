@@ -22,6 +22,7 @@ public class CinemachineSwitcher : MonoBehaviour
 
         else if (state == "ThirdPerson")
         {
+            Debug.Log("Cambio a camara menu");
             //3 persona -> Menu
             vcam1.Priority = 1;
             vcam2.Priority = 0;
