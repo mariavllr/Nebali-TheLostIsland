@@ -10,7 +10,9 @@ Material:
   m_Name: Gato
   m_Shader: {fileID: -6465566751694194690, guid: bf36778a400a0894b86a1f49c422fa62,
     type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _MAIN_LIGHT_SHADOWS
+  - _MAIN_LIGHT_SHADOWS_CASCADE
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -90,6 +92,8 @@ Material:
     - _GlossyReflections: 0
     - _LIGHTMAP: 1
     - _LightProbeContribution: 5
+    - _MAIN_LIGHT_SHADOWS: 1
+    - _MAIN_LIGHT_SHADOWS_CASCADE: 1
     - _Metallic: 0
     - _NormalSensitivity: 0.8
     - _OcclusionStrength: 1

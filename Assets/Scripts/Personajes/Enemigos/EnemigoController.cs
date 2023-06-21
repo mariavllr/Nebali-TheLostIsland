@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemigoController : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] GameObject player;
     [SerializeField] GameObject modelo;
 
@@ -95,6 +96,26 @@ public class EnemigoController : MonoBehaviour
     void Morir()
     {
         Debug.Log("Muerto!");
+
+        string zona = transform.parent.tag;
+
+        switch (zona)
+        {
+            case "ZonaBosque":
+                gameManager.enemigosBosque--;
+                break;
+            case "ZonaPueblo":
+                gameManager.enemigosPueblo--;
+                break;
+            case "ZonaGranja":
+                gameManager.enemigosGranja--;
+                break;
+            default:
+                Debug.Log("Error! No es de ninguna zona el enemigo");
+                break;
+        }
+
+
         muerto = true;
         Destroy(modelo);
         explosion.gameObject.SetActive(true);

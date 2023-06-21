@@ -28,8 +28,19 @@ public class GameManager : MonoBehaviour
     public GameObject mano;
     public bool tieneObjetoEnMano = false;
 
-    /*[Header("Misiones")]
-    public List<bool> misionesCompletadas;*/
+    [Header("Enemigos y mision principal")]
+
+    [SerializeField] private List<GameObject> listaEnemigosBosque;
+    [SerializeField] private List<GameObject> listaEnemigosPueblo;
+    [SerializeField] private List<GameObject> listaEnemigosGranja;
+
+    [HideInInspector] public int enemigosBosque;
+    [HideInInspector] public int enemigosPueblo;
+    [HideInInspector] public int enemigosGranja;
+
+    [SerializeField] GameObject gemaVerde;
+    [SerializeField] GameObject gemaRoja;
+    [SerializeField] GameObject gemaAmarilla;
 
     [Header("Musica")]
     [SerializeField] List<AudioClip> canciones;
@@ -97,6 +108,10 @@ public class GameManager : MonoBehaviour
        // canciones = new List<AudioClip>();
         playerMov = player.GetComponentInChildren<PlayerMovement>();
         cinemachineSwitcher = GetComponent<CinemachineSwitcher>();
+
+        enemigosBosque = listaEnemigosBosque.Count;
+        enemigosGranja = listaEnemigosGranja.Count;
+        enemigosPueblo = listaEnemigosPueblo.Count;
     }
 
     void Update()
@@ -110,6 +125,9 @@ public class GameManager : MonoBehaviour
         else
         {
             containerCorazones.SetActive(true);
+
+            //Mision principal
+            ComprobarMisionPrincipal();
 
             //Inventario
 
@@ -148,6 +166,24 @@ public class GameManager : MonoBehaviour
                 Debug.Log("pausa");
                 PausarJuego();
             }
+        }
+    }
+
+    void ComprobarMisionPrincipal()
+    {
+        if(enemigosBosque == 0)
+        {
+            gemaRoja.SetActive(true);
+        }
+
+        else if(enemigosPueblo == 0)
+        {
+            gemaVerde.SetActive(true);
+        }
+
+        else if(enemigosGranja == 0)
+        {
+            gemaAmarilla.SetActive(true);
         }
     }
 
