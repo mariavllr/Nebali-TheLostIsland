@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Final
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 30d45294-8a35-4e67-a370-f180b7f6c473
+    PortName: Next
+    TargetNodeGUID: 37fd12f8-bd8b-46a9-bdda-80263c8cd4cf
+  - BaseNodeGUID: 37fd12f8-bd8b-46a9-bdda-80263c8cd4cf
+    PortName: Continuar
+    TargetNodeGUID: bd4f734f-4e47-4615-baf4-06715754c1a6
+  - BaseNodeGUID: bd4f734f-4e47-4615-baf4-06715754c1a6
+    PortName: Continuar
+    TargetNodeGUID: 051f4d2b-97d4-416b-924b-7b044565088d
+  - BaseNodeGUID: 051f4d2b-97d4-416b-924b-7b044565088d
+    PortName: He liberado la isla
+    TargetNodeGUID: b2d70fbe-70c7-4289-8ed3-e3525dba9b8d
+  - BaseNodeGUID: b2d70fbe-70c7-4289-8ed3-e3525dba9b8d
+    PortName: Continuar
+    TargetNodeGUID: 78a26041-69d9-4164-b229-c69e1e411f5d
+  - BaseNodeGUID: 78a26041-69d9-4164-b229-c69e1e411f5d
+    PortName: Continuar
+    TargetNodeGUID: eea56467-838d-456d-bfaa-772431d38d5e
+  - BaseNodeGUID: eea56467-838d-456d-bfaa-772431d38d5e
+    PortName: Continuar
+    TargetNodeGUID: 217b8d6f-5cb6-49e4-9b14-036380e3408b
+  - BaseNodeGUID: 217b8d6f-5cb6-49e4-9b14-036380e3408b
+    PortName: Continuar
+    TargetNodeGUID: 7e5f646a-8069-498d-8744-921ab8e5643a
+  - BaseNodeGUID: 7e5f646a-8069-498d-8744-921ab8e5643a
+    PortName: Continuar
+    TargetNodeGUID: dcc55e5a-5474-4bb6-8f0d-cc48ac75a925
+  - BaseNodeGUID: dcc55e5a-5474-4bb6-8f0d-cc48ac75a925
+    PortName: Continuar
+    TargetNodeGUID: 7337ad5e-375f-499d-8102-307aa5ca90f7
+  - BaseNodeGUID: 7337ad5e-375f-499d-8102-307aa5ca90f7
+    PortName: Volver a casa
+    TargetNodeGUID: 3d3fbbf3-a738-4543-a253-9784b5b92b6d
+  - BaseNodeGUID: 3d3fbbf3-a738-4543-a253-9784b5b92b6d
+    PortName: Continuar
+    TargetNodeGUID: bdc80356-56a1-4bed-9ac2-4d232b856741
+  - BaseNodeGUID: bdc80356-56a1-4bed-9ac2-4d232b856741
+    PortName: "Adi\xF3s"
+    TargetNodeGUID: a59afc00-a4bf-489c-b0f7-8a6cca45f780
+  - BaseNodeGUID: a59afc00-a4bf-489c-b0f7-8a6cca45f780
+    PortName: Fin
+    TargetNodeGUID: 8df9b446-c603-4ce2-a47b-b5861a6bdbf6
+  - BaseNodeGUID: 7337ad5e-375f-499d-8102-307aa5ca90f7
+    PortName: "Quedarme aqu\xED"
+    TargetNodeGUID: 13529c02-eb37-4c98-ac90-fe5638db8e91
+  - BaseNodeGUID: 13529c02-eb37-4c98-ac90-fe5638db8e91
+    PortName: Conntinuar
+    TargetNodeGUID: 099842fb-e12c-4084-8978-fe409f128e02
+  - BaseNodeGUID: 099842fb-e12c-4084-8978-fe409f128e02
+    PortName: Continuar
+    TargetNodeGUID: 6adab066-4def-4981-90fb-5ec79fcb61da
+  - BaseNodeGUID: 6adab066-4def-4981-90fb-5ec79fcb61da
+    PortName: Continuar
+    TargetNodeGUID: 5d3ad62d-f939-4bed-8dea-f59f1764ed5d
+  - BaseNodeGUID: 5d3ad62d-f939-4bed-8dea-f59f1764ed5d
+    PortName: Fin
+    TargetNodeGUID: 4dc70d5e-27d8-4315-a997-32b32ada2593
+  DialogueNodeData:
+  - NodeGUID: 37fd12f8-bd8b-46a9-bdda-80263c8cd4cf
+    characterName: Nebali
+    DialogueText: "Oh. vaya... Cu\xE1nto tiempo."
+    Position: {x: 247.2, y: 186.4}
+  - NodeGUID: bd4f734f-4e47-4615-baf4-06715754c1a6
+    characterName: Nebali
+    DialogueText: Llevaba mucho tiempo sin ver la luz. Y la verdad es que hace un
+      poco de fresquito.
+    Position: {x: 560.8, y: 186.4}
+  - NodeGUID: 051f4d2b-97d4-416b-924b-7b044565088d
+    characterName: Nebali
+    DialogueText: "Bueno, \xBFqu\xE9 te trae por aqu\xED? Veo que no eres exactamente
+      lo que me esperaba."
+    Position: {x: 1227.2, y: 186.4}
+  - NodeGUID: b2d70fbe-70c7-4289-8ed3-e3525dba9b8d
+    characterName: Mateo
+    DialogueText: "Es una larga historia pero soy humano, vengo de otro lado lejano
+      pero naufragu\xE9 aqu\xED. Los aldeanos me han dicho que t\xFA me pod\xEDas
+      ayudar."
+    Position: {x: 1868, y: 186.4}
+  - NodeGUID: 78a26041-69d9-4164-b229-c69e1e411f5d
+    characterName: Nebali
+    DialogueText: "Entiendo... La isla ha pasado por malos momentos \xFAltimamente
+      pero has sabido conectar con ella."
+    Position: {x: 2853.6, y: 186.4}
+  - NodeGUID: eea56467-838d-456d-bfaa-772431d38d5e
+    characterName: Nebali
+    DialogueText: "Siento la energ\xEDa, la vibra ha cambiado... Has sabido escuchar
+      y ser escuchado. Eres buena persona, chico. Lo puedo sentir."
+    Position: {x: 3570.4, y: 186.4}
+  - NodeGUID: 217b8d6f-5cb6-49e4-9b14-036380e3408b
+    characterName: Nebali
+    DialogueText: "i tambi\xE9n siento algo m\xE1s... Nunca te hab\xEDas enfrentado
+      a algo as\xED, nunca hab\xEDas salido de tu zona de confort. Deseabas una aventura,
+      pero tal vez no tan dr\xE1stica. \xBFMe equivoco?"
+    Position: {x: 4445.6, y: 186.4}
+  - NodeGUID: 7e5f646a-8069-498d-8744-921ab8e5643a
+    characterName: Nebali
+    DialogueText: " Ya eres mayor, Mateo. No eres un cr\xEDo, y debes enfrentarte
+      a la vida. Has descubierto que no es f\xE1cil. Encajar, dejar atr\xE1s una
+      vida, integrarte y ser feliz es complicado. Y lo has conseguido."
+    Position: {x: 5635.2, y: 186.4}
+  - NodeGUID: dcc55e5a-5474-4bb6-8f0d-cc48ac75a925
+    characterName: Nebali
+    DialogueText: "No te doy m\xE1s la chapa, espero que esta experiencia te haya
+      servido para sanar tu interior. Puedo devolverte a casa pero con una condici\xF3n,
+      no recordar\xE1s nada de lo que ha pasado."
+    Position: {x: 6883.2, y: 186.4}
+  - NodeGUID: 7337ad5e-375f-499d-8102-307aa5ca90f7
+    characterName: Nebali
+    DialogueText: "El peor enemigo de nuestro para\xEDso ser\xEDa su descubrimiento.
+      No podemos confiar en que alguien salga de aqu\xED y desvele nuestro hogar.
+      Entonces, \xBFcu\xE1l ser\xE1 tu deseo, Mateo?"
+    Position: {x: 8090.4, y: 186.4}
+  - NodeGUID: 3d3fbbf3-a738-4543-a253-9784b5b92b6d
+    characterName: Mateo
+    DialogueText: "Yo... Siento que he vivido algo incre\xEDble aqu\xED, pero necesito
+      volver a casa. Aunque no recuerde esto, lo que he aprendido se quedar\xE1 en
+      mi interior para siempre."
+    Position: {x: 9248, y: 46.399998}
+  - NodeGUID: bdc80356-56a1-4bed-9ac2-4d232b856741
+    characterName: Nebali
+    DialogueText: "Sabia decisi\xF3n, amigo. Ha sido un placer mostrarte nuestra
+      vida y espero que en la otra vida coincidamos de nuevo. Adi\xF3s, Mateo."
+    Position: {x: 10327.2, y: 46.399998}
+  - NodeGUID: a59afc00-a4bf-489c-b0f7-8a6cca45f780
+    characterName: Mateo
+    DialogueText: "Adi\xF3s... Y gracias por todo."
+    Position: {x: 11248.8, y: 46.399998}
+  - NodeGUID: 8df9b446-c603-4ce2-a47b-b5861a6bdbf6
+    characterName: Nebali
+    DialogueText: CerrarDialogo
+    Position: {x: 11576, y: 46.399998}
+  - NodeGUID: 13529c02-eb37-4c98-ac90-fe5638db8e91
+    characterName: Mateo
+    DialogueText: ".No... No puedo olvidar lo que he vivido aqu\xED. He aprendido
+      demasiadas cosas. Echo de menos a mi familia, pero s\xE9 que all\xED volver\xE9
+      a la granja y nunca saldr\xE9 de casa."
+    Position: {x: 9279.2, y: 268}
+  - NodeGUID: 099842fb-e12c-4084-8978-fe409f128e02
+    characterName: Nebali
+    DialogueText: "Entonces, \xBFno quieres que cumpla tu deseo?"
+    Position: {x: 10401.6, y: 268}
+  - NodeGUID: 6adab066-4def-4981-90fb-5ec79fcb61da
+    characterName: Mateo
+    DialogueText: "Creo que debo de pensarmelo mejor. No estoy preparado para volver
+      y aqu\xED he sentido algo que no hab\xEDa sentido jam\xE1s."
+    Position: {x: 10827.2, y: 268}
+  - NodeGUID: 5d3ad62d-f939-4bed-8dea-f59f1764ed5d
+    characterName: Nebali
+    DialogueText: "Curiosa decisi\xF3n... Tu energ\xEDa es pura, y tu coraz\xF3n
+      grande. Te esperar\xE9 aqu\xED si cambias de decisi\xF3n. Buen viaje."
+    Position: {x: 11661.6, y: 268}
+  - NodeGUID: 4dc70d5e-27d8-4315-a997-32b32ada2593
+    characterName: Nebali
+    DialogueText: CerrarDialogo
+    Position: {x: 12466.4, y: 268}
+  ExposedProperties: []
+  CommentBlockData: []

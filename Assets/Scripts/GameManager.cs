@@ -143,7 +143,12 @@ public class GameManager : MonoBehaviour
                 tieneObjetoEnMano = true;
             }
 
-            else tieneObjetoEnMano = false;
+            else
+            {
+                tieneObjetoEnMano = false;
+                objetoEnMano = null;
+            }
+            
 
             if (Input.GetKeyDown(abrirInventario) && !inventario.activeInHierarchy)
             {
@@ -199,11 +204,6 @@ public class GameManager : MonoBehaviour
             granjaSuperado = true;
             cinemachineSwitcher.SwitchPriority("VerGemaGranja");
             MostrarMensaje("Nuevo icono en el mapa.");
-        }
-
-        if(bosqueSuperado && puebloSuperado && granjaSuperado)
-        {
-            Debug.Log("FIN!!");
         }
     }
 

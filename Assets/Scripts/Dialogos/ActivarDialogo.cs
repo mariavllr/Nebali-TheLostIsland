@@ -32,7 +32,7 @@ public class ActivarDialogo : MonoBehaviour
         //Si el icono de hablar está activo, no hay un diálogo ya abierto y se pulsa espacio, se abre el diálogo
         if (ActivarIconoConversacion())
         {
-            gameObject.transform.forward = Vector3.Lerp(gameObject.transform.forward, -player.transform.forward, Time.deltaTime * 3f);
+            if(gameObject.tag != "Nebali") gameObject.transform.forward = Vector3.Lerp(gameObject.transform.forward, -player.transform.forward, Time.deltaTime * 3f);
             //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "AppearIcon" && 
             /*if (activarSonido)
             {
@@ -63,6 +63,9 @@ public class ActivarDialogo : MonoBehaviour
 
                         gameObject.GetComponent<Animator>().SetBool("IsFishing", false);
 
+                        break;
+                    case "NEBALI":
+                        managerDialogos.CambiarDialogo(gameObject.GetComponent<Nebali>().miProximoDialogo);
                         break;
                 }
                 

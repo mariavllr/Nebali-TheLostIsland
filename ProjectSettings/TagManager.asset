@@ -17,6 +17,10 @@ TagManager:
   - ZonaBosque
   - ZonaPueblo
   - ZonaGranja
+  - GemaVerde
+  - GemaRoja
+  - GemaAmarilla
+  - Nebali
   layers:
   - Default
   - TransparentFX

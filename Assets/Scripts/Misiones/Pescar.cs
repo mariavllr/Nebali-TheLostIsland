@@ -32,38 +32,42 @@ public class Pescar : MonoBehaviour
     void Update()
     {
         //Si tiene la caña en la mano, entonces puede pescar.
-        if (gameManager.tieneObjetoEnMano && gameManager.objetoEnMano.tag == "CanaPescar")
+        if (gameManager.tieneObjetoEnMano)
         {
-            if (Input.GetKeyDown(gameManager.hablar))
+            if(gameManager.objetoEnMano != null && gameManager.objetoEnMano.tag == "CanaPescar")
             {
-                clicks++;
-                if (elegirImpulso && anzueloLanzado == null && clicks == 1)
+                if (Input.GetKeyDown(gameManager.hablar))
                 {
-                    Debug.Log("elegir impulso");
-                    sliderImpulso.gameObject.SetActive(true);
-                    elegirImpulso = false;
+                                clicks++;
+                                if (elegirImpulso && anzueloLanzado == null && clicks == 1)
+                                {
+                                    Debug.Log("elegir impulso");
+                                    sliderImpulso.gameObject.SetActive(true);
+                                    elegirImpulso = false;
+                                }
+
+                                else if (anzueloLanzado != null && lanzado && !elegirImpulso && clicks == 3)
+                                {
+                                    RecogerCanya();
+                                }
                 }
 
-                else if (anzueloLanzado != null && lanzado && !elegirImpulso && clicks == 3)
-                {
-                    RecogerCanya();
-                }
-            }
+                            if (sliderImpulso.gameObject.activeInHierarchy && !lanzado)
+                            {
+                                CalcularSliderImpulso();
+                            }
 
-            if (sliderImpulso.gameObject.activeInHierarchy && !lanzado)
-            {
-                CalcularSliderImpulso();
-            }
+                            if (anzueloLanzado == null && clicks == 2)
+                            {
+                                lanzado = false;
+                                elegirImpulso = true;
+                                sliderImpulso.gameObject.SetActive(false);
+                                clicks = 0;
+                            }
 
-            if (anzueloLanzado == null && clicks == 2)
-            {
-                lanzado = false;
-                elegirImpulso = true;
-                sliderImpulso.gameObject.SetActive(false);
-                clicks = 0;
+                            //corregir bug a veces el anzuelo se pira por ahi lejos
             }
-
-            //corregir bug a veces el anzuelo se pira por ahi lejos
+            
         }
     }
 

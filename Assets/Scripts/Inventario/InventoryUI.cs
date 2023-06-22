@@ -24,6 +24,8 @@ public class InventoryUI : MonoBehaviour
         foreach(Transform t in container.transform)
         {
             Destroy(t.gameObject);
+            descripcion.text = "";
+            foto.enabled = false;
         }
         //Dibujar inventario      
 
@@ -49,11 +51,11 @@ public class InventoryUI : MonoBehaviour
         foto.sprite = item.data.icon;
 
 
-        //Comprobar si el jugador tenía un objeto en la mano (que no es el mismo) y quitarlo de ser así
-        if(gameManager.tieneObjetoEnMano && gameManager.objetoEnMano != objeto)
+        //Comprobar si el jugador tenía un objeto en la mano y quitarlo de ser así
+        if(gameManager.tieneObjetoEnMano)
         {
-            Destroy(gameManager.objetoEnMano);
             gameManager.tieneObjetoEnMano = false;
+            Destroy(gameManager.objetoEnMano); 
         }
         //Poner objeto en la mano del jugador
         GameObject selectedObject = Instantiate(objeto, gameManager.mano.transform);

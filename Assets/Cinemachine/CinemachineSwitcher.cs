@@ -11,6 +11,7 @@ public class CinemachineSwitcher : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera vcamGemaBosque;
     [SerializeField] private CinemachineVirtualCamera vcamGemaPueblo;
     [SerializeField] private CinemachineVirtualCamera vcamGemaGranja;
+    [SerializeField] private CinemachineVirtualCamera vcamFinal;
 
     //Se le llama en el Menu, cuando se pulsa el boton Comenzar
     public void SwitchPriority(string state)
@@ -33,20 +34,22 @@ public class CinemachineSwitcher : MonoBehaviour
 
         else if (state == "VerGemaBosque")
         {
-            Debug.Log("Camara gema bosque");
-            StartCoroutine(CamaraGemas(vcamGemaBosque, 5));
+            StartCoroutine(CamaraGemas(vcamGemaBosque, 4));
         }
 
         else if (state == "VerGemaPueblo")
         {
-            Debug.Log("Camara gema pueblo");
-            StartCoroutine(CamaraGemas(vcamGemaPueblo, 5));
+            StartCoroutine(CamaraGemas(vcamGemaPueblo, 4));
         }
 
         else if (state == "VerGemaGranja")
         {
-            Debug.Log("Camara gema granja");
-            StartCoroutine(CamaraGemas(vcamGemaGranja, 5));
+            StartCoroutine(CamaraGemas(vcamGemaGranja, 4));
+        }
+
+        else if (state == "VerFinal")
+        {
+            StartCoroutine(CamaraGemas(vcamFinal, 4));
         }
     }
 
