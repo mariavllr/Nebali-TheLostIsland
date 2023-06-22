@@ -15,5 +15,5 @@ MonoBehaviour:
   id: GemaAmarilla_InventoryItem
   displayName: Gema del bosque
   icon: {fileID: 21300000, guid: cd09ba37935ad6a4e8a93b3758641f85, type: 3}
-  prefab: {fileID: 526937336407005185, guid: 7abcac5adad898445af757205cc2b961, type: 3}
+  prefab: {fileID: 6129076504390224967, guid: 4bc4f1a84a8438d4db6f82502773418b, type: 3}
   description: "Una gema que surgi\xF3 de la granja. Brilla mucho..."

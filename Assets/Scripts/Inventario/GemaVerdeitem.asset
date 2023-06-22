@@ -15,5 +15,5 @@ MonoBehaviour:
   id: GemaVerde_InventoryItem
   displayName: Gema del bosque
   icon: {fileID: 21300000, guid: 6ed713c66402d134583509a1bfe84294, type: 3}
-  prefab: {fileID: 1041397325192115408, guid: 4d8d2d4e2d4f20d41865987a4b2510cb, type: 3}
+  prefab: {fileID: 512330438068006169, guid: f19778a157cee534386a4da3ae384695, type: 3}
   description: "Esta gema apareci\xF3 en el pueblo. \xBFQu\xE9 significar\xE1?"

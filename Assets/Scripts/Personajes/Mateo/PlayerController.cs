@@ -89,12 +89,13 @@ public class PlayerController : MonoBehaviour
                 //Si esta sentado que se levante
                 animator.SetBool("Sitting", false);
             }
+
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Happy Idle"))
+            {
+                playerMov.canMove = true;
+            }
         }
 
-        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Happy Idle"))
-        {
-            playerMov.canMove = true;
-        }
 
     }
 

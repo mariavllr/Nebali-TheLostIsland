@@ -15,6 +15,6 @@ MonoBehaviour:
   id: GemaRoja_InventoryItem
   displayName: Gema del bosque
   icon: {fileID: 21300000, guid: 9b0c8b1df4ffcf54fb52e52874dfe60c, type: 3}
-  prefab: {fileID: 2533439572045288655, guid: 337bf90c98197a24fa36c76ff2e6f621, type: 3}
+  prefab: {fileID: 8122128271324576482, guid: b0376fa45d6fb034bbae4bf22e0b5d7c, type: 3}
   description: "Una brillante gema roja que apareci\xF3 en el bosque cuando derrot\xE9
     a esos bichos."
