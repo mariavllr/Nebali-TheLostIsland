@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8024958541678287837}
   - component: {fileID: 6434554951224442474}
   - component: {fileID: 4546201997577417260}
+  - component: {fileID: 8735990443954240513}
+  - component: {fileID: 2846793100695860058}
   m_Layer: 0
   m_Name: rojo
   m_TagString: Untagged
@@ -83,3 +85,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8735990443954240513
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533439572045288655}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.0633337, y: 4.753621, z: 2.309557}
+  m_Center: {x: 4.595627, y: 1.6293336, z: 0.10138106}
+--- !u!114 &2846793100695860058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533439572045288655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27fc86ab95c8ff429839566232cc04a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceItem: {fileID: 11400000, guid: 00d7c334a90b0ab4aa0b711a19d9addb, type: 2}

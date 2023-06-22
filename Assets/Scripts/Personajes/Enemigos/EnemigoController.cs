@@ -66,7 +66,8 @@ public class EnemigoController : MonoBehaviour
         {
             if(vida == 0)
             {
-                Morir();
+                StopAllCoroutines();
+                StartCoroutine(Morir());
             }
 
             switch (estadoActual)
@@ -93,9 +94,10 @@ public class EnemigoController : MonoBehaviour
         StartCoroutine(Daño(daño));
     }
 
-    void Morir()
+    IEnumerator Morir()
     {
-        Debug.Log("Muerto!");
+        muerto = true;
+        nav.enabled = false;
 
         string zona = transform.parent.tag;
 
@@ -103,29 +105,33 @@ public class EnemigoController : MonoBehaviour
         {
             case "ZonaBosque":
                 gameManager.enemigosBosque--;
+                Debug.Log("Enemigos bosque: " + gameManager.enemigosBosque);
                 break;
             case "ZonaPueblo":
                 gameManager.enemigosPueblo--;
+                Debug.Log("Enemigos pueblo: " + gameManager.enemigosPueblo);
                 break;
             case "ZonaGranja":
                 gameManager.enemigosGranja--;
+                Debug.Log("Enemigos granja: " + gameManager.enemigosGranja);
                 break;
             default:
                 Debug.Log("Error! No es de ninguna zona el enemigo");
                 break;
         }
-
-
-        muerto = true;
+        
         Destroy(modelo);
         explosion.gameObject.SetActive(true);
         explosion.Play();
-        nav.enabled = false;
+        
+        GetComponent<SphereCollider>().enabled = false;
+
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 
     IEnumerator Daño(int dañoRecibido)
     {
-        Debug.Log("daño");
         vida -= dañoRecibido;
         mrenderer.material.SetColor("_MainColor", colorAtacado);
         rb.AddForce(-transform.forward * fuerzaImpulsoRecibeDaño, ForceMode.Impulse);
@@ -156,7 +162,7 @@ public class EnemigoController : MonoBehaviour
 
         //Si está cerca del jugador se alerta ( y no esta muerto )
         if (Vector3.Distance(transform.position, player.transform.position) < radioDeteccion &&
-            Vector3.Distance(transform.position, player.transform.position) > 0.1f /*&& !player.GetComponent<PlayerController>().dead*/)
+            Vector3.Distance(transform.position, player.transform.position) > 0.1f && !player.GetComponent<PlayerController>().dead)
         {
             estadoActual = EstadosEnemigo.Alerta;  
         }
@@ -187,30 +193,33 @@ public class EnemigoController : MonoBehaviour
             estadoActual = EstadosEnemigo.Ataque;
         }
 
-        /*if (player.GetComponent<PlayerController>().dead)
+        if (player.GetComponent<PlayerController>().dead)
         {
             waypointActual = waypointsPatrulla[Random.Range(0, waypointsPatrulla.Count)];
             nav.destination = waypointActual.position;
             estadoActual = EstadosEnemigo.Patrulla;
-        }*/
+        }
     }
 
     void Ataque()
     {
-        nav.speed = 7;
-        nav.destination = player.transform.position;
-        
-        if (ataqueCoroutine == null)
+        if (!muerto)
         {
-            ataqueCoroutine = StartCoroutine(EjecutarUnAtaque());
-        }
+            nav.speed = 7;
+            nav.destination = player.transform.position;
 
-        /*if (player.GetComponent<PlayerController>().dead)
-        {
-            waypointActual = waypointsPatrulla[Random.Range(0, waypointsPatrulla.Count)];
-            nav.destination = waypointActual.position;
-            estadoActual = EstadosEnemigo.Patrulla;
-        } */
+            if (ataqueCoroutine == null)
+            {
+                ataqueCoroutine = StartCoroutine(EjecutarUnAtaque());
+            }
+
+            if (player.GetComponent<PlayerController>().dead)
+            {
+                waypointActual = waypointsPatrulla[Random.Range(0, waypointsPatrulla.Count)];
+                nav.destination = waypointActual.position;
+                estadoActual = EstadosEnemigo.Patrulla;
+            }
+        }
     }
 
     IEnumerator EjecutarUnAtaque()

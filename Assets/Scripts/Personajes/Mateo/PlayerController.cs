@@ -52,12 +52,6 @@ public class PlayerController : MonoBehaviour
             {
                 Atacar();
             }
-
-            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-            {
-                //Si se ha acabado la animación, volver a idle
-                animator.SetBool("Attack", false);
-            }
         }
 
     }
@@ -67,7 +61,6 @@ public class PlayerController : MonoBehaviour
         //Coger objeto
         if(other.gameObject.TryGetComponent<ItemObject>(out ItemObject item))
         {
-            Debug.Log("Jugador colisiona con objeto");
             item.OnHandlePickupItem();
         }
     }
@@ -162,12 +155,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-        {
-            animator.Play("Attack"); //reiniciar si ya estaba atacando
-
-        }
-        else animator.SetTrigger("Attack");
+        animator.SetTrigger("Attack");
 
         //Ejecutar vfx random de la espada, excepto el ultimo que es el hit
         

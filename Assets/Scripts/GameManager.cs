@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int enemigosPueblo;
     [HideInInspector] public int enemigosGranja;
 
+    private bool bosqueSuperado, puebloSuperado, granjaSuperado;
+
     [SerializeField] GameObject gemaVerde;
     [SerializeField] GameObject gemaRoja;
     [SerializeField] GameObject gemaAmarilla;
@@ -112,6 +114,10 @@ public class GameManager : MonoBehaviour
         enemigosBosque = listaEnemigosBosque.Count;
         enemigosGranja = listaEnemigosGranja.Count;
         enemigosPueblo = listaEnemigosPueblo.Count;
+
+        bosqueSuperado = false;
+        granjaSuperado = false;
+        puebloSuperado = false;
     }
 
     void Update()
@@ -163,7 +169,6 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKeyDown(pausar) && !canvasPausa.activeInHierarchy)
             {
-                Debug.Log("pausa");
                 PausarJuego();
             }
         }
@@ -171,19 +176,34 @@ public class GameManager : MonoBehaviour
 
     void ComprobarMisionPrincipal()
     {
-        if(enemigosBosque == 0)
+        if(enemigosBosque == 0 && !bosqueSuperado)
         {
             gemaRoja.SetActive(true);
+            bosqueSuperado = true;
+            cinemachineSwitcher.SwitchPriority("VerGemaBosque");
+            MostrarMensaje("Nuevo icono en el mapa.");
+            //ACTIVAR EN MINIMAPA ICONO
         }
 
-        else if(enemigosPueblo == 0)
+        else if(enemigosPueblo == 0 && !puebloSuperado)
         {
             gemaVerde.SetActive(true);
+            puebloSuperado = true;
+            cinemachineSwitcher.SwitchPriority("VerGemaPueblo");
+            MostrarMensaje("Nuevo icono en el mapa.");
         }
 
-        else if(enemigosGranja == 0)
+        else if(enemigosGranja == 0 && !granjaSuperado)
         {
             gemaAmarilla.SetActive(true);
+            granjaSuperado = true;
+            cinemachineSwitcher.SwitchPriority("VerGemaGranja");
+            MostrarMensaje("Nuevo icono en el mapa.");
+        }
+
+        if(bosqueSuperado && puebloSuperado && granjaSuperado)
+        {
+            Debug.Log("FIN!!");
         }
     }
 

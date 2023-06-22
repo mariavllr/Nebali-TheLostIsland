@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5659486551162027988}
   - component: {fileID: 1167202874322974944}
   - component: {fileID: 6541288358867035948}
+  - component: {fileID: 4027102370988735695}
+  - component: {fileID: 6245139727420629437}
   m_Layer: 0
   m_Name: verde
   m_TagString: Untagged
@@ -83,3 +85,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4027102370988735695
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041397325192115408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.796943, y: 4.540525, z: 2.6465864}
+  m_Center: {x: 0.24581575, y: 1.8621709, z: -0.115042746}
+--- !u!114 &6245139727420629437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041397325192115408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27fc86ab95c8ff429839566232cc04a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceItem: {fileID: 11400000, guid: 6d7666e727c273c43b9c2461baffab30, type: 2}
