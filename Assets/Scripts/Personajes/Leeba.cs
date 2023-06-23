@@ -38,6 +38,12 @@ public class Leeba : MonoBehaviour
         
     }
 
+    private void OnDisable()
+    {
+        ManagerDialogos.onDialogueEvent -= EventoDialogoLeeba;
+        Gato.misionGatoCompletedEvent -= MisionGatoCompletada;
+    }
+
     void EventoDialogoLeeba()
     {
         //Se ha acabado dialogo con Edbri

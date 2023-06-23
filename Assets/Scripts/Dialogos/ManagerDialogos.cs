@@ -48,6 +48,11 @@ public class ManagerDialogos : MonoBehaviour
         DialogueParser.onNextLineEvent += DisplayLineFunction;
     }
 
+    private void OnDisable()
+    {
+        DialogueParser.onNextLineEvent -= DisplayLineFunction;
+    }
+
     private void Update()
     {
         //Si hay un diálogo activo y se acaba, cerrar

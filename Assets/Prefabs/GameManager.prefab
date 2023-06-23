@@ -61,14 +61,24 @@ MonoBehaviour:
   objetoEnMano: {fileID: 0}
   mano: {fileID: 0}
   tieneObjetoEnMano: 0
+  listaEnemigosBosque: []
+  listaEnemigosPueblo: []
+  listaEnemigosGranja: []
+  enemigosBosque: 0
+  enemigosPueblo: 0
+  enemigosGranja: 0
+  gemaVerde: {fileID: 0}
+  gemaRoja: {fileID: 0}
+  gemaAmarilla: {fileID: 0}
   canciones:
   - {fileID: 8300000, guid: 2de5b20addc2a48428b78911131169ad, type: 3}
   - {fileID: 8300000, guid: e0b00312021570e45b9ac607a9775c05, type: 3}
   audioSource: {fileID: 0}
   cameraMapa: {fileID: 0}
   inventario: {fileID: 0}
+  textoDiario: {fileID: 0}
   containerCorazones: {fileID: 0}
-  textmesh: {fileID: 0}
+  textoMensajeUI: {fileID: 0}
   segundosMensajeUI: 2
   menuInicial: {fileID: 0}
   canvasPausa: {fileID: 0}
@@ -80,6 +90,8 @@ MonoBehaviour:
   audioMixer: {fileID: 0}
   sliderMusica: {fileID: 0}
   sliderEfectos: {fileID: 0}
+  postpro: {fileID: 0}
+  sky: {fileID: 0}
 --- !u!114 &8085389444918318973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,8 +165,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 8085389444918318969}
-  vcam1: {fileID: 0}
-  vcam2: {fileID: 0}
+  vcamMenu: {fileID: 0}
+  vcam3persona: {fileID: 0}
+  vcamGemaBosque: {fileID: 0}
+  vcamGemaPueblo: {fileID: 0}
+  vcamGemaGranja: {fileID: 0}
+  vcamFinal: {fileID: 0}
 --- !u!114 &6175214445516934032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,9 +185,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DirectionalLight: {fileID: 0}
   Preset: {fileID: 0}
-  TimeOfDay: 0
-  speedMultiplier: 0.5
-  nightSpeed: 10
+  TimeOfDay: 6
+  speedMultiplier: 0.1
+  nightSpeed: 1
   maxIntensity: 1.5
   maxShadowStrength: 1
   minShadowStrength: 0.2
@@ -179,7 +195,11 @@ MonoBehaviour:
   skyboxMaxIntensity: 0.6
   skyboxMaterial: {fileID: 0}
   sky: {fileID: 0}
+  stars: {fileID: 0}
+  sun: {fileID: 0}
+  moon: {fileID: 0}
   farolas: []
+  maxIntensityFarola: 0
 --- !u!82 &2057544295
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5,26 +5,29 @@ using UnityEngine;
 public class Gemas : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
-    private GameObject player;
 
+    public float radio;
     [SerializeField] GameObject containerRoja;
     [SerializeField] GameObject containerAmarilla;
     [SerializeField] GameObject containerVerde;
     [SerializeField] ParticleSystem llama;
     private bool roja, amarilla, verde, final;
+    private SpriteRenderer icono;
 
     public delegate void FinalEvent();
     public static event FinalEvent onFinalEvent;
     void Start()
     {
-        player = gameManager.player;
         roja = false; amarilla = false; verde = false; final = false;
+        icono = transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
     {
 
-        if(verde && amarilla && roja && !final)
+        ColocarGema();
+
+        if (verde && amarilla && roja && !final)
         {
             //Desbloquear fin del juego
             final = true;
@@ -33,20 +36,18 @@ public class Gemas : MonoBehaviour
         }
     }
 
-    IEnumerator Final()
+    void ColocarGema()
     {
-        gameManager.GetComponent<CinemachineSwitcher>().SwitchPriority("VerFinal");
-        yield return new WaitForSeconds(2);
-        llama.Play();
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.tag == "Player" && gameManager.tieneObjetoEnMano)
+        if (Vector3.Distance(gameManager.player.transform.position, transform.position) <= radio)
         {
-            //enseñar icono
+            if (icono.color.a == 0)
+            {
+                gameManager.MostrarMensaje("Coloca las gemas para llamar al dios Nebali.");
+                StartCoroutine(fade(icono, 1f, true));
+            } 
 
-            if (Input.GetKeyDown(gameManager.hablar) && gameManager.objetoEnMano != null)
+            //Si tiene un objeto
+            if (gameManager.objetoEnMano != null && Input.GetKeyDown(gameManager.atacar))
             {
                 GameObject gemaColocada;
                 switch (gameManager.objetoEnMano.tag)
@@ -63,7 +64,7 @@ public class Gemas : MonoBehaviour
                             verde = true;
                         }
                         else Debug.Log("error al colocar gema verde");
-                        
+
                         break;
                     case "GemaRoja":
                         gemaColocada = containerRoja.transform.GetChild(0).gameObject;
@@ -92,12 +93,43 @@ public class Gemas : MonoBehaviour
                         else Debug.Log("error al colocar gema amarilla");
                         break;
                     default:
-                        gameManager.MostrarMensaje("No tienes ninguna gema en la mano.");
+                        gameManager.MostrarMensaje("Tienes que colocar una gema.");
                         break;
                 }
-
-                
             }
+        }
+
+        else
+        {
+            if(icono.color.a == 1) StartCoroutine(fade(icono, 1f, false));
+        }
+    }
+
+    IEnumerator Final()
+    {
+        gameManager.GetComponent<CinemachineSwitcher>().SwitchPriority("VerFinal");
+        yield return new WaitForSeconds(2);
+        llama.Play();
+    }
+
+    IEnumerator fade(SpriteRenderer MyRenderer, float duration, bool fadeIn)
+    {
+        float counter = 0;
+        //Get current color
+        Color spriteColor = MyRenderer.material.color;
+
+        while (counter < duration)
+        {
+            counter += Time.deltaTime;
+            float alpha;
+            //Fade from 1 to 0 or viceversa
+            if (fadeIn) alpha = Mathf.Lerp(0, 1, counter / duration);
+            else alpha = Mathf.Lerp(1, 0, counter / duration);
+
+            //Change alpha only
+            MyRenderer.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
+            //Wait for a frame
+            yield return null;
         }
     }
 }

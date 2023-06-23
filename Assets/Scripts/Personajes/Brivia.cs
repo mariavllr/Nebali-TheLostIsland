@@ -44,6 +44,11 @@ public class Brivia : MonoBehaviour
         miProximoDialogo = dialogos[0]; //Brivia1
     }
 
+    private void OnDisable()
+    {
+        ManagerDialogos.onDialogueEvent -= EventoDialogoBrivia;
+    }
+
     void Update()
     {
         if (currentTarget != null && caminoAPueblo)

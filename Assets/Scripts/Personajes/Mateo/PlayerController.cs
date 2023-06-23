@@ -22,7 +22,10 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement playerMov;
     private float tiempo;
     private Animator animator;
+
     private Coroutine fadeCoroutine;
+    private bool puedeSentarse = false;
+    private SpriteRenderer icono;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         tiempo += Time.deltaTime;
+        SitZone();
 
         //Gestion de vida
 
@@ -48,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            if (Input.GetKeyDown(gameManager.atacar) && gameManager.tieneObjetoEnMano && gameManager.objetoEnMano.transform.tag == "Espada")
+            if (Input.GetKeyDown(gameManager.atacar) && gameManager.tieneObjetoEnMano && gameManager.objetoEnMano != null && gameManager.objetoEnMano.transform.tag == "Espada")
             {
                 Atacar();
             }
@@ -63,12 +67,49 @@ public class PlayerController : MonoBehaviour
         {
             item.OnHandlePickupItem();
         }
+
+        if (other.gameObject.tag == "SitZone")
+        {
+            puedeSentarse = true;
+            icono = other.transform.parent.GetChild(3).gameObject.GetComponentInChildren<SpriteRenderer>();
+        }
+    }
+
+    void SitZone()
+    {
+        if (puedeSentarse)
+        {
+            //icono = other.transform.parent.GetChild(3).gameObject.GetComponentInChildren<SpriteRenderer>();
+            fadeCoroutine = StartCoroutine(fade(icono, 1f, true));
+
+            if (Input.GetKeyDown(gameManager.hablar) && !animator.GetBool("Sitting"))
+            {
+                Debug.Log("sentarse");
+                //Si no esta sentado que se siente
+                animator.SetBool("Sitting", true);
+                StopCoroutine(fadeCoroutine);
+                fadeCoroutine = StartCoroutine(fade(icono, 1f, false));
+                playerMov.canMove = false;
+            }
+
+            else if (Input.GetKeyUp(gameManager.hablar) && animator.GetBool("Sitting") && animator.GetCurrentAnimatorStateInfo(0).IsName("Sitting Idle"))
+            {
+                Debug.Log("levantarse");
+                //Si esta sentado que se levante
+                animator.SetBool("Sitting", false);
+            }
+
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Happy Idle"))
+            {
+                playerMov.canMove = true;
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         //Sentarse
-        if(other.gameObject.tag == "SitZone")
+       /* if(other.gameObject.tag == "SitZone")
         {
             SpriteRenderer icono = other.transform.parent.GetChild(3).gameObject.GetComponentInChildren<SpriteRenderer>();
             fadeCoroutine = StartCoroutine(fade(icono, 1f, true));
@@ -95,7 +136,7 @@ public class PlayerController : MonoBehaviour
                 playerMov.canMove = true;
             }
         }
-
+       */
 
     }
 
@@ -104,6 +145,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "SitZone")
         {
+            puedeSentarse = false;
             SpriteRenderer icono = other.transform.parent.GetChild(3).gameObject.GetComponentInChildren<SpriteRenderer>();
             StartCoroutine(fade(icono, 1f, false));
         }

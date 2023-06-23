@@ -18,6 +18,11 @@ public class InventoryUI : MonoBehaviour
         GameManager.onInventoryOpenedEvent += OnInventoryOpened;
     }
 
+    private void OnDisable()
+    {
+        GameManager.onInventoryOpenedEvent -= OnInventoryOpened;
+    }
+
     void OnInventoryOpened()
     {   
         //Limpiar inventario

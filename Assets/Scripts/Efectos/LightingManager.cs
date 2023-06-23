@@ -38,8 +38,6 @@ public class LightingManager : MonoBehaviour
     private void Start()
     {
         // default values
-        speedMultiplier = 0.1f;
-        nightSpeed = 10.0f;
         baseIntensity = maxIntensity / 2f;
         skyboxMaterial.mainTextureOffset = new Vector2((TimeOfDay / 24f) + 0.5f, 0);
 

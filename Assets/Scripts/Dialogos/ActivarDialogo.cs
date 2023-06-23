@@ -32,14 +32,14 @@ public class ActivarDialogo : MonoBehaviour
         //Si el icono de hablar está activo, no hay un diálogo ya abierto y se pulsa espacio, se abre el diálogo
         if (ActivarIconoConversacion())
         {
-            if(gameObject.tag != "Nebali") gameObject.transform.forward = Vector3.Lerp(gameObject.transform.forward, -player.transform.forward, Time.deltaTime * 3f);
+            if (gameObject.tag != "Nebali") gameObject.transform.forward = Vector3.Lerp(gameObject.transform.forward, -player.transform.forward, Time.deltaTime * 3f);
             //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "AppearIcon" && 
             /*if (activarSonido)
             {
                 audioSource.Play();
                 activarSonido = false;
             }*/
-            
+
 
             if (Input.GetKeyDown(gameManager.hablar) && !dialogo.activeInHierarchy)
             {
@@ -50,7 +50,7 @@ public class ActivarDialogo : MonoBehaviour
                         managerDialogos.CambiarDialogo(gameObject.GetComponent<Brivia>().miProximoDialogo);
                         break;
                     case "Edbri":
-                        managerDialogos.CambiarDialogo(gameObject.GetComponent<Edbri>().miProximoDialogo);                      
+                        managerDialogos.CambiarDialogo(gameObject.GetComponent<Edbri>().miProximoDialogo);
                         break;
                     case "Leeba":
                         Leeba leeba = gameObject.GetComponent<Leeba>();
@@ -68,26 +68,72 @@ public class ActivarDialogo : MonoBehaviour
                         managerDialogos.CambiarDialogo(gameObject.GetComponent<Nebali>().miProximoDialogo);
                         break;
                 }
-                
+
                 managerDialogos.MostrarDialogo();
-            }           
+            }
         }
     }
 
     private bool ActivarIconoConversacion()
     {
+
         if (Vector3.Distance(transform.position, player.transform.position) <= radio && dialogoDisponible)
         {
-            animator.SetBool("StartTalk", true);
-            return true;
+            if (gameObject.name == "NEBALI")
+            {
+                SpriteRenderer icono = transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
 
+                if (icono.color.a == 0)
+                {
+                    StartCoroutine(fade(icono, 1f, true));
+                }
+                return true;
+            }
+            else
+            {
+                animator.SetBool("StartTalk", true);
+                return true;
+            }
         }
         else
         {
-            animator.SetBool("StartTalk", false);
-            return false;
+            if (gameObject.name == "NEBALI")
+            {
+                SpriteRenderer icono = transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
+
+                if (icono.color.a != 0)
+                {
+                    StartCoroutine(fade(icono, 1f, false));
+                }
+                return false;
+            }
+            else
+            {
+                animator.SetBool("StartTalk", false);
+                return false;
+            }
         }
+
     }
 
-   
+    IEnumerator fade(SpriteRenderer MyRenderer, float duration, bool fadeIn)
+    {
+        float counter = 0;
+        //Get current color
+        Color spriteColor = MyRenderer.material.color;
+
+        while (counter < duration)
+        {
+            counter += Time.deltaTime;
+            float alpha;
+            //Fade from 1 to 0 or viceversa
+            if (fadeIn) alpha = Mathf.Lerp(0, 1, counter / duration);
+            else alpha = Mathf.Lerp(1, 0, counter / duration);
+
+            //Change alpha only
+            MyRenderer.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
+            //Wait for a frame
+            yield return null;
+        }
+    }
 }

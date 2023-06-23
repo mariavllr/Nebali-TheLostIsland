@@ -34,6 +34,12 @@ public class Edbri : MonoBehaviour
         
     }
 
+    private void OnDisable()
+    {
+        ManagerDialogos.onDialogueEvent -= EventoDialogoEdbri;
+        EncontrarAldeanos.misionAldeanosCompletedEvent -= MisionAldeanosCompletada;
+    }
+
     void EventoDialogoEdbri()
     {
         //Se ha terminado dialogo con Brivia

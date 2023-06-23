@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private float turnSmoothVelocity;
     private float gravity = -9.8f;
-    private float verticalVelocity;
+    private float verticalVelocity = 0;
     private AudioSource audioSource;
 
     public bool canMove;
@@ -31,7 +31,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        verticalVelocity = gravity * Time.deltaTime;
+        if (!controller.isGrounded) verticalVelocity += gravity * Time.deltaTime;
+        else verticalVelocity = 0;
+
 
 
         if (canMove)
@@ -67,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
                 moveDir.y = verticalVelocity;
-                controller.Move(moveDir.normalized * speed * Time.deltaTime);
+                controller.Move(speed * Time.deltaTime * moveDir.normalized);
 
                 if (!audioSource.isPlaying) audioSource.Play();
 
@@ -79,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
                 isMoving = false;
                 audioSource.Stop();
                 speed = normalSpeed;
-                controller.Move(new Vector3(0, verticalVelocity, 0));
+                controller.Move(new Vector3(0, verticalVelocity, 0) * Time.deltaTime);
             }
         }    
     }
