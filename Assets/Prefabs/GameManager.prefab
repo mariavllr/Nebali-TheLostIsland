@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8085389444918318968}
   - component: {fileID: 8085389444918318969}
+  - component: {fileID: 5495634282129418883}
   - component: {fileID: 8085389444918318973}
   - component: {fileID: 8085389444918318971}
   - component: {fileID: 4505569027532970552}
@@ -92,6 +93,19 @@ MonoBehaviour:
   sliderEfectos: {fileID: 0}
   postpro: {fileID: 0}
   sky: {fileID: 0}
+--- !u!114 &5495634282129418883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085389444918318918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ba50ce7d58c9440b53c4ef1bdf44d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0.5
 --- !u!114 &8085389444918318973
 MonoBehaviour:
   m_ObjectHideFlags: 0

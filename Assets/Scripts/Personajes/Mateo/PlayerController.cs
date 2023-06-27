@@ -106,40 +106,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        //Sentarse
-       /* if(other.gameObject.tag == "SitZone")
-        {
-            SpriteRenderer icono = other.transform.parent.GetChild(3).gameObject.GetComponentInChildren<SpriteRenderer>();
-            fadeCoroutine = StartCoroutine(fade(icono, 1f, true));
-
-            if(Input.GetKeyDown(gameManager.hablar) && !animator.GetBool("Sitting"))
-            {
-                Debug.Log("sentarse");
-                //Si no esta sentado que se siente
-                animator.SetBool("Sitting", true);
-                StopCoroutine(fadeCoroutine);
-                fadeCoroutine = StartCoroutine(fade(icono, 1f, false));
-                playerMov.canMove = false;
-            }
-
-            else if (Input.GetKeyUp(gameManager.hablar) && animator.GetBool("Sitting") && animator.GetCurrentAnimatorStateInfo(0).IsName("Sitting Idle"))
-            {
-                Debug.Log("levantarse");
-                //Si esta sentado que se levante
-                animator.SetBool("Sitting", false);
-            }
-
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Happy Idle"))
-            {
-                playerMov.canMove = true;
-            }
-        }
-       */
-
-    }
-
 
     private void OnTriggerExit(Collider other)
     {

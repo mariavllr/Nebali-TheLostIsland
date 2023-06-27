@@ -35,12 +35,23 @@ public class LightingManager : MonoBehaviour
     private float dusk = 18f;
     private float noon = 12f;
 
+
+    private FadeMusic fadeMusic;
+    private GameManager gameManager;
+    private bool daySongPlaying, nightSongPlaying, duskSongPlaying;
+
     private void Start()
     {
         // default values
         baseIntensity = maxIntensity / 2f;
         skyboxMaterial.mainTextureOffset = new Vector2((TimeOfDay / 24f) + 0.5f, 0);
+        daySongPlaying = true;
+        nightSongPlaying = false;
+        duskSongPlaying = false;
 
+
+        fadeMusic = GetComponent<FadeMusic>();
+        gameManager = GetComponent<GameManager>();
 
         //De 0 a 0.4 atardecer
         //De 0.5 a 0.6 noche
@@ -55,13 +66,7 @@ public class LightingManager : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            // speed up the time in dead of night
-            if (TimeOfDay > nightSpeedUpStart || TimeOfDay < nightSpeedUpEnd) // speed up the passage of night from 9pm to 3am
-            {
-                TimeOfDay += Time.deltaTime * nightSpeed;
-            }
-            else
-            {
+
                 TimeOfDay += Time.deltaTime * speedMultiplier;
                 
 
@@ -69,6 +74,14 @@ public class LightingManager : MonoBehaviour
                 if (TimeOfDay >= dawn && TimeOfDay <= noon)
                 {
                     //Amaneciendo
+                    if (!daySongPlaying)
+                    {
+                        fadeMusic.CambiarCancion(gameManager.canciones[1]);
+                        daySongPlaying = true;
+                        duskSongPlaying = false;
+                        nightSongPlaying = false;
+                    }
+                    
                     DirectionalLight.intensity = baseIntensity + (baseIntensity / (noon - dawn)) * (TimeOfDay - dawn);
                     DirectionalLight.shadowStrength = minShadowStrength + ((maxShadowStrength - minShadowStrength) / (noon - dawn)) * (TimeOfDay - dawn);
 
@@ -91,6 +104,14 @@ public class LightingManager : MonoBehaviour
                 else if (TimeOfDay > noon && TimeOfDay <= dusk)
                 {
                     //Atardeciendo
+                    if (!duskSongPlaying)
+                    {
+                        fadeMusic.CambiarCancion(gameManager.canciones[3]);
+                        duskSongPlaying = true;
+                        daySongPlaying = false;
+                        nightSongPlaying = false;
+                    }
+                    
                     DirectionalLight.intensity = baseIntensity + (baseIntensity / (dusk - noon)) * (dusk - TimeOfDay);
                     DirectionalLight.shadowStrength = minShadowStrength + ((maxShadowStrength - minShadowStrength) / (dusk - noon)) * (dusk - TimeOfDay);
 
@@ -104,6 +125,13 @@ public class LightingManager : MonoBehaviour
                 else
                 {
                     //noche
+                    if (!nightSongPlaying)
+                    {
+                        fadeMusic.CambiarCancion(gameManager.canciones[3]);
+                        duskSongPlaying = false;
+                        daySongPlaying = false;
+                        nightSongPlaying = true;
+                    }
                     DirectionalLight.intensity = baseIntensity;
                     DirectionalLight.shadowStrength = minShadowStrength;
                     RenderSettings.ambientIntensity = skyboxBaseIntensity;
@@ -117,7 +145,7 @@ public class LightingManager : MonoBehaviour
                     }
 
                 }
-            }
+            
             TimeOfDay %= 24; //Modulus to ensure always between 0-24
             UpdateLighting(TimeOfDay / 24f);
         }

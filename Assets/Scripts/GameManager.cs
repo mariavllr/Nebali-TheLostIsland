@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gemaAmarilla;
 
     [Header("Musica")]
-    [SerializeField] List<AudioClip> canciones;
+    private FadeMusic fadeMusic;
+    [SerializeField] public List<AudioClip> canciones;
     [SerializeField] AudioSource audioSource;
 
     [Header("Mapa")]
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
        // canciones = new List<AudioClip>();
         playerMov = player.GetComponentInChildren<PlayerMovement>();
         cinemachineSwitcher = GetComponent<CinemachineSwitcher>();
+        fadeMusic = GetComponent<FadeMusic>();
 
         enemigosBosque = listaEnemigosBosque.Count;
         enemigosGranja = listaEnemigosGranja.Count;
@@ -268,12 +270,11 @@ public class GameManager : MonoBehaviour
         switch (zonaActual)
         {
             case Zona.Menu:
-                audioSource.clip = canciones[0];
+                fadeMusic.CambiarCancion(canciones[0]);
                 audioSource.Play();
                 break;
             case Zona.Bosque:
-                audioSource.clip = canciones[1];
-                audioSource.Play();
+                fadeMusic.CambiarCancion(canciones[1]);
                 break;
             case Zona.Pueblo:
                 audioSource.clip = canciones[2];

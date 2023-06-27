@@ -33,13 +33,6 @@ public class ActivarDialogo : MonoBehaviour
         if (ActivarIconoConversacion())
         {
             if (gameObject.tag != "Nebali") gameObject.transform.forward = Vector3.Lerp(gameObject.transform.forward, -player.transform.forward, Time.deltaTime * 3f);
-            //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "AppearIcon" && 
-            /*if (activarSonido)
-            {
-                audioSource.Play();
-                activarSonido = false;
-            }*/
-
 
             if (Input.GetKeyDown(gameManager.hablar) && !dialogo.activeInHierarchy)
             {
