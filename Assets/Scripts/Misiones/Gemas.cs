@@ -55,6 +55,7 @@ public class Gemas : MonoBehaviour
                     case "GemaVerde":
                         gemaColocada = containerVerde.transform.GetChild(0).gameObject;
                         gemaColocada.SetActive(true);
+                        gemaColocada.transform.GetChild(0).gameObject.SetActive(false) ; //quitar el punto mapa gema
                         Destroy(gameManager.objetoEnMano);
                         if (gemaColocada.TryGetComponent<ItemObject>(out ItemObject item))
                         {
@@ -69,6 +70,7 @@ public class Gemas : MonoBehaviour
                     case "GemaRoja":
                         gemaColocada = containerRoja.transform.GetChild(0).gameObject;
                         gemaColocada.SetActive(true);
+                        gemaColocada.transform.GetChild(0).gameObject.SetActive(false);
                         Destroy(gameManager.objetoEnMano);
                         if (gemaColocada.TryGetComponent<ItemObject>(out ItemObject item2))
                         {
@@ -82,6 +84,7 @@ public class Gemas : MonoBehaviour
                     case "GemaAmarilla":
                         gemaColocada = containerAmarilla.transform.GetChild(0).gameObject;
                         gemaColocada.SetActive(true);
+                        gemaColocada.transform.GetChild(0).gameObject.SetActive(false);
                         Destroy(gameManager.objetoEnMano);
                         if (gemaColocada.TryGetComponent<ItemObject>(out ItemObject item3))
                         {

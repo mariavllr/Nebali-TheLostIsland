@@ -105,15 +105,16 @@ public class EnemigoController : MonoBehaviour
         {
             case "ZonaBosque":
                 gameManager.enemigosBosque--;
-                Debug.Log("Enemigos bosque: " + gameManager.enemigosBosque);
+                //if(gameManager.enemigosBosque == 0) gameManager.MostrarMensaje(" bosque.");
+                gameManager.MostrarMensaje("Te quedan " + gameManager.enemigosBosque + " Boo's en el bosque.");
                 break;
             case "ZonaPueblo":
                 gameManager.enemigosPueblo--;
-                Debug.Log("Enemigos pueblo: " + gameManager.enemigosPueblo);
+                gameManager.MostrarMensaje("Te quedan " + gameManager.enemigosPueblo + " Boo's en el pueblo.");
                 break;
             case "ZonaGranja":
                 gameManager.enemigosGranja--;
-                Debug.Log("Enemigos granja: " + gameManager.enemigosGranja);
+                gameManager.MostrarMensaje("Te quedan " + gameManager.enemigosGranja + " Boo's en la granja.");
                 break;
             default:
                 Debug.Log("Error! No es de ninguna zona el enemigo");

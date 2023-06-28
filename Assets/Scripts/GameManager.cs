@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     public Zona zonaActual;
     public Mision misionActual;
+    private bool menuInicialActivo = true;
 
     [Header("Inventario")]
     public GameObject objetoEnMano; //El objeto que tiene el jugador en la mano
@@ -106,7 +107,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        zonaActual = Zona.Menu;
+        zonaActual = Zona.Bosque;
         misionActual = Mision.Ninguna;
        // canciones = new List<AudioClip>();
         playerMov = player.GetComponentInChildren<PlayerMovement>();
@@ -124,7 +125,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(zonaActual == Zona.Menu)
+        if(menuInicialActivo)
         {
             containerCorazones.SetActive(false);
             playerMov.canMove = false;
@@ -189,7 +190,6 @@ public class GameManager : MonoBehaviour
             bosqueSuperado = true;
             cinemachineSwitcher.SwitchPriority("VerGemaBosque");
             MostrarMensaje("Nuevo icono en el mapa.");
-            //ACTIVAR EN MINIMAPA ICONO
         }
 
         else if(enemigosPueblo == 0 && !puebloSuperado)
@@ -229,10 +229,9 @@ public class GameManager : MonoBehaviour
     public void CerrarMenu()
     {
         menuInicial.SetActive(false);
-        zonaActual = Zona.Bosque;
+        menuInicialActivo = false;
         playerMov.canMove = true;
         Cursor.lockState = CursorLockMode.Locked;
-        CambiarCancion();
     }
 
     public void AbrirInventario()
@@ -267,24 +266,14 @@ public class GameManager : MonoBehaviour
 
     void CambiarCancion()
     {
-        switch (zonaActual)
+        /*switch (zonaActual)
         {
             case Zona.Menu:
                 fadeMusic.CambiarCancion(canciones[0]);
                 audioSource.Play();
                 break;
-            case Zona.Bosque:
-                fadeMusic.CambiarCancion(canciones[1]);
-                break;
-            case Zona.Pueblo:
-                audioSource.clip = canciones[2];
-                audioSource.Play();
-                break;
-            case Zona.Granja:
-                audioSource.clip = canciones[3];
-                audioSource.Play();
-                break;
-        }
+        }*/
+        if(menuInicialActivo) fadeMusic.CambiarCancion(canciones[0]);
     }
 
     //---MENU: OPCIONES----
@@ -326,7 +315,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         cinemachineSwitcher.SwitchPriority("ThirdPerson");
 
-        zonaActual = Zona.Menu;
+        menuInicialActivo = true;
         menuInicial.SetActive(true);
         canvasPausa.SetActive(false);
         Cursor.lockState = CursorLockMode.None;

@@ -127,7 +127,7 @@ Material:
     - _Surface: 0
     - _Tama_oEspuma: 326.65
     - _Tama_oOlas: 7
-    - _Transparencia: 0.8
+    - _Transparencia: 1
     - _Velocidad: 3
     - _VelocidadEspuma: 0.001
     - _VelocidadOlas: 0.01

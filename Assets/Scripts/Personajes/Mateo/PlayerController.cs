@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     private Coroutine fadeCoroutine;
     private bool puedeSentarse = false;
     private SpriteRenderer icono;
+
+    private GameManager.Zona zonaPrevia;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -73,6 +75,44 @@ public class PlayerController : MonoBehaviour
             puedeSentarse = true;
             icono = other.transform.parent.GetChild(3).gameObject.GetComponentInChildren<SpriteRenderer>();
         }
+
+        //Zonas
+        if (other.gameObject.tag == "ZonaBosque")
+        {
+            gameManager.zonaActual = GameManager.Zona.Bosque;
+        }
+        else if (other.gameObject.tag == "ZonaPueblo")
+        {
+            gameManager.zonaActual = GameManager.Zona.Pueblo;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {     
+        //Zonas
+        if (other.gameObject.tag == "ZonaGranja")
+        {
+            zonaPrevia = gameManager.zonaActual;
+            gameManager.zonaActual = GameManager.Zona.Granja;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //Sentarse
+        if (other.gameObject.tag == "SitZone")
+        {
+            puedeSentarse = false;
+            SpriteRenderer icono = other.transform.parent.GetChild(3).gameObject.GetComponentInChildren<SpriteRenderer>();
+            StartCoroutine(fade(icono, 1f, false));
+        }
+
+        //Zonas
+        if (other.gameObject.tag == "ZonaGranja")
+        {
+            gameManager.zonaActual = zonaPrevia;
+        }
+
     }
 
     void SitZone()
@@ -104,18 +144,6 @@ public class PlayerController : MonoBehaviour
                 playerMov.canMove = true;
             }
         }
-    }
-
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "SitZone")
-        {
-            puedeSentarse = false;
-            SpriteRenderer icono = other.transform.parent.GetChild(3).gameObject.GetComponentInChildren<SpriteRenderer>();
-            StartCoroutine(fade(icono, 1f, false));
-        }
-            
     }
 
     IEnumerator fade(SpriteRenderer MyRenderer, float duration, bool fadeIn)
