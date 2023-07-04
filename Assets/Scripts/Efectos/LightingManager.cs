@@ -38,7 +38,7 @@ public class LightingManager : MonoBehaviour
 
     private FadeMusic fadeMusic;
     private GameManager gameManager;
-    private bool daySongPlaying, nightSongPlaying, duskSongPlaying;
+    public bool daySongPlaying, nightSongPlaying, duskSongPlaying;
 
     private void Start()
     {
@@ -106,7 +106,7 @@ public class LightingManager : MonoBehaviour
                     //Atardeciendo
                     if (!duskSongPlaying)
                     {
-                        fadeMusic.CambiarCancion(gameManager.canciones[3]);
+                        fadeMusic.CambiarCancion(gameManager.canciones[2]);
                         duskSongPlaying = true;
                         daySongPlaying = false;
                         nightSongPlaying = false;

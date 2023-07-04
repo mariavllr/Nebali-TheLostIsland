@@ -85,16 +85,22 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.zonaActual = GameManager.Zona.Pueblo;
         }
+
+        else if (other.gameObject.tag == "ZonaGranja")
+        {
+            zonaPrevia = gameManager.zonaActual;
+            gameManager.zonaActual = GameManager.Zona.Granja;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {     
         //Zonas
-        if (other.gameObject.tag == "ZonaGranja")
+       /* if (other.gameObject.tag == "ZonaGranja")
         {
             zonaPrevia = gameManager.zonaActual;
             gameManager.zonaActual = GameManager.Zona.Granja;
-        }
+        }*/
     }
 
     private void OnTriggerExit(Collider other)
@@ -111,6 +117,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "ZonaGranja")
         {
             gameManager.zonaActual = zonaPrevia;
+            Debug.Log("salir granja, zona actual: " + gameManager.zonaActual);
         }
 
     }
@@ -215,12 +222,14 @@ public class PlayerController : MonoBehaviour
                 transform.localPosition = posicionInicialZonas[0];
                 break;
             case GameManager.Zona.Pueblo:
-                transform.position = posicionInicialZonas[1];
+                transform.localPosition = posicionInicialZonas[1];
                 break;
             case GameManager.Zona.Granja:
-                transform.position = posicionInicialZonas[2];
+                transform.localPosition = posicionInicialZonas[2];
                 break;
             default:
+                transform.localPosition = posicionInicialZonas[0];
+                Debug.Log("Error, no esta en ninguna zona");
                 break;
         }
 

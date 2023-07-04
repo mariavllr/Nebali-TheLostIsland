@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: InventoryItem_Espada
   displayName: Espada
-  icon: {fileID: 21300000, guid: 34756f17b3d09b94d9345dc4654685ed, type: 3}
+  icon: {fileID: 21300000, guid: 4b83e9d1b8a1d334d96b6517802e4ea1, type: 3}
   prefab: {fileID: 4453195881346214648, guid: f98a867f701787a46ba153b45ae5c60e, type: 3}
   description: Espada que me dio Brivia para derrotar a esos bichos molestos

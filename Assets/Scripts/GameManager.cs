@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     public Zona zonaActual;
     public Mision misionActual;
-    private bool menuInicialActivo = true;
+    private bool menuInicialActivo;
 
     [Header("Inventario")]
     public GameObject objetoEnMano; //El objeto que tiene el jugador en la mano
@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        menuInicialActivo = true;
         zonaActual = Zona.Bosque;
         misionActual = Mision.Ninguna;
        // canciones = new List<AudioClip>();
@@ -232,6 +233,7 @@ public class GameManager : MonoBehaviour
         menuInicialActivo = false;
         playerMov.canMove = true;
         Cursor.lockState = CursorLockMode.Locked;
+        CambiarCancion();
     }
 
     public void AbrirInventario()
@@ -266,14 +268,23 @@ public class GameManager : MonoBehaviour
 
     void CambiarCancion()
     {
-        /*switch (zonaActual)
-        {
-            case Zona.Menu:
-                fadeMusic.CambiarCancion(canciones[0]);
-                audioSource.Play();
-                break;
-        }*/
         if(menuInicialActivo) fadeMusic.CambiarCancion(canciones[0]);
+        else
+        {
+            LightingManager lighting = GetComponent<LightingManager>();
+            if (lighting.daySongPlaying)
+            {
+                fadeMusic.CambiarCancion(canciones[1]);
+            }
+            else if (lighting.duskSongPlaying)
+            {
+                fadeMusic.CambiarCancion(canciones[2]);
+            }
+            else if (lighting.nightSongPlaying)
+            {
+                fadeMusic.CambiarCancion(canciones[3]);
+            }
+        }
     }
 
     //---MENU: OPCIONES----

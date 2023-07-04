@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: InventoryItem_Koi
   displayName: Koi
-  icon: {fileID: 21300000, guid: 3563142348427bd47bb85da2375de6ac, type: 3}
+  icon: {fileID: 21300000, guid: c375f9b793c6240419f35c85627a34e9, type: 3}
   prefab: {fileID: 3503847869559601953, guid: 422dec5a9ff537b43b3054c45b55c23b, type: 3}
   description: Un pez muy bien pintado

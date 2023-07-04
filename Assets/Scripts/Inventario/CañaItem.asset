@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65b8fdafc4d8a940a5b02e62793e3b1, type: 3}
   m_Name: "Ca\xF1aItem"
   m_EditorClassIdentifier: 
-  id: "InventoryItem_ca\xF1a"
-  displayName: "Ca\xF1a"
-  icon: {fileID: 21300000, guid: d67f8dec1fabaf247a8b35e4093487b6, type: 3}
+  id: InventoryItem_cana
+  displayName: Pescar
+  icon: {fileID: 21300000, guid: 7a19db118875af6418d628e4916f88d8, type: 3}
   prefab: {fileID: 8657642577417722407, guid: ac3b73be498a2dd41b2d7eae4b18e56f, type: 3}
-  description: "Una bonita ca\xF1a para pescar... pero creo que no es m\xEDa"
+  description: "Con esto puedo pescar... pero creo que no es m\xEDa"
