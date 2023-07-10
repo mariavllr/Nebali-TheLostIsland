@@ -29,6 +29,8 @@ public class EnemigoController : MonoBehaviour
 
     [Header("VFX")]
     [SerializeField] ParticleSystem explosion;
+    [SerializeField] AudioSource hitSound;
+    [SerializeField] AudioSource deadSound;
 
     private Coroutine ataqueCoroutine;
     [SerializeField] private Color colorAtacado;
@@ -96,6 +98,7 @@ public class EnemigoController : MonoBehaviour
 
     IEnumerator Morir()
     {
+        deadSound.Play();
         muerto = true;
         nav.enabled = false;
 
@@ -133,6 +136,7 @@ public class EnemigoController : MonoBehaviour
 
     IEnumerator Daño(int dañoRecibido)
     {
+        hitSound.Play();
         vida -= dañoRecibido;
         mrenderer.material.SetColor("_MainColor", colorAtacado);
         rb.AddForce(-transform.forward * fuerzaImpulsoRecibeDaño, ForceMode.Impulse);

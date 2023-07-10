@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] private float rangoAtaque;
     [SerializeField] private int dañoAtaque;
+
+    [Header("Sonido")]
+    [SerializeField] AudioSource damageSound;
+    [SerializeField] AudioSource attackSound;
     
     private PlayerMovement playerMov;
     private float tiempo;
@@ -200,6 +204,7 @@ public class PlayerController : MonoBehaviour
         }
         
         animator.SetTrigger("Attack");
+        attackSound.Play();
 
         //Ejecutar vfx random de la espada, excepto el ultimo que es el hit
         
@@ -258,6 +263,7 @@ public class PlayerController : MonoBehaviour
             if (tiempo >= enemigo.tiempoAtaque && vidaActual > 0)
             {
                 animator.SetTrigger("Hit");
+                damageSound.Play();
                 vidaActual -= enemigo.dañoAtaque;
                 tiempo = 0;
                 Destroy(vidasContainer.transform.GetChild(0).gameObject);
