@@ -40,12 +40,12 @@ MonoBehaviour:
   - BaseNodeGUID: 15889748-b2d3-4096-a420-9a9db07a664b
     PortName: Continuar
     TargetNodeGUID: 5a77e231-7088-4e4c-ae2a-2b8b7fad7c8b
-  - BaseNodeGUID: d1c79bff-ae2b-4b11-8b8a-0ce1769e1b71
-    PortName: Cerrar
-    TargetNodeGUID: 857597b6-8e19-4532-ab6b-695c2c23bb7a
   - BaseNodeGUID: 5a77e231-7088-4e4c-ae2a-2b8b7fad7c8b
     PortName: Cerrar
     TargetNodeGUID: d1c79bff-ae2b-4b11-8b8a-0ce1769e1b71
+  - BaseNodeGUID: d1c79bff-ae2b-4b11-8b8a-0ce1769e1b71
+    PortName: Cerrar
+    TargetNodeGUID: 857597b6-8e19-4532-ab6b-695c2c23bb7a
   DialogueNodeData:
   - NodeGUID: f60edb45-c2e5-4cfa-a3a0-ac72f32719b1
     characterName: Brivia
@@ -87,16 +87,17 @@ MonoBehaviour:
   - NodeGUID: 5a77e231-7088-4e4c-ae2a-2b8b7fad7c8b
     characterName: Brivia
     DialogueText: "Hmm... S\xEDgueme un momento, anda. Pero a\xFAn no me f\xEDo demasiado
-      de t\xED. Te llevar\xE9 a conocer a los dem\xE1s"
+      de t\xED. Te llevar\xE9 a conocer a los dem\xE1s. Y ten cuidado con los bichitos
+      negros."
     Position: {x: 3764, y: 27.2}
   - NodeGUID: d1c79bff-ae2b-4b11-8b8a-0ce1769e1b71
     characterName: Mateo
     DialogueText: "Espera, \xBFlos dem\xE1s?"
-    Position: {x: 4536.8, y: 27.2}
+    Position: {x: 4801.6, y: 28.8}
   - NodeGUID: 857597b6-8e19-4532-ab6b-695c2c23bb7a
     characterName: Brivia
     DialogueText: CerrarDialogo
-    Position: {x: 4823.2, y: 27.2}
+    Position: {x: 5108, y: 27.2}
   ExposedProperties:
   - PropertyName: DialogueName
     PropertyValue: Inicio

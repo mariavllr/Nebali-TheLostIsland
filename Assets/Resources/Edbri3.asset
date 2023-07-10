@@ -22,9 +22,6 @@ MonoBehaviour:
   - BaseNodeGUID: 8decff55-50a6-4bd5-9b33-5ec3231dc204
     PortName: Continuar
     TargetNodeGUID: cbb59cea-503b-4a56-b849-17aafe21859a
-  - BaseNodeGUID: cbb59cea-503b-4a56-b849-17aafe21859a
-    PortName: El pescador
-    TargetNodeGUID: d9f8cc07-450b-4a61-a171-efe7ad666c28
   - BaseNodeGUID: d9f8cc07-450b-4a61-a171-efe7ad666c28
     PortName: Continuar
     TargetNodeGUID: 6f80c45d-d313-44ec-92b2-4ad3aa019dd4
@@ -33,28 +30,22 @@ MonoBehaviour:
     TargetNodeGUID: 22f674bf-8e47-443e-bf17-a32c307e81ae
   - BaseNodeGUID: 22f674bf-8e47-443e-bf17-a32c307e81ae
     PortName: Continuar
-    TargetNodeGUID: 3d15172f-472d-4ab0-b50f-183c9ade4aee
-  - BaseNodeGUID: 3d15172f-472d-4ab0-b50f-183c9ade4aee
-    PortName: "Ni\xF1ato..."
-    TargetNodeGUID: d257dd8b-892f-4ed8-8b63-93e3741e253b
-  - BaseNodeGUID: d257dd8b-892f-4ed8-8b63-93e3741e253b
-    PortName: Continuar
     TargetNodeGUID: d0c07c68-7db4-47aa-94bd-332038a23572
+  - BaseNodeGUID: cbb59cea-503b-4a56-b849-17aafe21859a
+    PortName: El pescador
+    TargetNodeGUID: d9f8cc07-450b-4a61-a171-efe7ad666c28
   - BaseNodeGUID: d0c07c68-7db4-47aa-94bd-332038a23572
     PortName: Solo
     TargetNodeGUID: 0aba388d-34bf-4fde-8f94-5d599cbc7748
-  - BaseNodeGUID: 0aba388d-34bf-4fde-8f94-5d599cbc7748
-    PortName: Continuar
-    TargetNodeGUID: 3f720634-10d8-4711-a32a-c717f6174522
   - BaseNodeGUID: 3f720634-10d8-4711-a32a-c717f6174522
     PortName: "\xBFQu\xE9 pas\xF3?"
     TargetNodeGUID: 25c3be0a-ac78-46ae-af1e-77452f48e307
+  - BaseNodeGUID: 0aba388d-34bf-4fde-8f94-5d599cbc7748
+    PortName: Continuar
+    TargetNodeGUID: 3f720634-10d8-4711-a32a-c717f6174522
   - BaseNodeGUID: 25c3be0a-ac78-46ae-af1e-77452f48e307
     PortName: Cerrar
     TargetNodeGUID: 7e7f5493-e55f-4036-a5e8-0eb759e43a90
-  - BaseNodeGUID: cbb59cea-503b-4a56-b849-17aafe21859a
-    PortName: "La ni\xF1a"
-    TargetNodeGUID: 80eafb21-d028-4f8d-b6a1-3cff3b21951b
   DialogueNodeData:
   - NodeGUID: e6735d66-ffd8-4ab8-ba8d-ae26ce461a8b
     characterName: Edbri
@@ -71,57 +62,45 @@ MonoBehaviour:
     Position: {x: 1630.4, y: 200}
   - NodeGUID: 6f80c45d-d313-44ec-92b2-4ad3aa019dd4
     characterName: Edbri
-    DialogueText: "Ah, Leeba... \xC9l es el se\xF1or mayor del pueblo. Va a su bola,
-      no le importa mucho nada que no sea pescar y hacer sus cosas. No te preocupes,
-      es as\xED."
+    DialogueText: "Ah, Leeba... \xC9l es el abuelo del pueblo. Va a su bola, no le
+      importa mucho nada que no sea pescar y hacer sus cosas. No te preocupes, es
+      as\xED."
     Position: {x: 1994.4, y: 200}
   - NodeGUID: 22f674bf-8e47-443e-bf17-a32c307e81ae
     characterName: Mateo
     DialogueText: "Pues no me parece excusa, la verdad. No lo s\xE9, no me ha sentado
       bien que me hablen as\xED..."
     Position: {x: 2992.8, y: 200}
-  - NodeGUID: 3d15172f-472d-4ab0-b50f-183c9ade4aee
+  - NodeGUID: cbb59cea-503b-4a56-b849-17aafe21859a
     characterName: Edbri
-    DialogueText: "\xBFPero qu\xE9 te ha dicho?"
-    Position: {x: 3672.8, y: 200}
-  - NodeGUID: d257dd8b-892f-4ed8-8b63-93e3741e253b
-    characterName: Mateo
-    DialogueText: "Ni\xF1ato, d\xE9jame en paz, todos tenemos problemas, no me vengas
-      a llorar... Entre otras."
-    Position: {x: 3974.4, y: 200}
+    DialogueText: "Y los aldeanos, \xBFqu\xE9 te han parecido?"
+    Position: {x: 1257.6, y: 200}
   - NodeGUID: d0c07c68-7db4-47aa-94bd-332038a23572
     characterName: Edbri
     DialogueText: "Vaya... Bueno, eres un extra\xF1o y \xE9l lleva toda su vida acostumbrado
       a esto. Es su hogar y su zona de confort, y no creo que le haga gracia que
       aparezcas. "
-    Position: {x: 4612.8, y: 200}
+    Position: {x: 3667.2, y: 200}
   - NodeGUID: 3f720634-10d8-4711-a32a-c717f6174522
     characterName: Ebdri
     DialogueText: Bueno... No siempre lo ha estado.
-    Position: {x: 6021.6, y: 200}
+    Position: {x: 5080, y: 200}
   - NodeGUID: 0aba388d-34bf-4fde-8f94-5d599cbc7748
     characterName: Mateo
     DialogueText: "Entonces, \xBF\xE9l siempre est\xE1 solo? "
-    Position: {x: 5652.8, y: 200}
+    Position: {x: 4711.2, y: 200}
   - NodeGUID: 25c3be0a-ac78-46ae-af1e-77452f48e307
     characterName: Edbri
     DialogueText: "Antes hab\xEDa m\xE1s como nosotros en la isla, pero poco a poco
       fue vaci\xE1ndose y aparecieron esos bichos molestos. Antes lo ve\xEDa siempre
-      acompa\xF1ado con un gatito, pero un d\xEDa le vi sin \xE9l y ya no ha vuelto
-      a ser el mismo. Estoy seguro de que esos Boo's tienen algo que ver..."
-    Position: {x: 6372, y: 200}
+      acompa\xF1ado con un gatito que le gustaba mucho el pescado, pero un d\xEDa
+      le vi sin \xE9l y ya no ha vuelto a ser el mismo. Estoy seguro de que esos
+      Boo's tienen algo que ver..."
+    Position: {x: 5430.4, y: 200}
   - NodeGUID: 7e7f5493-e55f-4036-a5e8-0eb759e43a90
     characterName: Mateo
     DialogueText: CerrarDialogo
-    Position: {x: 8087.2, y: 200}
-  - NodeGUID: 80eafb21-d028-4f8d-b6a1-3cff3b21951b
-    characterName: Edbri
-    DialogueText: CerrarDialogo
-    Position: {x: 1630.4, y: 339.2}
-  - NodeGUID: cbb59cea-503b-4a56-b849-17aafe21859a
-    characterName: Edbri
-    DialogueText: "Y los aldeanos, \xBFqu\xE9 te han parecido?"
-    Position: {x: 1257.6, y: 200}
+    Position: {x: 7332, y: 200}
   ExposedProperties:
   - PropertyName: DialogueName
     PropertyValue: Edbri3

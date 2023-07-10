@@ -16,12 +16,6 @@ MonoBehaviour:
   - BaseNodeGUID: 5e9533db-f306-43b9-8911-66e1724f355d
     PortName: Next
     TargetNodeGUID: cba9ac8f-1bd6-47df-8d26-5483555b6afb
-  - BaseNodeGUID: cba9ac8f-1bd6-47df-8d26-5483555b6afb
-    PortName: Continuar
-    TargetNodeGUID: 5b6434f8-a6f2-4e7f-abea-967af41918f7
-  - BaseNodeGUID: 5b6434f8-a6f2-4e7f-abea-967af41918f7
-    PortName: Continuar
-    TargetNodeGUID: 2a77f00d-5741-4ab4-91d1-3f3e74074a02
   - BaseNodeGUID: 2a77f00d-5741-4ab4-91d1-3f3e74074a02
     PortName: "\xA1S\xED!"
     TargetNodeGUID: eacab727-edd4-404a-84f2-9aebb1eea272
@@ -46,63 +40,101 @@ MonoBehaviour:
   - BaseNodeGUID: c2a371c7-47ce-424a-9550-07037e9875e5
     PortName: Cerrar
     TargetNodeGUID: 49ae246b-4a45-4a89-bbb4-42902ca043e2
+  - BaseNodeGUID: 1d443974-2cfa-401c-8256-87986ca05211
+    PortName: Continuar
+    TargetNodeGUID: 4a3ed3e0-6372-40d9-bd18-5b29858cda46
+  - BaseNodeGUID: 4a3ed3e0-6372-40d9-bd18-5b29858cda46
+    PortName: Continuar
+    TargetNodeGUID: fd66793a-63a4-4fa9-a071-71ce79fb367c
+  - BaseNodeGUID: fd66793a-63a4-4fa9-a071-71ce79fb367c
+    PortName: Continuar
+    TargetNodeGUID: aa0bbeaa-1155-479f-849d-3829902da752
+  - BaseNodeGUID: cba9ac8f-1bd6-47df-8d26-5483555b6afb
+    PortName: Continuar
+    TargetNodeGUID: 1d443974-2cfa-401c-8256-87986ca05211
+  - BaseNodeGUID: aa0bbeaa-1155-479f-849d-3829902da752
+    PortName: Continuar
+    TargetNodeGUID: 21708ebd-3368-47de-9a01-a636da776c5d
+  - BaseNodeGUID: 21708ebd-3368-47de-9a01-a636da776c5d
+    PortName: Continuar
+    TargetNodeGUID: 2a77f00d-5741-4ab4-91d1-3f3e74074a02
   DialogueNodeData:
+  - NodeGUID: 1d443974-2cfa-401c-8256-87986ca05211
+    characterName: Brivia
+    DialogueText: La madre de esta isla es Nebali, la diosa creadora de toda la naturaleza.
+      Le debemos nuestra tierra y pueblo a ella.
+    Position: {x: 24.8, y: 429.6}
+  - NodeGUID: 4a3ed3e0-6372-40d9-bd18-5b29858cda46
+    characterName: Brivia
+    DialogueText: "Su alma reside en la llama del Templo del Agua, enfrente de la
+      Torre de las Gemas. Sin embargo, un d\xEDa aparecieron esos bichos, los Boo's
+      le llamamos."
+    Position: {x: 876.8, y: 429.6}
+  - NodeGUID: fd66793a-63a4-4fa9-a071-71ce79fb367c
+    characterName: Brivia
+    DialogueText: "Invadieron la isla y la energ\xEDa de nuestro pueblo empez\xF3
+      a ser negativa, hasta que la llama de Nebali se apag\xF3..."
+    Position: {x: 1917.6, y: 429.6}
+  - NodeGUID: aa0bbeaa-1155-479f-849d-3829902da752
+    characterName: Brivia
+    DialogueText: "Dice la leyenda que si 3 gemas m\xE1gicas se le conceden al templo,
+      Nebali aparecer\xE1 de nuevo y conceder\xE1 un deseo a su portador. Pero bueno,
+      solo son leyendas."
+    Position: {x: 2732.8, y: 429.6}
   - NodeGUID: cba9ac8f-1bd6-47df-8d26-5483555b6afb
     characterName: Brivia
     DialogueText: "Toma esto, lo vas a necesitar. En esta isla vivimos pac\xEDficamente
       pero tenemos un problema..."
-    Position: {x: 259.2, y: 200}
-  - NodeGUID: 5b6434f8-a6f2-4e7f-abea-967af41918f7
-    characterName: Brivia
-    DialogueText: "Existen unos peque\xF1os bichitos con los que ya te habr\xE1s
-      encontrado, los Oo's les llamamos. Aparecieron un d\xEDa y cada vez hay m\xE1s,
-      no sabemos como deshacernos de ellos."
-    Position: {x: 1030.4, y: 200}
+    Position: {x: 213.6, y: 200}
   - NodeGUID: 2a77f00d-5741-4ab4-91d1-3f3e74074a02
     characterName: Brivia
     DialogueText: "Yo soy la encargada de mantenerlos a raya, pero sola no puedo
       hacerlo. Ya que has venido nuevo, tal vez pueda considerar ganarme tu confianza
       si me ayudas un poquito, \xBFqu\xE9 te parece?"
-    Position: {x: 2186.4, y: 200}
+    Position: {x: 4138.4, y: 398.40002}
   - NodeGUID: eacab727-edd4-404a-84f2-9aebb1eea272
     characterName: Mateo
     DialogueText: "\xA1S\xED! Por supuesto, ayudar\xE9 en lo que sea, aunque no s\xE9
       si soy capaz..."
-    Position: {x: 3416.8, y: 116}
+    Position: {x: 5368.8, y: 314.40002}
   - NodeGUID: 21ee8ee1-c2f1-451f-ac03-55d695b53197
     characterName: Mateo
     DialogueText: "Mmm, no estoy muy seguro... Nunca he hecho algo as\xED y no s\xE9
       nada sobre ellos."
-    Position: {x: 3416.8, y: 281.6}
+    Position: {x: 5368.8, y: 480}
   - NodeGUID: b15363d0-65d9-409e-8c07-1b653950b6e8
     characterName: Brivia
     DialogueText: "Tranquilo, te explicare todo lo necesario. Pero primero ve a hablar
-      con el alcalde all\xED al fondo. Si \xE9l no est\xE1 de acuerdo con esto...
-      Mal vamos"
-    Position: {x: 4001.6, y: 116}
+      con el alcalde en el pueblo despu\xE9s de este puente. Si \xE9l no est\xE1
+      de acuerdo con esto... Mal vamos"
+    Position: {x: 5953.6, y: 314.40002}
   - NodeGUID: e082f4b9-a3c7-4e0b-a1b2-65598c90168a
     characterName: Brivia
     DialogueText: "Vamos, no es tan complicado y ser\xE1 divertido. Hazme caso, 
       te explicar\xE9 todo"
-    Position: {x: 4043.2, y: 281.6}
+    Position: {x: 5995.2, y: 480}
   - NodeGUID: 23b66f19-0b9b-46bb-867e-77187f773751
     characterName: Mateo
     DialogueText: "Bueno... Tampoco tengo otra opci\xF3n por lo que veo"
-    Position: {x: 4656.8, y: 281.6}
+    Position: {x: 6608.8, y: 480}
   - NodeGUID: c2a371c7-47ce-424a-9550-07037e9875e5
     characterName: Brivia
     DialogueText: "No digas eso, ya ver\xE1s como te acostumbras r\xE1pido a este
-      lugar. Mira, ese chico de ah\xED es el alcalde. Habla con \xE9l, seguro que
-      te viene bien."
-    Position: {x: 5153.6, y: 281.6}
+      lugar. Mira, despu\xE9s del puente en el pueblo est\xE1 el alcalde. Habla con
+      \xE9l, seguro que te viene bien."
+    Position: {x: 7105.6, y: 480}
   - NodeGUID: 68174f3b-7dcb-4ecf-98b4-4aebfcd0f984
     characterName: Character Name
     DialogueText: CerrarDialogo
-    Position: {x: 4973.6, y: 116}
+    Position: {x: 7070.4, y: 314.40002}
   - NodeGUID: 49ae246b-4a45-4a89-bbb4-42902ca043e2
     characterName: Brivia
     DialogueText: CerrarDialogo
-    Position: {x: 6124, y: 281.6}
+    Position: {x: 8196.8, y: 480}
+  - NodeGUID: 21708ebd-3368-47de-9a01-a636da776c5d
+    characterName: Mateo
+    DialogueText: "Tal vez algo cambie cuando se libere a la isla de los Boo's, \xBFno?"
+    Position: {x: 3734.4, y: 260}
   ExposedProperties:
   - PropertyName: DialogueName
     PropertyValue: Brivia2

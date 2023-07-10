@@ -7,6 +7,10 @@ public class ItemObject : MonoBehaviour
     GameManager gameManager;
     private InventorySystem inventory;
     public InventoryItemData referenceItem;
+
+    public delegate void OnGemasEvent();
+    public static event OnGemasEvent onGemasEvent;
+
     public void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>() ;
@@ -15,10 +19,14 @@ public class ItemObject : MonoBehaviour
     public void OnHandlePickupItem()
     {
         inventory.Add(referenceItem);
-
-        Destroy(gameObject);
-
-        gameManager.MostrarMensaje(referenceItem.displayName + " se ha añadido al inventario.");
+        if(!gameManager.tieneGemas && (gameObject.tag == "GemaAmarilla" || gameObject.tag == "GemaRoja" || gameObject.tag == "GemaVerde"))
+        {
+            gameManager.tieneGemas = true;           
+            if (onGemasEvent != null) onGemasEvent();
+            gameManager.MostrarMensaje("¡Has conseguido una gema! Ve a hablar con Brivia");
+        }
+        else gameManager.MostrarMensaje(referenceItem.displayName + " se ha añadido al inventario.");
+        Destroy(gameObject);     
 
     }
 

@@ -28,5 +28,7 @@ MonoBehaviour:
     characterName: Leeba
     DialogueText: CerrarDialogo
     Position: {x: 666.4, y: 200}
-  ExposedProperties: []
+  ExposedProperties:
+  - PropertyName: DialogueName
+    PropertyValue: Leeba5
   CommentBlockData: []

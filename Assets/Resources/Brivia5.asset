@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Brivia5
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: dde7a502-f292-4ea6-a880-24844183010e
+    PortName: Next
+    TargetNodeGUID: 9fec55c7-298d-4f3f-ba85-4fc881fe3aeb
+  - BaseNodeGUID: 9fec55c7-298d-4f3f-ba85-4fc881fe3aeb
+    PortName: Continuar
+    TargetNodeGUID: a9d66f8b-035f-4490-8e54-05374b6db845
+  - BaseNodeGUID: a9d66f8b-035f-4490-8e54-05374b6db845
+    PortName: Contiuar
+    TargetNodeGUID: 29e981ef-96e8-4e44-be5a-a8ba752de4b9
+  - BaseNodeGUID: 29e981ef-96e8-4e44-be5a-a8ba752de4b9
+    PortName: Continuar
+    TargetNodeGUID: 656a99de-77d8-4b69-b761-f6321397ae75
+  - BaseNodeGUID: 656a99de-77d8-4b69-b761-f6321397ae75
+    PortName: Continuar
+    TargetNodeGUID: 3b0f284e-e133-40e2-8bb4-16cd1a7b882d
+  - BaseNodeGUID: 3b0f284e-e133-40e2-8bb4-16cd1a7b882d
+    PortName: Cerrar
+    TargetNodeGUID: 6b9c0d98-a988-412e-bd31-a3041993889b
+  DialogueNodeData:
+  - NodeGUID: 9fec55c7-298d-4f3f-ba85-4fc881fe3aeb
+    characterName: Brivia
+    DialogueText: "\xBFHas conseguido una gema? \xA1Eso es incre\xEDble!"
+    Position: {x: 250.4, y: 200}
+  - NodeGUID: a9d66f8b-035f-4490-8e54-05374b6db845
+    characterName: Brivia
+    DialogueText: "Si consigues acabar con todos, tal vez consigas las 3 gemas para
+      invocar a Nebali. \xBFCrees que la leyenda es cierta?"
+    Position: {x: 664.8, y: 200}
+  - NodeGUID: 29e981ef-96e8-4e44-be5a-a8ba752de4b9
+    characterName: Mateo
+    DialogueText: "No lo s\xE9, pero por ahora creo que puedo conseguirlo."
+    Position: {x: 1512.8, y: 200}
+  - NodeGUID: 656a99de-77d8-4b69-b761-f6321397ae75
+    characterName: Brivia
+    DialogueText: "\xA1S\xED! Conf\xEDo en t\xED. Recuerda que cuando te ve un Boo,
+      tienes unos segundos para esconderte y as\xED no te perseguir\xE1. A veces
+      hacen ataques para lanzarse a t\xED, ten cuidado."
+    Position: {x: 2031.2, y: 200}
+  - NodeGUID: 3b0f284e-e133-40e2-8bb4-16cd1a7b882d
+    characterName: Mateo
+    DialogueText: "Muchas gracias, Brivia. \xA1Hasta ahora!"
+    Position: {x: 3181.6, y: 200}
+  - NodeGUID: 6b9c0d98-a988-412e-bd31-a3041993889b
+    characterName: Brivia
+    DialogueText: CerrarDialogo
+    Position: {x: 3577.6, y: 200}
+  ExposedProperties:
+  - PropertyName: DialogueName
+    PropertyValue: Brivia5
+  CommentBlockData: []

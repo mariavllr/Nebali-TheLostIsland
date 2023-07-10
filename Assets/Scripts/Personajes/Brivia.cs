@@ -32,6 +32,7 @@ public class Brivia : MonoBehaviour
     void Start()
     {
         ManagerDialogos.onDialogueEvent += EventoDialogoBrivia;
+        ItemObject.onGemasEvent += EventoEncuentraGema;
 
         gameManager = gameManagerObject.GetComponent<GameManager>();
         managerDialogos = gameManagerObject.GetComponent<ManagerDialogos>();
@@ -47,6 +48,7 @@ public class Brivia : MonoBehaviour
     private void OnDisable()
     {
         ManagerDialogos.onDialogueEvent -= EventoDialogoBrivia;
+        ItemObject.onGemasEvent -= EventoEncuentraGema;
     }
 
     void Update()
@@ -90,7 +92,7 @@ public class Brivia : MonoBehaviour
                         if (miProximoDialogo == dialogos[1])
                             Instantiate(espada, transform.position + new Vector3(3f, 0, 0), Quaternion.Euler(new Vector3(-90, -90, 0)));
                         gameManager.MostrarMensaje("Nueva entrada en el diario.");
-                        gameManager.EntradaDiario("Vaya, acabo de llegar y ya he conseguido una espada. ¡Sí que confían en mí! Tengo que acabar con esos bichos negros para ganarme su confianza.");
+                        gameManager.EntradaDiario("\n-Vaya, acabo de llegar y ya he conseguido una espada. ¡Sí que confían en mí! Creo que puedo conseguir esas gemas de la leyenda de Nebal si acabo con esos Boo's y ganarme su confianza.");
 
                         //Este dialogo es si vuelves a hablar con ella en algun momento
                         miProximoDialogo = dialogos[2]; //Brivia3
@@ -117,6 +119,12 @@ public class Brivia : MonoBehaviour
                 }
             }
         }
+    }
+
+    void EventoEncuentraGema()
+    {
+        miProximoDialogo = dialogos[4];
+        dialogoInfo.dialogoDisponible = true;
     }
 
     void CaminarHastaPueblo()

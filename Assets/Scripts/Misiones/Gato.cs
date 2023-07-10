@@ -8,7 +8,8 @@ public class Gato : MonoBehaviour
     public GameManager gameManager;
     public GameObject player;
     private PlayerMovement playerMov;
-    public Animator iconAnimator;
+    //public Animator iconAnimator;
+    public SpriteRenderer icono;
     public int radio;
 
     private NavMeshAgent nav;
@@ -66,18 +67,41 @@ public class Gato : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, player.transform.position) <= radio && !siguiendo && gameManager.tieneObjetoEnMano && gameManager.objetoEnMano.tag == "Pez")
             {
-                iconAnimator.SetBool("StartTalk", true);
+                //iconAnimator.SetBool("StartTalk", true);               
+                if (icono.color.a == 0) StartCoroutine(fade(icono, 1f, true));
                 return true;
 
             }
             else
             {
-                iconAnimator.SetBool("StartTalk", false);
+                //iconAnimator.SetBool("StartTalk", false);
+                if(icono.color.a == 1) StartCoroutine(fade(icono, 1f, false));
                 return false;
             }
         }
 
         return false;
         
+    }
+
+    IEnumerator fade(SpriteRenderer MyRenderer, float duration, bool fadeIn)
+    {
+        float counter = 0;
+        //Get current color
+        Color spriteColor = MyRenderer.material.color;
+
+        while (counter < duration)
+        {
+            counter += Time.deltaTime;
+            float alpha;
+            //Fade from 1 to 0 or viceversa
+            if (fadeIn) alpha = Mathf.Lerp(0, 1, counter / duration);
+            else alpha = Mathf.Lerp(1, 0, counter / duration);
+
+            //Change alpha only
+            MyRenderer.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
+            //Wait for a frame
+            yield return null;
+        }
     }
 }

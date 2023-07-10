@@ -80,6 +80,25 @@ public class Edbri : MonoBehaviour
 
                         dialogoInfo.dialogoDisponible = false;
                         break;
+                    case "Edbri4":
+                        dialogoInfo.dialogoDisponible = false;
+                        break;
+                }
+            }
+        }
+
+        //Se ha acabado dialogo con Leeba
+        if (managerDialogos.personaje == "Leeba")
+        {
+            if (managerDialogos.dialogoActual.ExposedProperties[0].PropertyName == "DialogueName")
+            {
+                switch (managerDialogos.dialogoActual.ExposedProperties[0].PropertyValue)
+                {
+                    case "Leeba2":
+                        //Misión gato completada
+                        dialogoInfo.dialogoDisponible = true;
+                        miProximoDialogo = dialogos[3];
+                        break;
                 }
             }
         }

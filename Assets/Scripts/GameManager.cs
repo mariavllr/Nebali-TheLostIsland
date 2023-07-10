@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public GameObject objetoEnMano; //El objeto que tiene el jugador en la mano
     public GameObject mano;
     public bool tieneObjetoEnMano = false;
+    public bool tieneGemas = false;
 
     [Header("Enemigos y mision principal")]
 

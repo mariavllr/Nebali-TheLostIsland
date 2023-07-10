@@ -36,7 +36,7 @@ public class Pescar : MonoBehaviour
         {
             if(gameManager.objetoEnMano != null && gameManager.objetoEnMano.tag == "CanaPescar")
             {
-                if (Input.GetKeyDown(gameManager.hablar))
+                if (Input.GetKeyDown(gameManager.atacar))
                 {
                                 clicks++;
                                 if (elegirImpulso && anzueloLanzado == null && clicks == 1)
@@ -77,7 +77,7 @@ public class Pescar : MonoBehaviour
         valorImpulso = Mathf.PingPong(tiempoImpulso, 1); //This returns each impulseTime seconds a value between 0 and 1 and reverse
         sliderImpulso.value = valorImpulso;
 
-        if (Input.GetKeyDown(gameManager.hablar) && !elegirImpulso && !lanzado && anzueloLanzado == null && clicks == 2)
+        if (Input.GetKeyDown(gameManager.atacar) && !elegirImpulso && !lanzado && anzueloLanzado == null && clicks == 2)
         {
             Debug.Log("Lanzado");
             LanzarCanya();

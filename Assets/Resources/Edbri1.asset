@@ -43,15 +43,6 @@ MonoBehaviour:
   - BaseNodeGUID: 05d42b1c-b4a0-4b3f-b158-16051abe26bb
     PortName: Continuar
     TargetNodeGUID: ccbb39a2-d276-4994-acfe-0c7dba54d98c
-  - BaseNodeGUID: ccbb39a2-d276-4994-acfe-0c7dba54d98c
-    PortName: Continuar
-    TargetNodeGUID: d490ed1f-b514-4851-8b0d-46b3e4840076
-  - BaseNodeGUID: d490ed1f-b514-4851-8b0d-46b3e4840076
-    PortName: Continuar
-    TargetNodeGUID: fced1596-abd4-45b9-9dab-14a7d1edecbf
-  - BaseNodeGUID: fced1596-abd4-45b9-9dab-14a7d1edecbf
-    PortName: Continuar
-    TargetNodeGUID: b97c7777-697d-4de7-be80-5c768eee2c40
   - BaseNodeGUID: b97c7777-697d-4de7-be80-5c768eee2c40
     PortName: Continuar
     TargetNodeGUID: ee25ab7f-1912-4f0b-b036-61a374c62562
@@ -70,6 +61,9 @@ MonoBehaviour:
   - BaseNodeGUID: ac602a90-8276-48c7-9c30-a1a501f1e519
     PortName: Cerrar
     TargetNodeGUID: aed3f262-cb02-4fec-919b-2c4cd77b9bac
+  - BaseNodeGUID: ccbb39a2-d276-4994-acfe-0c7dba54d98c
+    PortName: Continuar
+    TargetNodeGUID: b97c7777-697d-4de7-be80-5c768eee2c40
   DialogueNodeData:
   - NodeGUID: 54538b1f-dc3e-4f9e-82d1-f7887f6723f5
     characterName: Edbri
@@ -119,54 +113,45 @@ MonoBehaviour:
   - NodeGUID: ccbb39a2-d276-4994-acfe-0c7dba54d98c
     characterName: Mateo
     DialogueText: "A\xFAn no he tenido mucho tiempo de explorar pero me da mucha
-      tranquilidad saber que al menos no estoy solo. "
-    Position: {x: 6456, y: 200}
-  - NodeGUID: d490ed1f-b514-4851-8b0d-46b3e4840076
-    characterName: Edbri
-    DialogueText: "Tiene que ser duro la verdad... \xBFC\xF3mo es que has acabado
-      aqu\xED?"
-    Position: {x: 7253.6, y: 200}
-  - NodeGUID: fced1596-abd4-45b9-9dab-14a7d1edecbf
-    characterName: Mateo
-    DialogueText: "No lo s\xE9, yo solo estaba dando un paseo con mi barca como de
-      costumbre y de repente se form\xF3 una tormenta gigantesca y ya no recuerdo
-      mucho m\xE1s... Solo espero poder volver a casa alg\xFAn d\xEDa"
-    Position: {x: 7780, y: 200}
+      tranquilidad saber que al menos no estoy solo. Solo espero volver a casa alg\xFAn
+      d\xEDa..."
+    Position: {x: 6478.4, y: 200}
   - NodeGUID: b97c7777-697d-4de7-be80-5c768eee2c40
     characterName: Edbri
     DialogueText: "Vaya... Lo siento mucho. Estoy seguro de que lo conseguir\xE1s,
       pero mientras tanto vas a tener que acostumbrarte a pasar un tiempo por aqu\xED.
       No te aseguro que a todos les vaya a gustar la idea de un extra\xF1o por aqu\xED,
       pero siempre puedes venir a hablar conmigo."
-    Position: {x: 9082.4, y: 200}
+    Position: {x: 7632, y: 113.59999}
   - NodeGUID: ee25ab7f-1912-4f0b-b036-61a374c62562
     characterName: Mateo
     DialogueText: "Muchas gracias Edbri. La verdad es que entiendo perfectamente
       por qu\xE9 eres el alcalde."
-    Position: {x: 10752.8, y: 200}
+    Position: {x: 9355.2, y: 171.2}
   - NodeGUID: ab1d336a-f153-489c-8f30-9a5e23de2252
     characterName: Edbri
     DialogueText: "Bueno... De eso podr\xEDa hablar bastante pero tal vez en otro
       momento. \xBFQu\xE9 tal si buscas a todos los aldeanos para familiarizarte
       con ellos? As\xED tal vez te integres mejor"
-    Position: {x: 11407.2, y: 200}
+    Position: {x: 10009.6, y: 171.2}
   - NodeGUID: 8c6c636d-2621-45ff-b9aa-f78dd41a9591
     characterName: Mateo
     DialogueText: "\xBFCu\xE1ntos sois?"
-    Position: {x: 12525.6, y: 200}
+    Position: {x: 11153.6, y: 171.2}
   - NodeGUID: 0f2a44ba-6d18-4bdd-a257-61be12126c76
     characterName: Edbri
-    DialogueText: "Ahora mismo solo somos 4 cont\xE1ndonos a m\xED y a Brivia. Cuando
-      hayas hablado con todos ven si te apetece y charlamos."
-    Position: {x: 12781.6, y: 200}
+    DialogueText: "Somos muchos, pero ahora mismo solo nos encontramos 3 en la isla
+      cont\xE1ndonos a m\xED y a Brivia. Cuando hayas hablado con todos ven si te
+      apetece y charlamos."
+    Position: {x: 11409.6, y: 171.2}
   - NodeGUID: ac602a90-8276-48c7-9c30-a1a501f1e519
     characterName: Mateo
     DialogueText: "De acuerdo, me dar\xE9 una vuelta por la isla a ver que hay. \xA1Gracias!"
-    Position: {x: 13631.2, y: 200}
+    Position: {x: 12483.2, y: 171.2}
   - NodeGUID: aed3f262-cb02-4fec-919b-2c4cd77b9bac
     characterName: Edbri
     DialogueText: CerrarDialogo
-    Position: {x: 14217.6, y: 200}
+    Position: {x: 13028, y: 171.2}
   ExposedProperties:
   - PropertyName: DialogueName
     PropertyValue: Edbri1

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Edbri4
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: bee49686-4d52-4f92-a743-4ab2bb86c06b
+    PortName: Next
+    TargetNodeGUID: de6b1c2b-bc07-4a7a-b171-fb42a10f5bfa
+  - BaseNodeGUID: de6b1c2b-bc07-4a7a-b171-fb42a10f5bfa
+    PortName: Leeba
+    TargetNodeGUID: 764b77ac-e6fd-49e5-b773-bd68b4069fd9
+  - BaseNodeGUID: 764b77ac-e6fd-49e5-b773-bd68b4069fd9
+    PortName: Continuar
+    TargetNodeGUID: 4ad5420e-ab79-48d5-b9a2-5877faf70587
+  - BaseNodeGUID: 4ad5420e-ab79-48d5-b9a2-5877faf70587
+    PortName: Gracias...
+    TargetNodeGUID: cde98f69-8196-4fff-b9f3-bd321a7a5993
+  - BaseNodeGUID: cde98f69-8196-4fff-b9f3-bd321a7a5993
+    PortName: Cerrar
+    TargetNodeGUID: a829b845-c7b0-48c9-8311-a27e03ed60ab
+  DialogueNodeData:
+  - NodeGUID: de6b1c2b-bc07-4a7a-b171-fb42a10f5bfa
+    characterName: Edbri
+    DialogueText: "\xBFQu\xE9 tal, Mateo?"
+    Position: {x: 208.8, y: 200}
+  - NodeGUID: 764b77ac-e6fd-49e5-b773-bd68b4069fd9
+    characterName: Mateo
+    DialogueText: "He conseguido encontrar el gato de Leeba y est\xE1 muy feliz.
+      Es genial."
+    Position: {x: 451.2, y: 200}
+  - NodeGUID: 4ad5420e-ab79-48d5-b9a2-5877faf70587
+    characterName: Edbri
+    DialogueText: "\xA1Vaya, eso es incre\xEDble! Est\xE1s ayudando mucho al pueblo
+      y seguro que te lo agradecer\xE1n. Eres buena persona, Mateo."
+    Position: {x: 1015.2, y: 200}
+  - NodeGUID: cde98f69-8196-4fff-b9f3-bd321a7a5993
+    characterName: Mateo
+    DialogueText: Muchas gracias, pero solo intento ayudar.
+    Position: {x: 1855.2, y: 200}
+  - NodeGUID: a829b845-c7b0-48c9-8311-a27e03ed60ab
+    characterName: Edbri
+    DialogueText: CerrarDialogo
+    Position: {x: 2240, y: 200}
+  ExposedProperties:
+  - PropertyName: DialogueName
+    PropertyValue: Edbri4
+  CommentBlockData: []
