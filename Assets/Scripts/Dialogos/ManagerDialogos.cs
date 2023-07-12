@@ -26,13 +26,13 @@ public class ManagerDialogos : MonoBehaviour
 
     [Header("Efectos de sonido")]
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip typingSoundClip;
+    [SerializeField] private List<AudioClip> typingSoundClip;
     [Range(1,5)]
     [SerializeField] private int frequencyLevel = 2;
     [Range(-3, 3)]
-    [SerializeField] private float minPitch = 0.5f;
+    [SerializeField] private float minPitch = 1f;
     [Range(-3, 3)]
-    [SerializeField] private float maxPitch = 3f;
+    [SerializeField] private float maxPitch = 1.5f;
 
     [Header("No rellenar")]
     public string personaje;
@@ -88,6 +88,29 @@ public class ManagerDialogos : MonoBehaviour
     }
     public void MostrarDialogo()
     {
+        if(personaje == "Brivia")
+        {
+            minPitch = 1f;
+            maxPitch = 1.5f;
+        }
+        else if (personaje == "Leeba")
+        {
+            minPitch = 0.3f;
+            maxPitch = 0.6f;
+        }
+        else if (personaje == "Edbri")
+        {
+            minPitch = 0.6f;
+            maxPitch = 1f;
+        }
+
+        else if (personaje == "Nebali")
+        {
+            minPitch = 1.5f;
+            maxPitch = 2f;
+        }
+
+
         //Congelar al personaje, fijar la camara y desbloquear el cursor
         cinemachineSwitcher.FijarCamara();
         Cursor.lockState = CursorLockMode.None;
@@ -137,7 +160,7 @@ public class ManagerDialogos : MonoBehaviour
         if(numCharactersDisplayed % frequencyLevel == 0)
         {
             audioSource.pitch = Random.Range(minPitch, maxPitch);
-            audioSource.PlayOneShot(typingSoundClip);
+            audioSource.PlayOneShot(typingSoundClip[Random.Range(0, typingSoundClip.Count)]);
         }
     }
 

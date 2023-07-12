@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Pescar : MonoBehaviour
 {
     public GameManager gameManager;
+    private Animator animator;
 
     public GameObject anzueloPrefab;
     public GameObject inicioLanzamiento;
@@ -24,9 +25,10 @@ public class Pescar : MonoBehaviour
 
     public List<GameObject> peces;
 
+
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -41,7 +43,6 @@ public class Pescar : MonoBehaviour
                                 clicks++;
                                 if (elegirImpulso && anzueloLanzado == null && clicks == 1)
                                 {
-                                    Debug.Log("elegir impulso");
                                     sliderImpulso.gameObject.SetActive(true);
                                     elegirImpulso = false;
                                 }
@@ -63,6 +64,7 @@ public class Pescar : MonoBehaviour
                                 elegirImpulso = true;
                                 sliderImpulso.gameObject.SetActive(false);
                                 clicks = 0;
+                               // animator.SetBool("Pescar", false);
                             }
 
                             //corregir bug a veces el anzuelo se pira por ahi lejos
@@ -86,20 +88,31 @@ public class Pescar : MonoBehaviour
 
     private void LanzarCanya()
     {
+       // animator.SetTrigger("LanzarCanya");
+       // animator.SetBool("Pescar", true);
         lanzado = true;
+
+        //StartCoroutine(LanzarAnzuelo());
         Vector3 dir = transform.forward;
         GameObject anzuelo = Instantiate(anzueloPrefab, inicioLanzamiento.transform.position, transform.rotation);
         Rigidbody rb = anzuelo.AddComponent<Rigidbody>();
         anzuelo.AddComponent<Anzuelo>();
 
         rb.AddForce(maxImpulso * valorImpulso * dir);
-
         anzueloLanzado = anzuelo;
+    }
+
+    IEnumerator LanzarAnzuelo()
+    {
+        yield return new WaitForSeconds(2);
+
+        
+        //poner que la variable de anzuelo lanzado solo se lea cuando acabe esta corrutina
     }
 
     private void RecogerCanya()
     {
-        Debug.Log("Recogido");
+        //animator.SetBool("Pescar", false);
         
         lanzado = false;
         sliderImpulso.gameObject.SetActive(false);
