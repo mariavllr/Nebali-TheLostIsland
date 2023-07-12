@@ -17,14 +17,11 @@ public class ActivarDialogo : MonoBehaviour
     public bool dialogoDisponible;
     [SerializeField] GameObject player;
     [SerializeField] float radio;
-    private AudioSource audioSource;
-    private bool activarSonido = true;
 
 
     void Start()
     {
         animator = talkIcon.GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()

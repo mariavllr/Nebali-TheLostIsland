@@ -7,6 +7,7 @@ public class EnemigoController : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     [SerializeField] GameObject player;
+    private PlayerMovement playerMov;
     [SerializeField] GameObject modelo;
 
     [Header("Patrulla")]
@@ -24,6 +25,7 @@ public class EnemigoController : MonoBehaviour
     public float tiempoAtaque; //El tiempo que tiene que esperar entre cada ataque (sino al tocarlo quitaría todos los corazones de una)
     public float tiempoDaño; //El tiempo que se queda atontado cuando le pegan
     public float radioDeteccion; //Radio donde detecta al jugador
+    public float radioDeteccionAtaque; //Radio donde si se sale deja de atacar
     public float fuerzaImpulsoAtaque; //Lo que se impulsa al jugador cuando le ataca
     public float fuerzaImpulsoRecibeDaño; //Lo que se echa hacia atrás cuando le pegan
 
@@ -51,8 +53,11 @@ public class EnemigoController : MonoBehaviour
 
     void Start()
     {
+        ManagerDialogos.onDialogueOpenedEvent += EnDialogo;
+
         nav = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+        playerMov = player.GetComponent<PlayerMovement>();
 
         estadoActual = EstadosEnemigo.Patrulla;
         int rand = Random.Range(0, waypointsPatrulla.Count);
@@ -60,6 +65,11 @@ public class EnemigoController : MonoBehaviour
         nav.destination = waypointActual.position;
 
         colorOriginal = mrenderer.material.GetColor("_MainColor");
+    }
+
+    private void OnDisable()
+    {
+        ManagerDialogos.onDialogueOpenedEvent -= EnDialogo;
     }
 
     void Update()
@@ -88,6 +98,14 @@ public class EnemigoController : MonoBehaviour
             }
         }
 
+    }
+
+    void EnDialogo()
+    {
+        //Cuando el personaje se pone a hablar los personajes pasan de él
+        waypointActual = waypointsPatrulla[Random.Range(0, waypointsPatrulla.Count)];
+        nav.destination = waypointActual.position;
+        estadoActual = EstadosEnemigo.Patrulla;
     }
 
 
@@ -165,9 +183,8 @@ public class EnemigoController : MonoBehaviour
             }
         }
 
-        //Si está cerca del jugador se alerta ( y no esta muerto )
-        if (Vector3.Distance(transform.position, player.transform.position) < radioDeteccion &&
-            Vector3.Distance(transform.position, player.transform.position) > 0.1f && !player.GetComponent<PlayerController>().dead)
+        //Si está cerca del jugador se alerta ( y no esta muerto ni conversando)
+        if (CercaJugador(radioDeteccion) && playerMov.canMove)
         {
             estadoActual = EstadosEnemigo.Alerta;  
         }
@@ -208,7 +225,7 @@ public class EnemigoController : MonoBehaviour
 
     void Ataque()
     {
-        if (!muerto)
+        if (!muerto && CercaJugador(radioDeteccionAtaque) && playerMov.canMove)
         {
             nav.speed = 7;
             nav.destination = player.transform.position;
@@ -225,6 +242,23 @@ public class EnemigoController : MonoBehaviour
                 estadoActual = EstadosEnemigo.Patrulla;
             }
         }
+
+        else
+        {
+            waypointActual = waypointsPatrulla[Random.Range(0, waypointsPatrulla.Count)];
+            nav.destination = waypointActual.position;
+            estadoActual = EstadosEnemigo.Patrulla;
+        } 
+    }
+
+    bool CercaJugador(float radio)
+    {
+        if (Vector3.Distance(transform.position, player.transform.position) < radio &&
+            Vector3.Distance(transform.position, player.transform.position) > 0.1f && !player.GetComponent<PlayerController>().dead)
+        {
+            return true;
+        }
+        else return false;
     }
 
     IEnumerator EjecutarUnAtaque()

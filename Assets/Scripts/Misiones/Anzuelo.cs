@@ -5,6 +5,8 @@ using UnityEngine;
 public class Anzuelo : MonoBehaviour
 {
     private bool tocaAgua = false;
+    public delegate void FueraAguaEvent();
+    public static event FueraAguaEvent onFueraAguaEvent;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Agua")
@@ -25,6 +27,7 @@ public class Anzuelo : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            if (onFueraAguaEvent != null) onFueraAguaEvent();
         }
     }
 

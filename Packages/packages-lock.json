@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.subtegral.dialoguesystem": {
-      "version": "file:D:/TFG/Descargados/NodeBasedDialogueSystem-master/NodeBasedDialogueSystem-master",
+      "version": "file:../localPackages/NodeBasedDialogueSystem-master/NodeBasedDialogueSystem-master",
       "depth": 0,
       "source": "local",
       "dependencies": {}

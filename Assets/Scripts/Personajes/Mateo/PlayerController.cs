@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [Header("Sonido")]
     [SerializeField] AudioSource damageSound;
     [SerializeField] AudioSource attackSound;
+    [SerializeField] AudioSource eatSound;
     
     private PlayerMovement playerMov;
     private float tiempo;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private Coroutine fadeCoroutine;
     private bool puedeSentarse = false;
+    private bool comiendo = false;
     private SpriteRenderer icono;
 
     private GameManager.Zona zonaPrevia;
@@ -62,8 +64,38 @@ public class PlayerController : MonoBehaviour
             {
                 Atacar();
             }
+
+            if (Input.GetKeyUp(gameManager.atacar) && !comiendo && gameManager.tieneObjetoEnMano && gameManager.objetoEnMano != null && gameManager.objetoEnMano.transform.tag == "Pez")
+            {
+                ComerPez();
+            }
         }
 
+    }
+
+    private void ComerPez()
+    {
+        GameObject pez = gameManager.objetoEnMano;
+
+        if (vidaActual < vida)
+        {
+            comiendo = true;           
+            //Sumar 1 vida si no esta completo ya
+            vidaActual++;
+            DibujarCorazones();
+
+            //Borrar del inventario
+            if (pez.TryGetComponent<ItemObject>(out ItemObject item))
+            {
+                Debug.Log(item.referenceItem.displayName);
+                gameManager.GetComponent<InventorySystem>().Remove(item.referenceItem);
+            }
+
+            //Borrar de la mano
+            Destroy(gameManager.objetoEnMano);
+            eatSound.Play();
+            comiendo = false;
+        }     
     }
 
     private void OnTriggerEnter(Collider other)
@@ -95,16 +127,6 @@ public class PlayerController : MonoBehaviour
             zonaPrevia = gameManager.zonaActual;
             gameManager.zonaActual = GameManager.Zona.Granja;
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {     
-        //Zonas
-       /* if (other.gameObject.tag == "ZonaGranja")
-        {
-            zonaPrevia = gameManager.zonaActual;
-            gameManager.zonaActual = GameManager.Zona.Granja;
-        }*/
     }
 
     private void OnTriggerExit(Collider other)
@@ -247,6 +269,13 @@ public class PlayerController : MonoBehaviour
 
     private void DibujarCorazones()
     {
+        //Borrar container
+        for (int i = 0; i < vidasContainer.transform.childCount; i++)
+        {
+            Destroy(vidasContainer.transform.GetChild(i).gameObject);
+        }
+
+        //Redibujar
         for (int i = 0; i < vidaActual; i++)
         {
             Instantiate(prefabCorazon, vidasContainer.transform);

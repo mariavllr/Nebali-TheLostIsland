@@ -6887,6 +6887,7 @@ MonoBehaviour:
   tiempoAtaque: 2
   "tiempoDa\xF1o": 0.5
   radioDeteccion: 10
+  radioDeteccionAtaque: 20
   fuerzaImpulsoAtaque: 15
   "fuerzaImpulsoRecibeDa\xF1o": 30
   explosion: {fileID: 5306014678653260176}

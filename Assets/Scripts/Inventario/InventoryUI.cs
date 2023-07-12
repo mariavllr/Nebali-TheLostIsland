@@ -64,7 +64,7 @@ public class InventoryUI : MonoBehaviour
         }
         //Poner objeto en la mano del jugador
         GameObject selectedObject = Instantiate(objeto, gameManager.mano.transform);
-        DestroyImmediate(selectedObject.GetComponent<ItemObject>());
+        selectedObject.GetComponent<BoxCollider>().enabled = false;
         //selectedObject.transform.localRotation = Quaternion.identity;
         selectedObject.transform.localPosition = Vector3.zero;
     }

@@ -51,11 +51,13 @@ public class PlayerMovement : MonoBehaviour
                 {
                     animator.SetBool("Running", true);
                     speed = runningSpeed;
+                    audioSource.pitch = 2.10f;
                 }
                 if (Input.GetKeyUp(KeyCode.LeftShift))
                 {
                     animator.SetBool("Running", false);
                     speed = normalSpeed;
+                    audioSource.pitch = 1.53f;
                 }
                 
                 isMoving = true;
@@ -81,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
                 isMoving = false;
                 audioSource.Stop();
                 speed = normalSpeed;
+                audioSource.pitch = 1.53f;
                 controller.Move(new Vector3(0, verticalVelocity, 0) * Time.deltaTime);
             }
         }    

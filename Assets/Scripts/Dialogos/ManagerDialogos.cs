@@ -38,8 +38,11 @@ public class ManagerDialogos : MonoBehaviour
     public string personaje;
     public DialogueContainer dialogoActual;
 
-    public delegate void OnDialogueEvent();
+    public delegate void OnDialogueEvent(); // se cierra un dialogo
     public static event OnDialogueEvent onDialogueEvent;
+
+    public delegate void OnDialogueOpenedEvent(); //se abre un dialogo
+    public static event OnDialogueOpenedEvent onDialogueOpenedEvent;
 
     private void Start()
     {
@@ -123,6 +126,8 @@ public class ManagerDialogos : MonoBehaviour
         //Ver qué dialogo es, de qué personaje y según eso actualizar la info
         personaje = dialogueParser.dialogue.DialogueNodeData[0].characterName;
         dialogoActual = dialogueParser.dialogue;
+
+        if (onDialogueOpenedEvent != null) onDialogueOpenedEvent();
     }
 
     private void DisplayLineFunction()

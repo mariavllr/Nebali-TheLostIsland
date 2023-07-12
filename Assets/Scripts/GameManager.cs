@@ -419,9 +419,16 @@ public class GameManager : MonoBehaviour
                 sky.SetActive(true);
             }
         }
+        else if (opcion == "Fullscreen")
+        {
+            if (Screen.fullScreen) Screen.fullScreen = false;
+            else Screen.fullScreen  = true;
+        }
         else if(opcion == "Antialiasing")
         {
-
+            // Set AntiAliasing to use 2x Multisampling
+            if (QualitySettings.antiAliasing == 0) QualitySettings.antiAliasing = 2;
+            else QualitySettings.antiAliasing = 0;
         }
     }
 

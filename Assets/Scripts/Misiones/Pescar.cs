@@ -29,6 +29,12 @@ public class Pescar : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        Anzuelo.onFueraAguaEvent += FueraDelAgua;
+    }
+
+    private void OnDisable()
+    {
+        Anzuelo.onFueraAguaEvent -= FueraDelAgua;
     }
 
     void Update()
@@ -58,16 +64,14 @@ public class Pescar : MonoBehaviour
                                 CalcularSliderImpulso();
                             }
 
-                            if (anzueloLanzado == null && clicks == 2)
+                          /*  if (anzueloLanzado == null && clicks == 2)
                             {
                                 lanzado = false;
                                 elegirImpulso = true;
                                 sliderImpulso.gameObject.SetActive(false);
                                 clicks = 0;
-                               // animator.SetBool("Pescar", false);
-                            }
-
-                            //corregir bug a veces el anzuelo se pira por ahi lejos
+                                animator.SetBool("Pescar", false);
+                            }*/
             }
             
         }
@@ -88,11 +92,17 @@ public class Pescar : MonoBehaviour
 
     private void LanzarCanya()
     {
-       // animator.SetTrigger("LanzarCanya");
-       // animator.SetBool("Pescar", true);
+        animator.SetTrigger("LanzarCanya");
+        animator.SetBool("Pescar", true);
         lanzado = true;
 
-        //StartCoroutine(LanzarAnzuelo());
+        StartCoroutine(LanzarAnzuelo());
+        
+    }
+
+    IEnumerator LanzarAnzuelo()
+    {
+        yield return new WaitForSeconds(2);
         Vector3 dir = transform.forward;
         GameObject anzuelo = Instantiate(anzueloPrefab, inicioLanzamiento.transform.position, transform.rotation);
         Rigidbody rb = anzuelo.AddComponent<Rigidbody>();
@@ -100,19 +110,12 @@ public class Pescar : MonoBehaviour
 
         rb.AddForce(maxImpulso * valorImpulso * dir);
         anzueloLanzado = anzuelo;
-    }
-
-    IEnumerator LanzarAnzuelo()
-    {
-        yield return new WaitForSeconds(2);
-
-        
         //poner que la variable de anzuelo lanzado solo se lea cuando acabe esta corrutina
     }
 
     private void RecogerCanya()
     {
-        //animator.SetBool("Pescar", false);
+        animator.SetBool("Pescar", false);
         
         lanzado = false;
         sliderImpulso.gameObject.SetActive(false);
@@ -131,6 +134,15 @@ public class Pescar : MonoBehaviour
 
         SacarPezAleatorio();
 
+    }
+
+    void FueraDelAgua()
+    {
+        animator.SetBool("Pescar", false);
+        lanzado = false;
+        elegirImpulso = true;
+        sliderImpulso.gameObject.SetActive(false);
+        clicks = 0;
     }
 
     private void SacarPezAleatorio()

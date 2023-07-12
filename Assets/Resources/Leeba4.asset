@@ -22,12 +22,12 @@ MonoBehaviour:
   DialogueNodeData:
   - NodeGUID: 44a5b024-d20d-4571-b37a-a85610050546
     characterName: Leeba
-    DialogueText: "\xA1He pescado un jurel!  \xA1Juro que lo pesqu\xE9 yo!"
+    DialogueText: "Los peces son geniales. \xA1Incluso te dan energ\xEDa si los comes!"
     Position: {x: 237.6, y: 200}
   - NodeGUID: 13cc4ba2-2c29-43f5-b26a-0708c97b2569
     characterName: Leeba
     DialogueText: CerrarDialogo
-    Position: {x: 710.4, y: 200}
+    Position: {x: 833.6, y: 200}
   ExposedProperties:
   - PropertyName: DialogueName
     PropertyValue: Leeba4

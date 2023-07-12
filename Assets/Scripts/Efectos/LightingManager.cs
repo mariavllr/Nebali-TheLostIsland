@@ -24,6 +24,7 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private GameObject stars;
     [SerializeField] private GameObject sun;
     [SerializeField] private GameObject moon;
+    [SerializeField] private List<GameObject> clouds;
 
     [Header("Farolas")]
     [SerializeField] private List<Light> farolas;
@@ -96,10 +97,14 @@ public class LightingManager : MonoBehaviour
                         else farola.enabled = false;
                     }
 
-                    //Quitar estrellas y luna y poner sol
+                    //Quitar estrellas y luna y poner sol y nubes
                     stars.SetActive(false);
                     moon.SetActive(false);
                     sun.SetActive(true);
+                    foreach(GameObject cloud in clouds)
+                    {
+                        cloud.SetActive(true);
+                    }
                 }
                 else if (TimeOfDay > noon && TimeOfDay <= dusk)
                 {
@@ -117,10 +122,14 @@ public class LightingManager : MonoBehaviour
 
                     RenderSettings.ambientIntensity = skyboxBaseIntensity + ((skyboxMaxIntensity - skyboxBaseIntensity) / (dusk - noon)) * (dusk - TimeOfDay);
 
-                    //Quitar sol y poner luna y estrellas
+                    //Quitar sol y nubes, y poner luna y estrellas
                     stars.SetActive(true);
                     moon.SetActive(true);
                     sun.SetActive(false);
+                    foreach (GameObject cloud in clouds)
+                    {
+                        cloud.SetActive(false);
+                    }
                 }
                 else
                 {

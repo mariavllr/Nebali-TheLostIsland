@@ -17,6 +17,9 @@ MonoBehaviour:
     PortName: Next
     TargetNodeGUID: b0ca306b-a212-4abb-8a7c-436fd1d543ee
   - BaseNodeGUID: b0ca306b-a212-4abb-8a7c-436fd1d543ee
+    PortName: Continuar
+    TargetNodeGUID: a2a07f79-e12e-4e36-a23d-5f864f2bf94e
+  - BaseNodeGUID: a2a07f79-e12e-4e36-a23d-5f864f2bf94e
     PortName: Cerrar
     TargetNodeGUID: 9145edfd-0a67-4223-b008-851b748427ab
   DialogueNodeData:
@@ -24,9 +27,14 @@ MonoBehaviour:
     characterName: Brivia
     DialogueText: Hey, ahora no puedo hablar estoy ocupada muchacho
     Position: {x: 226.4, y: 170.4}
+  - NodeGUID: a2a07f79-e12e-4e36-a23d-5f864f2bf94e
+    characterName: Brivia
+    DialogueText: Pero un consejo. Si te quedas sin vida, prueba a comer peces con
+      la E. Son muy nutritivos.
+    Position: {x: 688.8, y: 170.4}
   - NodeGUID: 9145edfd-0a67-4223-b008-851b748427ab
     characterName: Brivia
     DialogueText: CerrarDialogo
-    Position: {x: 718.4, y: 182.4}
+    Position: {x: 1366.4, y: 170.4}
   ExposedProperties: []
   CommentBlockData: []
